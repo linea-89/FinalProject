@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "QLj5ULC2lZPxysUmEkD0mNkSjFpEYiJYwMctM/mf1RYHYrgIMM+AK+/hym7k56RAxoctRnqD1GUyGTgs9fvgyA==",
+  "dgSpecHash": "mcvZMzkKnSxowUsBVsHWggNtpBijf2okIfv6pFAVpD//7neoM6OGQI1g5h3b2aNVlnPdPSJUT23zwdj3nlkf4Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\Pc\\Documents\\Afgangsprojekt\\KodeTilAflevering\\FinalProject\\FinalProject.csproj",
   "expectedPackageFiles": [
@@ -17,7 +17,7 @@
     "C:\\Users\\Pc\\.nuget\\packages\\microsoft.entityframeworkcore.design\\7.0.18\\microsoft.entityframeworkcore.design.7.0.18.nupkg.sha512",
     "C:\\Users\\Pc\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\7.0.18\\microsoft.entityframeworkcore.relational.7.0.18.nupkg.sha512",
     "C:\\Users\\Pc\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\7.0.18\\microsoft.entityframeworkcore.sqlserver.7.0.18.nupkg.sha512",
-    "C:\\Users\\Pc\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\9.0.0-preview.3.24172.4\\microsoft.entityframeworkcore.tools.9.0.0-preview.3.24172.4.nupkg.sha512",
+    "C:\\Users\\Pc\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\7.0.18\\microsoft.entityframeworkcore.tools.7.0.18.nupkg.sha512",
     "C:\\Users\\Pc\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\Pc\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\7.0.0\\microsoft.extensions.caching.abstractions.7.0.0.nupkg.sha512",
     "C:\\Users\\Pc\\.nuget\\packages\\microsoft.extensions.caching.memory\\7.0.0\\microsoft.extensions.caching.memory.7.0.0.nupkg.sha512",

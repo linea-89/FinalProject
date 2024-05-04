@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using FinalProject.Services.Move;
 
 namespace FinalProject.Controllers
 {
@@ -10,11 +11,12 @@ namespace FinalProject.Controllers
     {
 
         private readonly ILogger<MoveController> _logger;
-        //private readonly IMoveService _moveService;
+        private readonly IMoveService _moveService;
 
-        public MoveController(ILogger<MoveController> logger)
+        public MoveController(ILogger<MoveController> logger, IMoveService moveService)
         {
             _logger = logger;
+            _moveService = moveService;
         }
 
         [HttpGet]
@@ -23,10 +25,10 @@ namespace FinalProject.Controllers
         {
             try
             {
-                Console.WriteLine(text);
 
-                if (text.Length < 0) { }
-                return Ok(text);
+                var result = _moveService.GetAllMoves(text);
+               // if (text.Length < 0) { }
+                return Ok(result);
 
             }
             catch (Exception e)
