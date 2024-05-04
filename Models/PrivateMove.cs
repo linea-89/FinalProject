@@ -9,19 +9,19 @@ namespace FinalProject.Models
     {
         [Key]
         public int Id { get; set; }
-        //public string Name { get; set; }
-        //public int Phone { get; set; }
-        //public string Email { get; set; }
-        //public DateTime LoadingDate { get; set; }
-        //public bool Packing { get; set; }
-        //public DateTime? PackingDate { get; set; }
-        //public DateTime UnloadingDate { get; set; }
-        //public bool Unpacking { get; set; }
-        //public DateTime? UnpackingDate { get; set; }
+        public string Name { get; set; }
+        public int Phone { get; set; }
+        public string Email { get; set; }
+        public DateTime LoadingDate { get; set; }
+        public bool Packing { get; set; }
+        public DateTime? PackingDate { get; set; }
+        public DateTime UnloadingDate { get; set; }
+        public bool Unpacking { get; set; }
+        public DateTime? UnpackingDate { get; set; }
         public MoveAddress MovingAddresses { get; set; }
-        //public Address AddressTo { get; set; }
-        //public bool PackingPaper { get; set; }
-        //public Amenities Amenities { get; set; }
+        public Address AddressTo { get; set; }
+        public bool PackingPaper { get; set; }
+        public Amenities Amenities { get; set; }
     }
 
 
@@ -37,13 +37,32 @@ namespace FinalProject.Models
     [Owned]
     public class Address
     {
-        //[Key]
-        //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        //  public int AddressId { get; set; }
         public string Street { get; set; }
         public int ZipCode { get; set; }
         public string City { get; set; }
         public string Country { get; set; }
+    }
+
+    [Owned]
+    public class Amenities
+    {
+        public PrivateMove Move { get; set; }
+        public Elevator Elevator { get; set; }
+        public FurnitureLift FurnitureLift { get; set; }
+    }
+
+    [Owned]
+    public class Elevator
+    {
+        public bool FromAddress { get; set; }
+        public bool ToAddress { get; set; }
+    }
+
+    [Owned]
+    public class FurnitureLift
+    {
+        public bool FromAddress { get; set; }
+        public bool ToAddress { get; set; }
     }
 
 }

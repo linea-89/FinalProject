@@ -31,6 +31,15 @@ namespace FinalProject.Data
 
                 );
 
+            modelBuilder.Entity<PrivateMove>().OwnsOne(
+                pm => pm.Amenities, a =>
+                {
+                    a.WithOwner(x => x.Move);
+                    a.Navigation(x => x.Move).UsePropertyAccessMode(PropertyAccessMode.Property);
+                    a.OwnsOne(y => y.Elevator);
+                    a.OwnsOne(y => y.FurnitureLift);
+                });
+
             //modelBuilder.Entity<PrivateMove>().OwnsOne(
             //    x => x.MovingAddresses ma => ma.
             //    )
