@@ -9,7 +9,10 @@ namespace FinalProject
         {
             CreateMap<Test, TestDto>();
             CreateMap<TestDto, Test>();
-            CreateMap<PrivateMove, PrivateMoveDto>();
+            CreateMap<PrivateMove, PrivateMoveDto>()
+                .ForMember(dest => dest.MoveFromAddress, opt => opt.MapFrom(src => src.Addresses.FirstOrDefault(a => a.Type == "MoveFrom")))
+                .ForMember(dest => dest.MoveToAddress, opt => opt.MapFrom(src => src.Addresses.FirstOrDefault(a => a.Type == "MoveTo")));
+
             CreateMap<PrivateMoveDto, PrivateMove>()
              .ForMember(dest => dest.Addresses, opt => opt.MapFrom(src => new List<Address>
              {
@@ -27,6 +30,19 @@ namespace FinalProject
 
             CreateMap<AddressDto, Address>();
             CreateMap<Address, AddressDto>();
+                
+
+            CreateMap<AmenitiesDto, Amenities>()
+                .ForMember(dest => dest.ElevatorFromAddress, opt => opt.MapFrom(src => src.ElevatorFromAddress))
+                .ForMember(dest => dest.ElevatorToAddress, opt => opt.MapFrom(src => src.ElevatorToAddress))
+                .ForMember(dest => dest.FurnitureLiftFromAddress, opt => opt.MapFrom(src => src.FurnitureLiftFromAddress))
+                .ForMember(dest => dest.FurnitureLiftToAddress, opt => opt.MapFrom(src => src.FurnitureLiftToAddress));
+
+            CreateMap<Amenities, AmenitiesDto>()
+                .ForMember(dest => dest.ElevatorFromAddress, opt => opt.MapFrom(src => src.ElevatorFromAddress))
+                .ForMember(dest => dest.ElevatorToAddress, opt => opt.MapFrom(src => src.ElevatorToAddress))
+                .ForMember(dest => dest.FurnitureLiftFromAddress, opt => opt.MapFrom(src => src.FurnitureLiftFromAddress))
+                .ForMember(dest => dest.FurnitureLiftToAddress, opt => opt.MapFrom(src => src.FurnitureLiftToAddress));
         }
     }
 }

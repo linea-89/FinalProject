@@ -25,6 +25,7 @@ builder.Services.AddControllers().AddJsonOptions(options =>
                 options.JsonSerializerOptions.WriteIndented = true;
             });
 
+builder.Services.AddScoped<IPrivateMoveService, PrivateMoveService>();
 builder.Services.AddScoped<IMoveService, MoveService>();
 builder.Services.AddScoped<IMoveRepository, MoveRepository>();
 
