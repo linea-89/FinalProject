@@ -2,6 +2,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Reflection.Metadata;
 
 namespace FinalProject.Models
 {
@@ -30,7 +31,7 @@ namespace FinalProject.Models
         public bool PackingPaper { get; set; } = false;
        // public Amenities Amenities { get; set; }
         public ICollection<Address> Addresses { get; set; } = new List<Address>();
-
+        public Amenities Amenities { get; set; } //= new Amenities();
     }
 
 

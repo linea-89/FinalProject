@@ -26,6 +26,7 @@ namespace FinalProject.Models
         //public bool PackingPaper { get; set; }
         public AddressDto MoveFromAddress { get; set; } = new AddressDto();
         public AddressDto MoveToAddress { get; set; } = new AddressDto();
+        public AmenitiesDto Amenities { get; set; } = new AmenitiesDto();
 
     }
 

@@ -12,6 +12,7 @@ namespace FinalProject.Data
 
         public DbSet<PrivateMove> PrivateMoves { get; set; }
         public DbSet<Address> Addresses { get; set; }
+        public DbSet<Amenities> Amenities { get; set; }
         public DbSet<Test> Tests { get; set; }
 
 
@@ -43,7 +44,7 @@ namespace FinalProject.Data
 
             //    );
 
-           
+
 
 
 
@@ -52,6 +53,13 @@ namespace FinalProject.Data
                 .WithOne(e => e.PrivateMove)
                 .HasForeignKey(e => e.PrivateMoveId)
                 .IsRequired();
+
+            modelBuilder.Entity<PrivateMove>()
+                .HasOne(e => e.Amenities)
+                .WithOne(e => e.PrivateMove)
+                .HasForeignKey<Amenities>(e => e.PrivateMoveId)
+                .IsRequired();
+
 
 
 
