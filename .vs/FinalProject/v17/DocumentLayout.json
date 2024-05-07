@@ -3,16 +3,27 @@
   "WorkspaceRootPath": "C:\\Users\\Pc\\Documents\\Afgangsprojekt\\KodeTilAflevering\\FinalProject\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6A0B27F5-5647-45ED-9B31-61805514866E}|FinalProject.csproj|c:\\users\\pc\\documents\\afgangsprojekt\\kodetilaflevering\\finalproject\\automapperprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6A0B27F5-5647-45ED-9B31-61805514866E}|FinalProject.csproj|solutionrelative:automapperprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6A0B27F5-5647-45ED-9B31-61805514866E}|FinalProject.csproj|c:\\users\\pc\\documents\\afgangsprojekt\\kodetilaflevering\\finalproject\\controllers\\privatemovescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6A0B27F5-5647-45ED-9B31-61805514866E}|FinalProject.csproj|solutionrelative:controllers\\privatemovescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6A0B27F5-5647-45ED-9B31-61805514866E}|FinalProject.csproj|c:\\users\\pc\\documents\\afgangsprojekt\\kodetilaflevering\\finalproject\\services\\move\\iprivatemoveservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6A0B27F5-5647-45ED-9B31-61805514866E}|FinalProject.csproj|solutionrelative:services\\move\\iprivatemoveservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6A0B27F5-5647-45ED-9B31-61805514866E}|FinalProject.csproj|c:\\users\\pc\\documents\\afgangsprojekt\\kodetilaflevering\\finalproject\\services\\move\\privatemoveservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6A0B27F5-5647-45ED-9B31-61805514866E}|FinalProject.csproj|solutionrelative:services\\move\\privatemoveservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6A0B27F5-5647-45ED-9B31-61805514866E}|FinalProject.csproj|c:\\users\\pc\\documents\\afgangsprojekt\\kodetilaflevering\\finalproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6A0B27F5-5647-45ED-9B31-61805514866E}|FinalProject.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/FinalProject.Data/True/SqlTable/dbo.PrivateMoves.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6A0B27F5-5647-45ED-9B31-61805514866E}|FinalProject.csproj|c:\\users\\pc\\documents\\afgangsprojekt\\kodetilaflevering\\finalproject\\automapperprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6A0B27F5-5647-45ED-9B31-61805514866E}|FinalProject.csproj|solutionrelative:automapperprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6A0B27F5-5647-45ED-9B31-61805514866E}|FinalProject.csproj|c:\\users\\pc\\documents\\afgangsprojekt\\kodetilaflevering\\finalproject\\models\\privatemovedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6A0B27F5-5647-45ED-9B31-61805514866E}|FinalProject.csproj|solutionrelative:models\\privatemovedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6A0B27F5-5647-45ED-9B31-61805514866E}|FinalProject.csproj|c:\\users\\pc\\documents\\afgangsprojekt\\kodetilaflevering\\finalproject\\models\\privatemove.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -23,8 +34,8 @@
       "RelativeMoniker": "D:0:0:{6A0B27F5-5647-45ED-9B31-61805514866E}|FinalProject.csproj|solutionrelative:models\\addressdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6A0B27F5-5647-45ED-9B31-61805514866E}|FinalProject.csproj|c:\\users\\pc\\documents\\afgangsprojekt\\kodetilaflevering\\finalproject\\models\\privatemovedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6A0B27F5-5647-45ED-9B31-61805514866E}|FinalProject.csproj|solutionrelative:models\\privatemovedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6A0B27F5-5647-45ED-9B31-61805514866E}|FinalProject.csproj|c:\\users\\pc\\documents\\afgangsprojekt\\kodetilaflevering\\finalproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6A0B27F5-5647-45ED-9B31-61805514866E}|FinalProject.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6A0B27F5-5647-45ED-9B31-61805514866E}|FinalProject.csproj|c:\\users\\pc\\documents\\afgangsprojekt\\kodetilaflevering\\finalproject\\models\\amenitiesdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -32,14 +43,6 @@
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/FinalProject.Data/True/SqlTable/dbo.Addresses.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6A0B27F5-5647-45ED-9B31-61805514866E}|FinalProject.csproj|c:\\users\\pc\\documents\\afgangsprojekt\\kodetilaflevering\\finalproject\\controllers\\privatemovescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6A0B27F5-5647-45ED-9B31-61805514866E}|FinalProject.csproj|solutionrelative:controllers\\privatemovescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6A0B27F5-5647-45ED-9B31-61805514866E}|FinalProject.csproj|c:\\users\\pc\\documents\\afgangsprojekt\\kodetilaflevering\\finalproject\\services\\move\\iprivatemoveservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6A0B27F5-5647-45ED-9B31-61805514866E}|FinalProject.csproj|solutionrelative:services\\move\\iprivatemoveservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -57,69 +60,17 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Pc\\Documents\\Afgangsprojekt\\KodeTilAflevering\\FinalProject\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\Pc\\Documents\\Afgangsprojekt\\KodeTilAflevering\\FinalProject\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-07T21:46:30.049Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "AddressDto.cs",
-              "DocumentMoniker": "C:\\Users\\Pc\\Documents\\Afgangsprojekt\\KodeTilAflevering\\FinalProject\\Models\\AddressDto.cs",
-              "RelativeDocumentMoniker": "Models\\AddressDto.cs",
-              "ToolTip": "C:\\Users\\Pc\\Documents\\Afgangsprojekt\\KodeTilAflevering\\FinalProject\\Models\\AddressDto.cs",
-              "RelativeToolTip": "Models\\AddressDto.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-07T21:41:51.038Z",
+              "DocumentIndex": 3,
+              "Title": "dbo.PrivateMoves [Data]",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/FinalProject.Data/True/SqlTable/dbo.PrivateMoves.sql",
+              "ToolTip": "dbo.PrivateMoves [Data]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2024-05-07T22:44:50.387Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "AmenitiesDto.cs",
-              "DocumentMoniker": "C:\\Users\\Pc\\Documents\\Afgangsprojekt\\KodeTilAflevering\\FinalProject\\Models\\AmenitiesDto.cs",
-              "RelativeDocumentMoniker": "Models\\AmenitiesDto.cs",
-              "ToolTip": "C:\\Users\\Pc\\Documents\\Afgangsprojekt\\KodeTilAflevering\\FinalProject\\Models\\AmenitiesDto.cs",
-              "RelativeToolTip": "Models\\AmenitiesDto.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-07T21:41:37.574Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "dbo.Addresses [Data]",
-              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/FinalProject.Data/True/SqlTable/dbo.Addresses.sql",
-              "ToolTip": "dbo.Addresses [Data]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2024-05-07T21:39:03.553Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "AutoMapperProfile.cs",
-              "DocumentMoniker": "C:\\Users\\Pc\\Documents\\Afgangsprojekt\\KodeTilAflevering\\FinalProject\\AutoMapperProfile.cs",
-              "RelativeDocumentMoniker": "AutoMapperProfile.cs",
-              "ToolTip": "C:\\Users\\Pc\\Documents\\Afgangsprojekt\\KodeTilAflevering\\FinalProject\\AutoMapperProfile.cs",
-              "RelativeToolTip": "AutoMapperProfile.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAswBQAAAA4AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-07T21:38:09.201Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
               "Title": "PrivateMove.cs",
               "DocumentMoniker": "C:\\Users\\Pc\\Documents\\Afgangsprojekt\\KodeTilAflevering\\FinalProject\\Models\\PrivateMove.cs",
               "RelativeDocumentMoniker": "Models\\PrivateMove.cs",
@@ -138,49 +89,108 @@
               "RelativeDocumentMoniker": "Models\\PrivateMoveDto.cs",
               "ToolTip": "C:\\Users\\Pc\\Documents\\Afgangsprojekt\\KodeTilAflevering\\FinalProject\\Models\\PrivateMoveDto.cs",
               "RelativeToolTip": "Models\\PrivateMoveDto.cs",
-              "ViewState": "AQIAABUAAAAAAAAAAAAQwCoAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAmAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-07T21:27:54.913Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "PrivateMoveService.cs",
               "DocumentMoniker": "C:\\Users\\Pc\\Documents\\Afgangsprojekt\\KodeTilAflevering\\FinalProject\\Services\\Move\\PrivateMoveService.cs",
               "RelativeDocumentMoniker": "Services\\Move\\PrivateMoveService.cs",
               "ToolTip": "C:\\Users\\Pc\\Documents\\Afgangsprojekt\\KodeTilAflevering\\FinalProject\\Services\\Move\\PrivateMoveService.cs",
               "RelativeToolTip": "Services\\Move\\PrivateMoveService.cs",
-              "ViewState": "AQIAACgAAAAAAAAAAAAYwDgAAAA8AAAA",
+              "ViewState": "AQIAAB4AAAAAAAAAAIAwwCgAAABNAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-07T21:17:47.26Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 0,
+              "Title": "PrivateMovesController.cs",
+              "DocumentMoniker": "C:\\Users\\Pc\\Documents\\Afgangsprojekt\\KodeTilAflevering\\FinalProject\\Controllers\\PrivateMovesController.cs",
+              "RelativeDocumentMoniker": "Controllers\\PrivateMovesController.cs",
+              "ToolTip": "C:\\Users\\Pc\\Documents\\Afgangsprojekt\\KodeTilAflevering\\FinalProject\\Controllers\\PrivateMovesController.cs",
+              "RelativeToolTip": "Controllers\\PrivateMovesController.cs",
+              "ViewState": "AQIAACgAAAAAAAAAAAAswDkAAABCAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-07T20:25:21.309Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "AddressDto.cs",
+              "DocumentMoniker": "C:\\Users\\Pc\\Documents\\Afgangsprojekt\\KodeTilAflevering\\FinalProject\\Models\\AddressDto.cs",
+              "RelativeDocumentMoniker": "Models\\AddressDto.cs",
+              "ToolTip": "C:\\Users\\Pc\\Documents\\Afgangsprojekt\\KodeTilAflevering\\FinalProject\\Models\\AddressDto.cs",
+              "RelativeToolTip": "Models\\AddressDto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-07T21:41:51.038Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "IPrivateMoveService.cs",
               "DocumentMoniker": "C:\\Users\\Pc\\Documents\\Afgangsprojekt\\KodeTilAflevering\\FinalProject\\Services\\Move\\IPrivateMoveService.cs",
               "RelativeDocumentMoniker": "Services\\Move\\IPrivateMoveService.cs",
               "ToolTip": "C:\\Users\\Pc\\Documents\\Afgangsprojekt\\KodeTilAflevering\\FinalProject\\Services\\Move\\IPrivateMoveService.cs",
               "RelativeToolTip": "Services\\Move\\IPrivateMoveService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAABTAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-07T21:17:31.879Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "PrivateMovesController.cs",
-              "DocumentMoniker": "C:\\Users\\Pc\\Documents\\Afgangsprojekt\\KodeTilAflevering\\FinalProject\\Controllers\\PrivateMovesController.cs",
-              "RelativeDocumentMoniker": "Controllers\\PrivateMovesController.cs",
-              "ToolTip": "C:\\Users\\Pc\\Documents\\Afgangsprojekt\\KodeTilAflevering\\FinalProject\\Controllers\\PrivateMovesController.cs",
-              "RelativeToolTip": "Controllers\\PrivateMovesController.cs",
-              "ViewState": "AQIAAGQAAAAAAAAAAAAuwIEAAABKAAAA",
+              "DocumentIndex": 4,
+              "Title": "AutoMapperProfile.cs",
+              "DocumentMoniker": "C:\\Users\\Pc\\Documents\\Afgangsprojekt\\KodeTilAflevering\\FinalProject\\AutoMapperProfile.cs",
+              "RelativeDocumentMoniker": "AutoMapperProfile.cs",
+              "ToolTip": "C:\\Users\\Pc\\Documents\\Afgangsprojekt\\KodeTilAflevering\\FinalProject\\AutoMapperProfile.cs",
+              "RelativeToolTip": "AutoMapperProfile.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAswBQAAAA4AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-07T20:25:21.309Z",
+              "WhenOpened": "2024-05-07T21:38:09.201Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "dbo.Addresses [Data]",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/FinalProject.Data/True/SqlTable/dbo.Addresses.sql",
+              "ToolTip": "dbo.Addresses [Data]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2024-05-07T21:39:03.553Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "AmenitiesDto.cs",
+              "DocumentMoniker": "C:\\Users\\Pc\\Documents\\Afgangsprojekt\\KodeTilAflevering\\FinalProject\\Models\\AmenitiesDto.cs",
+              "RelativeDocumentMoniker": "Models\\AmenitiesDto.cs",
+              "ToolTip": "C:\\Users\\Pc\\Documents\\Afgangsprojekt\\KodeTilAflevering\\FinalProject\\Models\\AmenitiesDto.cs",
+              "RelativeToolTip": "Models\\AmenitiesDto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-07T21:41:37.574Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Pc\\Documents\\Afgangsprojekt\\KodeTilAflevering\\FinalProject\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\Pc\\Documents\\Afgangsprojekt\\KodeTilAflevering\\FinalProject\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-07T21:46:30.049Z"
             }
           ]
         }

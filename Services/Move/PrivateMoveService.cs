@@ -33,6 +33,22 @@ namespace FinalProject.Services.Move
             return privateMoveDtos;
         }
 
+        public async Task<PrivateMoveDto> GetPrivateMoveByIdAsync(int id)
+        {
+            var privateMove = await _context.PrivateMoves
+            .Include(pm => pm.Addresses) // Include related Addresses
+            .Include(pm => pm.Amenities) // Include Amenities navigation property
+            .FirstOrDefaultAsync(pm => pm.Id == id); // Find the entity by Id
+
+            if (privateMove == null)
+            {
+                return null;
+            }
+
+            // Map the entity to its corresponding DTO
+            return _mapper.Map<PrivateMoveDto>(privateMove);
+        }
+
 
         //public Task<IActionResult> CreatePrivateMoveAsync(PrivateMoveDto privateMoveDto)
         //{
@@ -56,7 +72,6 @@ namespace FinalProject.Services.Move
             // Optionally, map the saved entity back to a DTO for return
             return _mapper.Map<PrivateMoveDto>(privateMove);
         }
-
 
     }
 }

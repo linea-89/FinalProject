@@ -42,16 +42,16 @@ namespace FinalProject.Controllers
 
         // GET: api/PrivateMoves/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<PrivateMove>> GetPrivateMove(int id)
+        public async Task<ActionResult<PrivateMoveDto>> GetPrivateMove(int id)
         {
-            var privateMove = await _context.PrivateMoves.FindAsync(id);
+            var privateMoveDto = await _privateMoveService.GetPrivateMoveByIdAsync(id);
 
-            if (privateMove == null)
+            if (privateMoveDto == null)
             {
                 return NotFound();
             }
 
-            return privateMove;
+            return privateMoveDto;
         }
 
         // PUT: api/PrivateMoves/5

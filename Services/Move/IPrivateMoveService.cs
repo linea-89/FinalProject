@@ -7,7 +7,9 @@ namespace FinalProject.Services.Move
     {
         public ActionResult<List<PrivateMoveDto>> GetAllPrivateMoves();
 
-        Task<PrivateMoveDto> CreatePrivateMoveAsync(PrivateMoveDto privateMoveDto);
+        public Task<PrivateMoveDto> GetPrivateMoveByIdAsync(int id);
+
+        public Task<PrivateMoveDto> CreatePrivateMoveAsync(PrivateMoveDto privateMoveDto);
 
     }
 }
