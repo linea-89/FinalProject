@@ -239,8 +239,17 @@
           }
         }
       },
-      "Microsoft.EntityFrameworkCore.Tools/9.0.0-preview.3.24172.4": {
-        "type": "package"
+      "Microsoft.EntityFrameworkCore.Tools/7.0.18": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Design": "7.0.18"
+        },
+        "compile": {
+          "lib/net6.0/_._": {}
+        },
+        "runtime": {
+          "lib/net6.0/_._": {}
+        }
       },
       "Microsoft.Extensions.ApiDescription.Server/3.0.0": {
         "type": "package",
@@ -1483,17 +1492,17 @@
         "microsoft.entityframeworkcore.sqlserver.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.Tools/9.0.0-preview.3.24172.4": {
-      "sha512": "Di8NPUHGZ5XfsZy/da1JxKxOo4lOt4Q7gblkMdG2izBlf01T0m3b8vCFB6cRmsb/6dCo+rMbtF4rp9Skk56NZA==",
+    "Microsoft.EntityFrameworkCore.Tools/7.0.18": {
+      "sha512": "AuSrOsR/DN5OYuiaYxr+zk5bHgHB7o5TFK7ZbBp8rqKLw9eZSwgBfHi8pYvEMzvgw3z7TJvvcuDT5qVQbZcUUQ==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.tools/9.0.0-preview.3.24172.4",
+      "path": "microsoft.entityframeworkcore.tools/7.0.18",
       "hasTools": true,
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
-        "docs/PACKAGE.md",
-        "microsoft.entityframeworkcore.tools.9.0.0-preview.3.24172.4.nupkg.sha512",
+        "lib/net6.0/_._",
+        "microsoft.entityframeworkcore.tools.7.0.18.nupkg.sha512",
         "microsoft.entityframeworkcore.tools.nuspec",
         "tools/EntityFrameworkCore.PS2.psd1",
         "tools/EntityFrameworkCore.PS2.psm1",
@@ -1501,9 +1510,9 @@
         "tools/EntityFrameworkCore.psm1",
         "tools/about_EntityFrameworkCore.help.txt",
         "tools/init.ps1",
-        "tools/net472/any/ef.exe",
-        "tools/net472/win-arm64/ef.exe",
-        "tools/net472/win-x86/ef.exe",
+        "tools/net461/any/ef.exe",
+        "tools/net461/win-arm64/ef.exe",
+        "tools/net461/win-x86/ef.exe",
         "tools/netcoreapp2.0/any/ef.dll",
         "tools/netcoreapp2.0/any/ef.runtimeconfig.json"
       ]
@@ -3175,7 +3184,7 @@
       "Microsoft.EntityFrameworkCore >= 7.0.18",
       "Microsoft.EntityFrameworkCore.Design >= 7.0.18",
       "Microsoft.EntityFrameworkCore.SqlServer >= 7.0.18",
-      "Microsoft.EntityFrameworkCore.Tools >= 9.0.0-preview.3.24172.4",
+      "Microsoft.EntityFrameworkCore.Tools >= 7.0.18",
       "Swashbuckle.AspNetCore >= 6.2.3"
     ]
   },
@@ -3212,6 +3221,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -3236,7 +3250,7 @@
             "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
             "suppressParent": "All",
             "target": "Package",
-            "version": "[9.0.0-preview.3.24172.4, )"
+            "version": "[7.0.18, )"
           },
           "Swashbuckle.AspNetCore": {
             "target": "Package",
@@ -3262,7 +3276,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
       }
     }
   }
