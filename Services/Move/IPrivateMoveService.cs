@@ -5,8 +5,9 @@ namespace FinalProject.Services.Move
 {
     public interface IPrivateMoveService
     {
-        public string GetAllPrivateMoves(string text);
+        public ActionResult<List<PrivateMoveDto>> GetAllPrivateMoves();
 
         Task<PrivateMoveDto> CreatePrivateMoveAsync(PrivateMoveDto privateMoveDto);
+
     }
 }

@@ -17,11 +17,22 @@ namespace FinalProject.Services.Move
             _mapper = mapper;
         }
 
-        public string GetAllPrivateMoves(string text)
+        public ActionResult<List<PrivateMoveDto>> GetAllPrivateMoves()
         {
-            string toPrint = text;
-            return toPrint;
+            // Load the related entities explicitly using .Include and map to the DTO
+            var privateMoves = _context.PrivateMoves
+                .Include(pm => pm.Addresses) // Include related Addresses collection
+                .Include(pm => pm.Amenities) // Include the Amenities navigation property
+                .ToList(); // Ensure query execution to fetch the data
+
+            // Map the result to the PrivateMoveDto list
+            var privateMoveDtos = privateMoves
+                .Select(privateMove => _mapper.Map<PrivateMoveDto>(privateMove))
+                .ToList(); // Materialize the query into a list
+
+            return privateMoveDtos;
         }
+
 
         //public Task<IActionResult> CreatePrivateMoveAsync(PrivateMoveDto privateMoveDto)
         //{
@@ -45,5 +56,7 @@ namespace FinalProject.Services.Move
             // Optionally, map the saved entity back to a DTO for return
             return _mapper.Map<PrivateMoveDto>(privateMove);
         }
+
+
     }
 }

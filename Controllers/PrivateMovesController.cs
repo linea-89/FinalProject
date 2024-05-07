@@ -18,20 +18,26 @@ namespace FinalProject.Controllers
     {
         private readonly IPrivateMoveService _privateMoveService;
         private readonly FinalProjectContext _context;
+        private readonly IMapper _mapper;
 
 
 
-        public PrivateMovesController(IPrivateMoveService privateMoveService, FinalProjectContext context)
+        public PrivateMovesController(IPrivateMoveService privateMoveService, FinalProjectContext context, IMapper mapper)
         {
             _privateMoveService = privateMoveService;
             _context = context;
+            _mapper = mapper;
         }
 
         // GET: api/PrivateMoves
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<PrivateMove>>> GetPrivateMoves()
+        public ActionResult<List<PrivateMoveDto>> GetPrivateMoves()
         {
-            return await _context.PrivateMoves.ToListAsync();
+            // Retrieve the data using the service
+            var privateMoveDtos = _privateMoveService.GetAllPrivateMoves();
+
+            // Return the result wrapped in an Ok() response
+            return Ok(privateMoveDtos);
         }
 
         // GET: api/PrivateMoves/5
