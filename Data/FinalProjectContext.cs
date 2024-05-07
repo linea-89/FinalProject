@@ -11,34 +11,58 @@ namespace FinalProject.Data
 
 
         public DbSet<PrivateMove> PrivateMoves { get; set; }
+        public DbSet<Address> Addresses { get; set; }
+        public DbSet<Test> Tests { get; set; }
 
 
-     //   public DbSet<MoveAddress> MoveAddresses { get; set; }
+        //   public DbSet<MoveAddress> MoveAddresses { get; set; }
         //public DbSet<Amenities> Amenities { get; set; }
         //public DbSet<Elevator> Elevators { get; set; }
         //public DbSet<FurnitureLift> FurnitureLifts { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<PrivateMove>().OwnsOne(
-                pm => pm.MovingAddresses, ma =>
-                {
-                    ma.WithOwner(x => x.Move);
-                    ma.Navigation(x => x.Move).UsePropertyAccessMode(PropertyAccessMode.Property);
-                    ma.OwnsOne(y => y.From);
-                    ma.OwnsOne(y => y.To);
-                }
+            //modelBuilder.Entity<PrivateMove>().OwnsOne(
+            //    pm => pm.MovingAddresses, ma =>
+            //    {
+            //        ma.WithOwner(x => x.Move);
+            //        ma.Navigation(x => x.Move).UsePropertyAccessMode(PropertyAccessMode.Property);
+            //        ma.OwnsOne(y => y.From);
+            //        ma.OwnsOne(y => y.To);
+            //    }
 
-                );
+            //    modelBuilder.Entity<PrivateMove>()
+            //        .HasOne(p => p.MoveFromAddress)
+            //        .WithOne()
+            //        .HasForeignKey<Address>(a => a.PrivateMoveId);
 
-            modelBuilder.Entity<PrivateMove>().OwnsOne(
-                pm => pm.Amenities, a =>
-                {
-                    a.WithOwner(x => x.Move);
-                    a.Navigation(x => x.Move).UsePropertyAccessMode(PropertyAccessMode.Property);
-                    a.OwnsOne(y => y.Elevator);
-                    a.OwnsOne(y => y.FurnitureLift);
-                });
+            //modelBuilder.Entity<PrivateMove>()
+            //    .HasOne(p => p.MoveToAddress)
+            //    .WithOne()
+            //    .HasForeignKey<Address>(a => a.PrivateMoveId);
+
+            //    );
+
+           
+
+
+
+            modelBuilder.Entity<PrivateMove>()
+                .HasMany(e => e.Addresses)
+                .WithOne(e => e.PrivateMove)
+                .HasForeignKey(e => e.PrivateMoveId)
+                .IsRequired();
+
+
+
+            //modelBuilder.Entity<PrivateMove>().OwnsOne(
+            //    pm => pm.Amenities, a =>
+            //    {
+            //        a.WithOwner(x => x.Move);
+            //        a.Navigation(x => x.Move).UsePropertyAccessMode(PropertyAccessMode.Property);
+            //        a.OwnsOne(y => y.Elevator);
+            //        a.OwnsOne(y => y.FurnitureLift);
+            //    });
 
             //modelBuilder.Entity<PrivateMove>().OwnsOne(
             //    x => x.MovingAddresses ma => ma.

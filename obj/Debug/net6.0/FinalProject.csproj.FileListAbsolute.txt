@@ -168,9 +168,11 @@ C:\Users\Pc\Documents\Afgangsprojekt\KodeTilAflevering\FinalProject\obj\Debug\ne
 C:\Users\Pc\Documents\Afgangsprojekt\KodeTilAflevering\FinalProject\obj\Debug\net6.0\staticwebassets.build.json
 C:\Users\Pc\Documents\Afgangsprojekt\KodeTilAflevering\FinalProject\obj\Debug\net6.0\staticwebassets.development.json
 C:\Users\Pc\Documents\Afgangsprojekt\KodeTilAflevering\FinalProject\obj\Debug\net6.0\scopedcss\bundle\FinalProject.styles.css
-C:\Users\Pc\Documents\Afgangsprojekt\KodeTilAflevering\FinalProject\obj\Debug\net6.0\FinalProject.csproj.CopyComplete
 C:\Users\Pc\Documents\Afgangsprojekt\KodeTilAflevering\FinalProject\obj\Debug\net6.0\FinalProject.dll
 C:\Users\Pc\Documents\Afgangsprojekt\KodeTilAflevering\FinalProject\obj\Debug\net6.0\refint\FinalProject.dll
 C:\Users\Pc\Documents\Afgangsprojekt\KodeTilAflevering\FinalProject\obj\Debug\net6.0\FinalProject.pdb
 C:\Users\Pc\Documents\Afgangsprojekt\KodeTilAflevering\FinalProject\obj\Debug\net6.0\FinalProject.genruntimeconfig.cache
 C:\Users\Pc\Documents\Afgangsprojekt\KodeTilAflevering\FinalProject\obj\Debug\net6.0\ref\FinalProject.dll
+C:\Users\Pc\Documents\Afgangsprojekt\KodeTilAflevering\FinalProject\obj\Debug\net6.0\FinalProject.sourcelink.json
+C:\Users\Pc\Documents\Afgangsprojekt\KodeTilAflevering\FinalProject\bin\Debug\net6.0\AutoMapper.dll
+C:\Users\Pc\Documents\Afgangsprojekt\KodeTilAflevering\FinalProject\obj\Debug\net6.0\FinalPro.8C09D514.Up2Date
