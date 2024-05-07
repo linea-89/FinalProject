@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using FinalProject.Data;
 using FinalProject.Models;
 using AutoMapper;
+using FinalProject.Services.Move;
 
 namespace FinalProject.Controllers
 {
@@ -15,13 +16,15 @@ namespace FinalProject.Controllers
     [ApiController]
     public class PrivateMovesController : ControllerBase
     {
+        private readonly IPrivateMoveService _privateMoveService;
         private readonly FinalProjectContext _context;
-        private readonly IMapper _mapper;
 
-        public PrivateMovesController(FinalProjectContext context, IMapper mapper)
+
+
+        public PrivateMovesController(IPrivateMoveService privateMoveService, FinalProjectContext context)
         {
+            _privateMoveService = privateMoveService;
             _context = context;
-            _mapper = mapper;
         }
 
         // GET: api/PrivateMoves
@@ -92,19 +95,35 @@ namespace FinalProject.Controllers
         [HttpPost]
         public async Task<IActionResult> PostPrivateMoveNew([FromBody] PrivateMoveDto privateMoveDto)
         {
+            //if (privateMoveDto == null)
+            //{
+            //    return BadRequest("PrivateMoveDto cannot be null.");
+            //}
+
+            //// Map the DTO to the entity
+            //var privateMove = _mapper.Map<PrivateMove>(privateMoveDto);
+
+            //// Add the mapped entity to the context and save
+            //_context.PrivateMoves.Add(privateMove);
+            //await _context.SaveChangesAsync();
+
+            //return CreatedAtAction(nameof(PostPrivateMoveNew), new { id = privateMoveDto.Name }, privateMoveDto);
+
             if (privateMoveDto == null)
             {
                 return BadRequest("PrivateMoveDto cannot be null.");
             }
 
-            // Map the DTO to the entity
-            var privateMove = _mapper.Map<PrivateMove>(privateMoveDto);
-
-            // Add the mapped entity to the context and save
-            _context.PrivateMoves.Add(privateMove);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction(nameof(PostPrivateMoveNew), new { id = privateMove.Name }, privateMove);
+            try
+            {
+                var createdPrivateMove = await _privateMoveService.CreatePrivateMoveAsync(privateMoveDto);
+                return CreatedAtAction(nameof(PostPrivateMoveNew), new { id = createdPrivateMove.Name }, createdPrivateMove);
+            }
+            catch (DbUpdateException ex)
+            {
+                // Handle the exception based on your specific requirements
+                return StatusCode(500, "An error occurred while saving to the database.");
+            }
         }
 
         //[HttpPost]

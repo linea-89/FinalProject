@@ -3,31 +3,39 @@
   "WorkspaceRootPath": "C:\\Users\\Pc\\Documents\\Afgangsprojekt\\KodeTilAflevering\\FinalProject\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6A0B27F5-5647-45ED-9B31-61805514866E}|FinalProject.csproj|c:\\users\\pc\\documents\\afgangsprojekt\\kodetilaflevering\\finalproject\\controllers\\privatemovescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6A0B27F5-5647-45ED-9B31-61805514866E}|FinalProject.csproj|solutionrelative:controllers\\privatemovescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/FinalProject.Data/True/SqlTable/dbo.Addresses.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Pc\\AppData\\Local\\SourceServer\\91f32e1b56b37dbf34ee309be0222d3f5d0a02bb6c87eb62c7700505eb1e5185\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6A0B27F5-5647-45ED-9B31-61805514866E}|FinalProject.csproj|c:\\users\\pc\\documents\\afgangsprojekt\\kodetilaflevering\\finalproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6A0B27F5-5647-45ED-9B31-61805514866E}|FinalProject.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{6A0B27F5-5647-45ED-9B31-61805514866E}|FinalProject.csproj|c:\\users\\pc\\documents\\afgangsprojekt\\kodetilaflevering\\finalproject\\services\\move\\privatemoveservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6A0B27F5-5647-45ED-9B31-61805514866E}|FinalProject.csproj|solutionrelative:services\\move\\privatemoveservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6A0B27F5-5647-45ED-9B31-61805514866E}|FinalProject.csproj|c:\\users\\pc\\documents\\afgangsprojekt\\kodetilaflevering\\finalproject\\services\\move\\iprivatemoveservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6A0B27F5-5647-45ED-9B31-61805514866E}|FinalProject.csproj|solutionrelative:services\\move\\iprivatemoveservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6A0B27F5-5647-45ED-9B31-61805514866E}|FinalProject.csproj|c:\\users\\pc\\documents\\afgangsprojekt\\kodetilaflevering\\finalproject\\controllers\\privatemovescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6A0B27F5-5647-45ED-9B31-61805514866E}|FinalProject.csproj|solutionrelative:controllers\\privatemovescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{6A0B27F5-5647-45ED-9B31-61805514866E}|FinalProject.csproj|c:\\users\\pc\\documents\\afgangsprojekt\\kodetilaflevering\\finalproject\\automapperprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6A0B27F5-5647-45ED-9B31-61805514866E}|FinalProject.csproj|solutionrelative:automapperprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6A0B27F5-5647-45ED-9B31-61805514866E}|FinalProject.csproj|c:\\users\\pc\\documents\\afgangsprojekt\\kodetilaflevering\\finalproject\\models\\address.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6A0B27F5-5647-45ED-9B31-61805514866E}|FinalProject.csproj|solutionrelative:models\\address.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6A0B27F5-5647-45ED-9B31-61805514866E}|FinalProject.csproj|c:\\users\\pc\\documents\\afgangsprojekt\\kodetilaflevering\\finalproject\\models\\privatemove.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6A0B27F5-5647-45ED-9B31-61805514866E}|FinalProject.csproj|solutionrelative:models\\privatemove.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6A0B27F5-5647-45ED-9B31-61805514866E}|FinalProject.csproj|c:\\users\\pc\\documents\\afgangsprojekt\\kodetilaflevering\\finalproject\\models\\addressdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6A0B27F5-5647-45ED-9B31-61805514866E}|FinalProject.csproj|solutionrelative:models\\addressdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6A0B27F5-5647-45ED-9B31-61805514866E}|FinalProject.csproj|c:\\users\\pc\\documents\\afgangsprojekt\\kodetilaflevering\\finalproject\\models\\privatemovedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6A0B27F5-5647-45ED-9B31-61805514866E}|FinalProject.csproj|solutionrelative:models\\privatemovedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6A0B27F5-5647-45ED-9B31-61805514866E}|FinalProject.csproj|c:\\users\\pc\\documents\\afgangsprojekt\\kodetilaflevering\\finalproject\\models\\privatemove.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6A0B27F5-5647-45ED-9B31-61805514866E}|FinalProject.csproj|solutionrelative:models\\privatemove.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6A0B27F5-5647-45ED-9B31-61805514866E}|FinalProject.csproj|c:\\users\\pc\\documents\\afgangsprojekt\\kodetilaflevering\\finalproject\\data\\finalprojectcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -40,10 +48,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{6A0B27F5-5647-45ED-9B31-61805514866E}|FinalProject.csproj|c:\\users\\pc\\documents\\afgangsprojekt\\kodetilaflevering\\finalproject\\models\\test.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6A0B27F5-5647-45ED-9B31-61805514866E}|FinalProject.csproj|solutionrelative:models\\test.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6A0B27F5-5647-45ED-9B31-61805514866E}|FinalProject.csproj|c:\\users\\pc\\documents\\afgangsprojekt\\kodetilaflevering\\finalproject\\migrations\\20240507140733_newinit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6A0B27F5-5647-45ED-9B31-61805514866E}|FinalProject.csproj|solutionrelative:migrations\\20240507140733_newinit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -53,40 +57,110 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Pc\\AppData\\Local\\SourceServer\\91f32e1b56b37dbf34ee309be0222d3f5d0a02bb6c87eb62c7700505eb1e5185\\Program.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\AppData\\Local\\SourceServer\\91f32e1b56b37dbf34ee309be0222d3f5d0a02bb6c87eb62c7700505eb1e5185\\Program.cs",
+              "ToolTip": "C:\\Users\\Pc\\AppData\\Local\\SourceServer\\91f32e1b56b37dbf34ee309be0222d3f5d0a02bb6c87eb62c7700505eb1e5185\\Program.cs",
+              "RelativeToolTip": "..\\..\\..\\..\\AppData\\Local\\SourceServer\\91f32e1b56b37dbf34ee309be0222d3f5d0a02bb6c87eb62c7700505eb1e5185\\Program.cs",
+              "ViewState": "AQIAAAQAAAAAAAAAAIAwwBkAAAAPAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-07T19:40:05.334Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Pc\\Documents\\Afgangsprojekt\\KodeTilAflevering\\FinalProject\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\Pc\\Documents\\Afgangsprojekt\\KodeTilAflevering\\FinalProject\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAABsAAABGAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-07T19:39:32.519Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PrivateMoveService.cs",
+              "DocumentMoniker": "C:\\Users\\Pc\\Documents\\Afgangsprojekt\\KodeTilAflevering\\FinalProject\\Services\\Move\\PrivateMoveService.cs",
+              "RelativeDocumentMoniker": "Services\\Move\\PrivateMoveService.cs",
+              "ToolTip": "C:\\Users\\Pc\\Documents\\Afgangsprojekt\\KodeTilAflevering\\FinalProject\\Services\\Move\\PrivateMoveService.cs",
+              "RelativeToolTip": "Services\\Move\\PrivateMoveService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAA2AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-07T19:08:33.572Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "PrivateMovesController.cs",
               "DocumentMoniker": "C:\\Users\\Pc\\Documents\\Afgangsprojekt\\KodeTilAflevering\\FinalProject\\Controllers\\PrivateMovesController.cs",
               "RelativeDocumentMoniker": "Controllers\\PrivateMovesController.cs",
               "ToolTip": "C:\\Users\\Pc\\Documents\\Afgangsprojekt\\KodeTilAflevering\\FinalProject\\Controllers\\PrivateMovesController.cs",
               "RelativeToolTip": "Controllers\\PrivateMovesController.cs",
-              "ViewState": "AQIAAFQAAAAAAAAAAIAwwGQAAABHAAAA",
+              "ViewState": "AQIAAGwAAAAAAAAAAAAAwF8AAABlAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-06T18:29:06.168Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "20240507140733_NewInit.cs",
-              "DocumentMoniker": "C:\\Users\\Pc\\Documents\\Afgangsprojekt\\KodeTilAflevering\\FinalProject\\Migrations\\20240507140733_NewInit.cs",
-              "RelativeDocumentMoniker": "Migrations\\20240507140733_NewInit.cs",
-              "ToolTip": "C:\\Users\\Pc\\Documents\\Afgangsprojekt\\KodeTilAflevering\\FinalProject\\Migrations\\20240507140733_NewInit.cs",
-              "RelativeToolTip": "Migrations\\20240507140733_NewInit.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAABAAAA",
+              "DocumentIndex": 3,
+              "Title": "IPrivateMoveService.cs",
+              "DocumentMoniker": "C:\\Users\\Pc\\Documents\\Afgangsprojekt\\KodeTilAflevering\\FinalProject\\Services\\Move\\IPrivateMoveService.cs",
+              "RelativeDocumentMoniker": "Services\\Move\\IPrivateMoveService.cs",
+              "ToolTip": "C:\\Users\\Pc\\Documents\\Afgangsprojekt\\KodeTilAflevering\\FinalProject\\Services\\Move\\IPrivateMoveService.cs",
+              "RelativeToolTip": "Services\\Move\\IPrivateMoveService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAA2AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-07T14:07:33.639Z"
+              "WhenOpened": "2024-05-07T19:08:21.551Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 8,
+              "Title": "PrivateMove.cs",
+              "DocumentMoniker": "C:\\Users\\Pc\\Documents\\Afgangsprojekt\\KodeTilAflevering\\FinalProject\\Models\\PrivateMove.cs",
+              "RelativeDocumentMoniker": "Models\\PrivateMove.cs",
+              "ToolTip": "C:\\Users\\Pc\\Documents\\Afgangsprojekt\\KodeTilAflevering\\FinalProject\\Models\\PrivateMove.cs",
+              "RelativeToolTip": "Models\\PrivateMove.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAyAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-06T10:59:51.118Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "PrivateMoveDto.cs",
+              "DocumentMoniker": "C:\\Users\\Pc\\Documents\\Afgangsprojekt\\KodeTilAflevering\\FinalProject\\Models\\PrivateMoveDto.cs",
+              "RelativeDocumentMoniker": "Models\\PrivateMoveDto.cs",
+              "ToolTip": "C:\\Users\\Pc\\Documents\\Afgangsprojekt\\KodeTilAflevering\\FinalProject\\Models\\PrivateMoveDto.cs",
+              "RelativeToolTip": "Models\\PrivateMoveDto.cs",
+              "ViewState": "AQIAABkAAAAAAAAAAAAQwB8AAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-06T19:36:13.417Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "AutoMapperProfile.cs",
               "DocumentMoniker": "C:\\Users\\Pc\\Documents\\Afgangsprojekt\\KodeTilAflevering\\FinalProject\\AutoMapperProfile.cs",
               "RelativeDocumentMoniker": "AutoMapperProfile.cs",
@@ -94,59 +168,25 @@
               "RelativeToolTip": "AutoMapperProfile.cs",
               "ViewState": "AQIAAA4AAAAAAAAAAAAUwBkAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-07T00:10:22.346Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "PrivateMove.cs",
-              "DocumentMoniker": "C:\\Users\\Pc\\Documents\\Afgangsprojekt\\KodeTilAflevering\\FinalProject\\Models\\PrivateMove.cs",
-              "RelativeDocumentMoniker": "Models\\PrivateMove.cs",
-              "ToolTip": "C:\\Users\\Pc\\Documents\\Afgangsprojekt\\KodeTilAflevering\\FinalProject\\Models\\PrivateMove.cs",
-              "RelativeToolTip": "Models\\PrivateMove.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAmAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-06T10:59:51.118Z"
+              "WhenOpened": "2024-05-07T00:10:22.346Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "PrivateMoveDto.cs",
-              "DocumentMoniker": "C:\\Users\\Pc\\Documents\\Afgangsprojekt\\KodeTilAflevering\\FinalProject\\Models\\PrivateMoveDto.cs",
-              "RelativeDocumentMoniker": "Models\\PrivateMoveDto.cs",
-              "ToolTip": "C:\\Users\\Pc\\Documents\\Afgangsprojekt\\KodeTilAflevering\\FinalProject\\Models\\PrivateMoveDto.cs",
-              "RelativeToolTip": "Models\\PrivateMoveDto.cs",
-              "ViewState": "AQIAABYAAAAAAAAAAAAowCIAAAAvAAAA",
+              "Title": "AddressDto.cs",
+              "DocumentMoniker": "C:\\Users\\Pc\\Documents\\Afgangsprojekt\\KodeTilAflevering\\FinalProject\\Models\\AddressDto.cs",
+              "RelativeDocumentMoniker": "Models\\AddressDto.cs",
+              "ToolTip": "C:\\Users\\Pc\\Documents\\Afgangsprojekt\\KodeTilAflevering\\FinalProject\\Models\\AddressDto.cs",
+              "RelativeToolTip": "Models\\AddressDto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAA9AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-06T19:36:13.417Z"
+              "WhenOpened": "2024-05-07T18:55:06.514Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Address.cs",
-              "DocumentMoniker": "C:\\Users\\Pc\\Documents\\Afgangsprojekt\\KodeTilAflevering\\FinalProject\\Models\\Address.cs",
-              "RelativeDocumentMoniker": "Models\\Address.cs",
-              "ToolTip": "C:\\Users\\Pc\\Documents\\Afgangsprojekt\\KodeTilAflevering\\FinalProject\\Models\\Address.cs",
-              "RelativeToolTip": "Models\\Address.cs",
-              "ViewState": "AQIAAAgAAAAAAAAAAAAYwA8AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-06T17:32:59.224Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Pc\\Documents\\Afgangsprojekt\\KodeTilAflevering\\FinalProject\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\Pc\\Documents\\Afgangsprojekt\\KodeTilAflevering\\FinalProject\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAABMAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-07T12:48:21.76Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "FinalProjectContext.cs",
               "DocumentMoniker": "C:\\Users\\Pc\\Documents\\Afgangsprojekt\\KodeTilAflevering\\FinalProject\\Data\\FinalProjectContext.cs",
               "RelativeDocumentMoniker": "Data\\FinalProjectContext.cs",
@@ -158,7 +198,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 10,
               "Title": "TestController.cs",
               "DocumentMoniker": "C:\\Users\\Pc\\Documents\\Afgangsprojekt\\KodeTilAflevering\\FinalProject\\Controllers\\TestController.cs",
               "RelativeDocumentMoniker": "Controllers\\TestController.cs",
@@ -170,7 +210,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 11,
               "Title": "Test.cs",
               "DocumentMoniker": "C:\\Users\\Pc\\Documents\\Afgangsprojekt\\KodeTilAflevering\\FinalProject\\Models\\Test.cs",
               "RelativeDocumentMoniker": "Models\\Test.cs",
@@ -179,19 +219,6 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-07T01:32:20.532Z"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "dbo.Addresses [Data]",
-              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/FinalProject.Data/True/SqlTable/dbo.Addresses.sql",
-              "ToolTip": "dbo.Addresses [Data]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2024-05-07T15:06:19.4Z"
             }
           ]
         }

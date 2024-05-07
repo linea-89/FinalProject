@@ -5,7 +5,7 @@ namespace FinalProject.Models
 {
     public class PrivateMoveDto
     {
-  //      public int Id { get; set; }
+       // public int Id { get; set; }
         public string? Name { get; set; }
         //public int Phone { get; set; }
         //public string Email { get; set; }
@@ -29,13 +29,13 @@ namespace FinalProject.Models
 
     }
 
-    public class AddressDto
-    {
-        public string Street { get; set; } = string.Empty;
-        //public int ZipCode { get; set; } = 0;
-        //public string City { get; set; } = string.Empty;
-        //public string Country { get; set; } = string.Empty;
-        public string Type {  get; set; } = string.Empty;
-    }
+    //public class AddressDto
+    //{
+    //    public string Street { get; set; } = string.Empty;
+    //    //public int ZipCode { get; set; } = 0;
+    //    //public string City { get; set; } = string.Empty;
+    //    //public string Country { get; set; } = string.Empty;
+    //    public string Type {  get; set; } = string.Empty;
+    //}
 
 }
