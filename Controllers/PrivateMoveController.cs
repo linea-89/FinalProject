@@ -16,29 +16,37 @@ namespace FinalProject.Controllers
     [ApiController]
     public class PrivateMoveController : ControllerBase
     {
+        private readonly ILogger<PrivateMoveController> _logger;
         private readonly IPrivateMoveService _privateMoveService;
-        private readonly FinalProjectContext _context;
-        private readonly IMapper _mapper;
+        //private readonly FinalProjectContext _context;
+        //private readonly IMapper _mapper;
 
-
-
-        public PrivateMoveController(IPrivateMoveService privateMoveService, FinalProjectContext context, IMapper mapper)
+        public PrivateMoveController(ILogger<PrivateMoveController> logger, IPrivateMoveService privateMoveService, FinalProjectContext context, IMapper mapper)
         {
+            _logger = logger;
             _privateMoveService = privateMoveService;
-            _context = context;
-            _mapper = mapper;
+            //_context = context;
+            //_mapper = mapper;
         }
 
-        //Done
         // GET: api/PrivateMoves
         [HttpGet]
         public ActionResult<List<PrivateMoveDto>> GetPrivateMoves()
         {
-            // Retrieve the data using the service
-            var privateMoveDtos = _privateMoveService.GetPrivateMoves();
+            try
+            {
+                // Retrieve the data using the service
+                var privateMoveDtos = _privateMoveService.GetPrivateMoves();
 
-            // Return the result wrapped in an Ok() response
-            return Ok(privateMoveDtos);
+                // Return the result wrapped in an Ok() response
+                return Ok(privateMoveDtos);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Error in retrieving private moves: {ex.Message}");
+                return Problem("An error occured while retrieving private moves");
+            }
+
         }
 
         //Done
@@ -100,7 +108,7 @@ namespace FinalProject.Controllers
             try
             {
                 var createdPrivateMove = await _privateMoveService.CreatePrivateMoveAsync(privateMoveDto);
-                return CreatedAtAction(nameof(RegisterPrivateMoveNew), new { id = createdPrivateMove.Name }, createdPrivateMove);
+                return CreatedAtAction(nameof(RegisterPrivateMoveNew), new { id = createdPrivateMove.Id }, createdPrivateMove);
             }
             catch (DbUpdateException ex)
             {
