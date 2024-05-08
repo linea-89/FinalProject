@@ -11,6 +11,6 @@ namespace FinalProject.Models
         public bool FurnitureLiftToAddress { get; set; } = false;
 
         public int PrivateMoveId { get; set; } // Required foreign key property
-        public PrivateMove PrivateMove { get; set; } = null!; // Required reference navigation to principal
+        public Move PrivateMove { get; set; } = null!; // Required reference navigation to principal
     }
 }

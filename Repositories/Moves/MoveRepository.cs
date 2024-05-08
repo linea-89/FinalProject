@@ -15,9 +15,9 @@ namespace FinalProject.Repositories.Moves
             _context = context;
         }
 
-        public async Task<List<PrivateMove>> GetAllMoves()
+        public async Task<List<Move>> GetAllMoves()
         {
-            return await _context.PrivateMoves.ToListAsync();
+            return await _context.Moves.ToListAsync();
         }
     }
 }

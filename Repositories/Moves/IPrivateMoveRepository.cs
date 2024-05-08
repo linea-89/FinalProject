@@ -4,7 +4,7 @@ namespace FinalProject.Repositories.Moves
 {
     public interface IPrivateMoveRepository
     {
-        Task<List<PrivateMove>> GetAllPrivateMoves();
+        Task<List<Move>> GetAllPrivateMoves();
 
            
     }

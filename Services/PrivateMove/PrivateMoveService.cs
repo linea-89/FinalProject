@@ -17,12 +17,13 @@ namespace FinalProject.Services.Move
             _mapper = mapper;
         }
 
-        public ActionResult<List<PrivateMoveDto>> GetAllPrivateMoves()
+        public ActionResult<List<PrivateMoveDto>> GetPrivateMoves()
         {
             // Load the related entities explicitly using .Include and map to the DTO
-            var privateMoves = _context.PrivateMoves
+            var privateMoves = _context.Moves
                 .Include(pm => pm.Addresses) // Include related Addresses collection
-                .Include(pm => pm.Amenities) // Include the Amenities navigation property
+                .Include(pm => pm.Amenities)
+                .Where(pm => pm.Type == "privat")// Include the Amenities navigation property
                 .ToList(); // Ensure query execution to fetch the data
 
             // Map the result to the PrivateMoveDto list
@@ -35,7 +36,7 @@ namespace FinalProject.Services.Move
 
         public async Task<PrivateMoveDto> GetPrivateMoveByIdAsync(int id)
         {
-            var privateMove = await _context.PrivateMoves
+            var privateMove = await _context.Moves
             .Include(pm => pm.Addresses) // Include related Addresses
             .Include(pm => pm.Amenities) // Include Amenities navigation property
             .FirstOrDefaultAsync(pm => pm.Id == id); // Find the entity by Id
@@ -63,10 +64,10 @@ namespace FinalProject.Services.Move
 
         public async Task<PrivateMoveDto> CreatePrivateMoveAsync(PrivateMoveDto privateMoveDto)
         {
-            var privateMove = _mapper.Map<PrivateMove>(privateMoveDto);
+            var privateMove = _mapper.Map<Models.Move>(privateMoveDto);
 
             // Add the mapped entity to the context and save
-            _context.PrivateMoves.Add(privateMove);
+            _context.Moves.Add(privateMove);
             await _context.SaveChangesAsync();
 
             // Optionally, map the saved entity back to a DTO for return

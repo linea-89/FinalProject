@@ -9,24 +9,48 @@ namespace FinalProject
         {
             CreateMap<Test, TestDto>();
             CreateMap<TestDto, Test>();
-            CreateMap<PrivateMove, PrivateMoveDto>()
-                .ForMember(dest => dest.MoveFromAddress, opt => opt.MapFrom(src => src.Addresses.FirstOrDefault(a => a.Type == "MoveFrom")))
-                .ForMember(dest => dest.MoveToAddress, opt => opt.MapFrom(src => src.Addresses.FirstOrDefault(a => a.Type == "MoveTo")));
 
-            CreateMap<PrivateMoveDto, PrivateMove>()
+            /*----------Private Moves mappings--------------*/
+            CreateMap<Move, PrivateMoveDto>();
+                //.ForMember(dest => dest.MoveFromAddress, opt => opt.MapFrom(src => src.Addresses.FirstOrDefault(a => a.Type == "MoveFrom")))
+                //.ForMember(dest => dest.MoveToAddress, opt => opt.MapFrom(src => src.Addresses.FirstOrDefault(a => a.Type == "MoveTo")));
+
+            CreateMap<PrivateMoveDto, Move>()
              .ForMember(dest => dest.Addresses, opt => opt.MapFrom(src => new List<Address>
              {
                 new Address
                 {
                     Street = src.MoveFromAddress.Street,
-                    Type = "MoveFrom" // Custom label for the address type
+                    //Type = "MoveFrom" // Custom label for the address type
                 },
                 new Address
                 {
                     Street = src.MoveToAddress.Street,
-                    Type = "MoveTo" // Custom label for the address type
+                    //Type = "MoveTo" // Custom label for the address type
                 }
              }));
+
+            /*------------Business Moves mapping -----------------*/
+            CreateMap<Move, BusinessMoveDto>();
+                //.ForMember(dest => dest.MoveFromAddress, opt => opt.MapFrom(src => src.Addresses.FirstOrDefault(a => a.Type == "MoveFrom")))
+                //.ForMember(dest => dest.MoveToAddress, opt => opt.MapFrom(src => src.Addresses.FirstOrDefault(a => a.Type == "MoveTo")));
+
+            CreateMap<BusinessMoveDto, Move>()
+             .ForMember(dest => dest.Addresses, opt => opt.MapFrom(src => new List<Address>
+             {
+                new Address
+                {
+                    Street = src.MoveFromAddress.Street,
+                    //Type = "MoveFrom" // Custom label for the address type
+                },
+                new Address
+                {
+                    Street = src.MoveToAddress.Street,
+                    //Type = "MoveTo" // Custom label for the address type
+                }
+             }));
+
+            /*------------Other mappings----------------*/
 
             CreateMap<AddressDto, Address>();
             CreateMap<Address, AddressDto>();
