@@ -31,27 +31,39 @@ namespace FinalProject.Controllers
                 var result = _businessMoveService.GetBusinessMoves();
                 return Ok(result);
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                _logger.LogError(e, $"Error in retrieving business moves: {e.Message}");
+                _logger.LogError(ex, $"Error in retrieving business moves: {ex.Message}");
                 return Problem("An error occured while retrieving business moves");
             }
         }
 
         // GET: MoveController/Details/5
-        //public ActionResult Details(int id)
-        //{
-        //    return View();
-        //}
+        [HttpGet("{id}")]
+        public async Task<ActionResult<BusinessMoveDto>> GetBusinessMove(int id)
+        {
 
-        // GET: MoveController/Create
-        //public ActionResult Create()
-        //{
-        //    return View();
-        //}
+            try
+            {
+                var result = await _businessMoveService.GetBusinessMoveByIdAsync(id);
 
-        // POST: MoveController/Create
-        [HttpPost]
+                if (result == null)
+                {
+                    return NotFound();
+                }
+                
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Error in retrieving business move with id {id}: {ex.Message}");
+                return Problem("An error occured while retrieving business move");
+            }
+        }
+
+
+       //POST: MoveController/Create
+       [HttpPost]
        // [ValidateAntiForgeryToken]
         public async Task<IActionResult> RegisterBusinessMove([FromBody] BusinessMoveDto businessMoveDto)
         {
