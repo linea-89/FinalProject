@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FinalProject.Migrations
 {
     [DbContext(typeof(FinalProjectContext))]
-    [Migration("20240507155247_NewInit")]
+    [Migration("20240508175335_NewInit")]
     partial class NewInit
     {
         /// <inheritdoc />
@@ -48,10 +48,6 @@ namespace FinalProject.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Type")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("ZipCode")
                         .HasColumnType("int");
 
@@ -62,13 +58,59 @@ namespace FinalProject.Migrations
                     b.ToTable("Addresses");
                 });
 
-            modelBuilder.Entity("FinalProject.Models.PrivateMove", b =>
+            modelBuilder.Entity("FinalProject.Models.Amenities", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<bool>("ElevatorFromAddress")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("ElevatorToAddress")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("FurnitureLiftFromAddress")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("FurnitureLiftToAddress")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("PrivateMoveId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PrivateMoveId")
+                        .IsUnique();
+
+                    b.ToTable("Amenities");
+                });
+
+            modelBuilder.Entity("FinalProject.Models.Move", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("CompanyName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ContactEmail")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ContactPerson")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ContactPhone")
+                        .HasColumnType("int");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -93,6 +135,10 @@ namespace FinalProject.Migrations
                     b.Property<int>("Phone")
                         .HasColumnType("int");
 
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("UnloadingDate")
                         .HasColumnType("datetime2");
 
@@ -104,7 +150,7 @@ namespace FinalProject.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("PrivateMoves");
+                    b.ToTable("Moves");
                 });
 
             modelBuilder.Entity("FinalProject.Models.Test", b =>
@@ -132,7 +178,7 @@ namespace FinalProject.Migrations
 
             modelBuilder.Entity("FinalProject.Models.Address", b =>
                 {
-                    b.HasOne("FinalProject.Models.PrivateMove", "PrivateMove")
+                    b.HasOne("FinalProject.Models.Move", "PrivateMove")
                         .WithMany("Addresses")
                         .HasForeignKey("PrivateMoveId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -141,9 +187,23 @@ namespace FinalProject.Migrations
                     b.Navigation("PrivateMove");
                 });
 
-            modelBuilder.Entity("FinalProject.Models.PrivateMove", b =>
+            modelBuilder.Entity("FinalProject.Models.Amenities", b =>
+                {
+                    b.HasOne("FinalProject.Models.Move", "PrivateMove")
+                        .WithOne("Amenities")
+                        .HasForeignKey("FinalProject.Models.Amenities", "PrivateMoveId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("PrivateMove");
+                });
+
+            modelBuilder.Entity("FinalProject.Models.Move", b =>
                 {
                     b.Navigation("Addresses");
+
+                    b.Navigation("Amenities")
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

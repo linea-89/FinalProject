@@ -14,7 +14,7 @@ namespace FinalProject.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PrivateMovesController : ControllerBase
+    public class PrivateMoveController : ControllerBase
     {
         private readonly IPrivateMoveService _privateMoveService;
         private readonly FinalProjectContext _context;
@@ -22,24 +22,26 @@ namespace FinalProject.Controllers
 
 
 
-        public PrivateMovesController(IPrivateMoveService privateMoveService, FinalProjectContext context, IMapper mapper)
+        public PrivateMoveController(IPrivateMoveService privateMoveService, FinalProjectContext context, IMapper mapper)
         {
             _privateMoveService = privateMoveService;
             _context = context;
             _mapper = mapper;
         }
 
+        //Done
         // GET: api/PrivateMoves
         [HttpGet]
         public ActionResult<List<PrivateMoveDto>> GetPrivateMoves()
         {
             // Retrieve the data using the service
-            var privateMoveDtos = _privateMoveService.GetAllPrivateMoves();
+            var privateMoveDtos = _privateMoveService.GetPrivateMoves();
 
             // Return the result wrapped in an Ok() response
             return Ok(privateMoveDtos);
         }
 
+        //Done
         // GET: api/PrivateMoves/5
         [HttpGet("{id}")]
         public async Task<ActionResult<PrivateMoveDto>> GetPrivateMove(int id)
@@ -57,7 +59,7 @@ namespace FinalProject.Controllers
         // PUT: api/PrivateMoves/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutPrivateMove(int id, PrivateMove privateMove)
+        public async Task<IActionResult> PutPrivateMove(int id, Move privateMove)
         {
             if (id != privateMove.Id)
             {
@@ -85,36 +87,11 @@ namespace FinalProject.Controllers
             return NoContent();
         }
 
-        // POST: api/PrivateMoves
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        //[HttpPost]
-        //public async Task<ActionResult<PrivateMove>> PostPrivateMove(PrivateMoveDto newPrivateMove)
-        //{
-        //    var privateMove = _mapper.Map<PrivateMove>(newPrivateMove);
-        //    _context.PrivateMoves.Add(privateMove);
-        //    await _context.SaveChangesAsync();
 
-        //    //return CreatedAtAction("GetPrivateMove", new { id = privateMove.Id }, privateMove);
-        //    return Ok(await _context.PrivateMoves.ToListAsync());
-        //}
-
+        //Done
         [HttpPost]
-        public async Task<IActionResult> PostPrivateMoveNew([FromBody] PrivateMoveDto privateMoveDto)
+        public async Task<IActionResult> RegisterPrivateMoveNew([FromBody] PrivateMoveDto privateMoveDto)
         {
-            //if (privateMoveDto == null)
-            //{
-            //    return BadRequest("PrivateMoveDto cannot be null.");
-            //}
-
-            //// Map the DTO to the entity
-            //var privateMove = _mapper.Map<PrivateMove>(privateMoveDto);
-
-            //// Add the mapped entity to the context and save
-            //_context.PrivateMoves.Add(privateMove);
-            //await _context.SaveChangesAsync();
-
-            //return CreatedAtAction(nameof(PostPrivateMoveNew), new { id = privateMoveDto.Name }, privateMoveDto);
-
             if (privateMoveDto == null)
             {
                 return BadRequest("PrivateMoveDto cannot be null.");
@@ -123,7 +100,7 @@ namespace FinalProject.Controllers
             try
             {
                 var createdPrivateMove = await _privateMoveService.CreatePrivateMoveAsync(privateMoveDto);
-                return CreatedAtAction(nameof(PostPrivateMoveNew), new { id = createdPrivateMove.Name }, createdPrivateMove);
+                return CreatedAtAction(nameof(RegisterPrivateMoveNew), new { id = createdPrivateMove.Name }, createdPrivateMove);
             }
             catch (DbUpdateException ex)
             {
@@ -132,26 +109,18 @@ namespace FinalProject.Controllers
             }
         }
 
-        //[HttpPost]
-        //public async Task<ActionResult<List<Test>>> AddTest(Test test)
-        //{
-        //    _context.Tests.Add(test);
-        //    await _context.SaveChangesAsync();
-
-        //    return Ok(await _context.Tests.ToListAsync());
-        //}
 
         // DELETE: api/PrivateMoves/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeletePrivateMove(int id)
         {
-            var privateMove = await _context.PrivateMoves.FindAsync(id);
+            var privateMove = await _context.Moves.FindAsync(id);
             if (privateMove == null)
             {
                 return NotFound();
             }
 
-            _context.PrivateMoves.Remove(privateMove);
+            _context.Moves.Remove(privateMove);
             await _context.SaveChangesAsync();
 
             return NoContent();
@@ -159,7 +128,7 @@ namespace FinalProject.Controllers
 
         private bool PrivateMoveExists(int id)
         {
-            return _context.PrivateMoves.Any(e => e.Id == id);
+            return _context.Moves.Any(e => e.Id == id);
         }
     }
 }

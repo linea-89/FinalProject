@@ -3,13 +3,15 @@ using System.ComponentModel.DataAnnotations;
 
 namespace FinalProject.Models
 {
-    public class PrivateMoveDto
+    public class BusinessMoveDto
     {
         public int Id { get; set; }
-        public string Type { get; set; } = "PrivateMove";
-        public string? Name { get; set; }
-        public int Phone { get; set; }
-        public string Email { get; set; }
+        public string Type { get; set; } = "BusinessMove";
+        public string CompanyName { get; set; } = string.Empty;
+        public string ContactPerson { get; set; } = string.Empty;
+        public int ContactPhone { get; set; } = 0;
+        public string ContactEmail { get; set; } = string.Empty;
+
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime LoadingDate { get; set; }

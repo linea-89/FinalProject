@@ -6,13 +6,20 @@ using System.Reflection.Metadata;
 
 namespace FinalProject.Models
 {
-    public class PrivateMove
+    public class Move
     {
         [Key]
         public int Id { get; set; } = 0;
+        public string Type { get; set; } = string.Empty;
         public string Name { get; set; } = string.Empty;
         public int Phone { get; set; } = 0;
         public string Email { get; set; } = string.Empty;
+
+        public string CompanyName { get; set; } = string.Empty;
+        public string ContactPerson { get; set;} = string.Empty;
+        public int ContactPhone { get; set; } = 0;
+        public string ContactEmail { get; set;} = string.Empty;
+
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime LoadingDate { get; set; }

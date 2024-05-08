@@ -45,10 +45,6 @@ namespace FinalProject.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Type")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("ZipCode")
                         .HasColumnType("int");
 
@@ -90,13 +86,28 @@ namespace FinalProject.Migrations
                     b.ToTable("Amenities");
                 });
 
-            modelBuilder.Entity("FinalProject.Models.PrivateMove", b =>
+            modelBuilder.Entity("FinalProject.Models.Move", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("CompanyName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ContactEmail")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ContactPerson")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ContactPhone")
+                        .HasColumnType("int");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -121,6 +132,10 @@ namespace FinalProject.Migrations
                     b.Property<int>("Phone")
                         .HasColumnType("int");
 
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("UnloadingDate")
                         .HasColumnType("datetime2");
 
@@ -132,7 +147,7 @@ namespace FinalProject.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("PrivateMoves");
+                    b.ToTable("Moves");
                 });
 
             modelBuilder.Entity("FinalProject.Models.Test", b =>
@@ -160,7 +175,7 @@ namespace FinalProject.Migrations
 
             modelBuilder.Entity("FinalProject.Models.Address", b =>
                 {
-                    b.HasOne("FinalProject.Models.PrivateMove", "PrivateMove")
+                    b.HasOne("FinalProject.Models.Move", "PrivateMove")
                         .WithMany("Addresses")
                         .HasForeignKey("PrivateMoveId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -171,7 +186,7 @@ namespace FinalProject.Migrations
 
             modelBuilder.Entity("FinalProject.Models.Amenities", b =>
                 {
-                    b.HasOne("FinalProject.Models.PrivateMove", "PrivateMove")
+                    b.HasOne("FinalProject.Models.Move", "PrivateMove")
                         .WithOne("Amenities")
                         .HasForeignKey("FinalProject.Models.Amenities", "PrivateMoveId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -180,7 +195,7 @@ namespace FinalProject.Migrations
                     b.Navigation("PrivateMove");
                 });
 
-            modelBuilder.Entity("FinalProject.Models.PrivateMove", b =>
+            modelBuilder.Entity("FinalProject.Models.Move", b =>
                 {
                     b.Navigation("Addresses");
 

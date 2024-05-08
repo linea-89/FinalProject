@@ -10,7 +10,7 @@ namespace FinalProject.Data
         public FinalProjectContext(DbContextOptions<FinalProjectContext> options) : base(options) { }
 
 
-        public DbSet<PrivateMove> PrivateMoves { get; set; }
+        public DbSet<Move> Moves { get; set; }
         public DbSet<Address> Addresses { get; set; }
         public DbSet<Amenities> Amenities { get; set; }
         public DbSet<Test> Tests { get; set; }
@@ -48,13 +48,13 @@ namespace FinalProject.Data
 
 
 
-            modelBuilder.Entity<PrivateMove>()
+            modelBuilder.Entity<Move>()
                 .HasMany(e => e.Addresses)
                 .WithOne(e => e.PrivateMove)
                 .HasForeignKey(e => e.PrivateMoveId)
                 .IsRequired();
 
-            modelBuilder.Entity<PrivateMove>()
+            modelBuilder.Entity<Move>()
                 .HasOne(e => e.Amenities)
                 .WithOne(e => e.PrivateMove)
                 .HasForeignKey<Amenities>(e => e.PrivateMoveId)

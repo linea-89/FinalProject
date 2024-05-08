@@ -1,40 +1,40 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using FinalProject.Services.Move;
+using FinalProject.Services.BusinessMove;
+using FinalProject.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace FinalProject.Controllers
 {
+    [Route("api/[controller]")]
     [ApiController]
-    [Route("api/move/[controller]")]
-    [Produces("application/json")]
-    public class MoveController : ControllerBase
+
+   // [Produces("application/json")]
+    public class BusinessMoveController : ControllerBase
     {
 
-        private readonly ILogger<MoveController> _logger;
-        private readonly IMoveService _moveService;
+        private readonly ILogger<BusinessMoveController> _logger;
+        private readonly IBusinessMoveService _businessMoveService;
 
-        public MoveController(ILogger<MoveController> logger, IMoveService moveService)
+        public BusinessMoveController(ILogger<BusinessMoveController> logger, IBusinessMoveService businessMoveService)
         {
             _logger = logger;
-            _moveService = moveService;
+            _businessMoveService = businessMoveService;
         }
 
         [HttpGet]
         // GET: MoveController
-        public ActionResult Index(string text)
+        public ActionResult<List<BusinessMoveDto>> GetBusinessMoves()
         {
             try
             {
-
-                var result = _moveService.GetAllMoves(text);
-               // if (text.Length < 0) { }
+                var result = _businessMoveService.GetBusinessMoves();
                 return Ok(result);
-
             }
             catch (Exception e)
             {
-                _logger.LogError(e, $"Error in testing Swagger: {e.Message}");
-                return Problem("An error occured while testing Swagger");
+                _logger.LogError(e, $"Error in retrieving business moves: {e.Message}");
+                return Problem("An error occured while retrieving business moves");
             }
         }
 
@@ -52,18 +52,23 @@ namespace FinalProject.Controllers
 
         // POST: MoveController/Create
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+       // [ValidateAntiForgeryToken]
+        public async Task<IActionResult> RegisterBusinessMove([FromBody] BusinessMoveDto businessMoveDto)
         {
+            if (businessMoveDto == null)
+            {
+                return BadRequest("BusinessMoveDto cannot be null.");
+            }
+
             try
             {
-                return RedirectToAction(nameof(Index));
-
+                var createdBusinessMove = await _businessMoveService.CreateBusinessMoveAsync(businessMoveDto);
+                return CreatedAtAction(nameof(RegisterBusinessMove), new { id = createdBusinessMove.Id }, createdBusinessMove);
             }
-            catch (Exception e)
+            catch (DbUpdateException ex)
             {
-                _logger.LogError(e, $"Error in Creating a move: {e.Message}");
-                return Problem("An error occured while creating a move");
+                // Handle the exception based on your specific requirements
+                return StatusCode(500, "An error occurred while saving to the database.");
             }
         }
 
