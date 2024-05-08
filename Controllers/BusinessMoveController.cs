@@ -8,8 +8,6 @@ namespace FinalProject.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-
-   // [Produces("application/json")]
     public class BusinessMoveController : ControllerBase
     {
 
@@ -42,7 +40,6 @@ namespace FinalProject.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<BusinessMoveDto>> GetBusinessMove(int id)
         {
-
             try
             {
                 var result = await _businessMoveService.GetBusinessMoveByIdAsync(id);
@@ -64,7 +61,6 @@ namespace FinalProject.Controllers
 
        //POST: MoveController/Create
        [HttpPost]
-       // [ValidateAntiForgeryToken]
         public async Task<IActionResult> RegisterBusinessMove([FromBody] BusinessMoveDto businessMoveDto)
         {
             if (businessMoveDto == null)

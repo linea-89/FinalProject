@@ -18,15 +18,11 @@ namespace FinalProject.Controllers
     {
         private readonly ILogger<PrivateMoveController> _logger;
         private readonly IPrivateMoveService _privateMoveService;
-        //private readonly FinalProjectContext _context;
-        //private readonly IMapper _mapper;
 
         public PrivateMoveController(ILogger<PrivateMoveController> logger, IPrivateMoveService privateMoveService, FinalProjectContext context, IMapper mapper)
         {
             _logger = logger;
             _privateMoveService = privateMoveService;
-            //_context = context;
-            //_mapper = mapper;
         }
 
         // GET: api/PrivateMoves
@@ -49,11 +45,11 @@ namespace FinalProject.Controllers
 
         }
 
-        //Done
         // GET: api/PrivateMoves/5
         [HttpGet("{id}")]
         public async Task<ActionResult<PrivateMoveDto>> GetPrivateMove(int id)
         {
+            try { 
             var privateMoveDto = await _privateMoveService.GetPrivateMoveByIdAsync(id);
 
             if (privateMoveDto == null)
@@ -62,41 +58,15 @@ namespace FinalProject.Controllers
             }
 
             return privateMoveDto;
+            }
+            catch(Exception ex)
+            {
+                _logger.LogError(ex, $"Error in retrieving business move with id {id}: {ex.Message}");
+                return Problem("An error occured while retrieving business move");
+            }
         }
 
-        // PUT: api/PrivateMoves/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutPrivateMove(int id, Move privateMove)
-        {
-            if (id != privateMove.Id)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(privateMove).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!PrivateMoveExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent();
-        }
-
-
-        //Done
+ 
         [HttpPost]
         public async Task<IActionResult> RegisterPrivateMoveNew([FromBody] PrivateMoveDto privateMoveDto)
         {
@@ -112,31 +82,65 @@ namespace FinalProject.Controllers
             }
             catch (DbUpdateException ex)
             {
-                // Handle the exception based on your specific requirements
+                _logger.LogError(ex, $"Error in retrieving private moves: {ex.Message}");
                 return StatusCode(500, "An error occurred while saving to the database.");
             }
         }
 
 
-        // DELETE: api/PrivateMoves/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeletePrivateMove(int id)
-        {
-            var privateMove = await _context.Moves.FindAsync(id);
-            if (privateMove == null)
-            {
-                return NotFound();
-            }
 
-            _context.Moves.Remove(privateMove);
-            await _context.SaveChangesAsync();
+        // PUT: api/PrivateMoves/5
+        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        //[HttpPut("{id}")]
+        //public async Task<IActionResult> PutPrivateMove(int id, Move privateMove)
+        //{
+        //    if (id != privateMove.Id)
+        //    {
+        //        return BadRequest();
+        //    }
 
-            return NoContent();
-        }
+        //    _context.Entry(privateMove).State = EntityState.Modified;
 
-        private bool PrivateMoveExists(int id)
-        {
-            return _context.Moves.Any(e => e.Id == id);
-        }
+        //    try
+        //    {
+        //        await _context.SaveChangesAsync();
+        //    }
+        //    catch (DbUpdateConcurrencyException)
+        //    {
+        //        if (!PrivateMoveExists(id))
+        //        {
+        //            return NotFound();
+        //        }
+        //        else
+        //        {
+        //            throw;
+        //        }
+        //    }
+
+        //    return NoContent();
+        //}
+
+
+        //    // DELETE: api/PrivateMoves/5
+        //    [HttpDelete("{id}")]
+        //    public async Task<IActionResult> DeletePrivateMove(int id)
+        //    {
+        //        var privateMove = await _context.Moves.FindAsync(id);
+        //        if (privateMove == null)
+        //        {
+        //            return NotFound();
+        //        }
+
+        //        _context.Moves.Remove(privateMove);
+        //        await _context.SaveChangesAsync();
+
+        //        return NoContent();
+        //    }
+
+        //    private bool PrivateMoveExists(int id)
+        //    {
+        //        return _context.Moves.Any(e => e.Id == id);
+        //    }
+
     }
 }
