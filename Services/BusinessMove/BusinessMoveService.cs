@@ -24,7 +24,7 @@ namespace FinalProject.Services.Move
             var businessMoves = _context.Moves
                 .Include(pm => pm.Addresses) // Include related Addresses collection
                 .Include(pm => pm.Amenities)
-                .Where(pm => pm.Type == "BusinessMove")/// Include the Amenities navigation property
+                .Where(pm => pm.Type == "business")/// Include the Amenities navigation property
                 .ToList(); // Ensure query execution to fetch the data
 
             // Map the result to the PrivateMoveDto list

@@ -24,20 +24,17 @@ namespace FinalProject.Controllers
 
         [HttpGet]
         // GET: MoveController
-        public ActionResult Index(string text)
+        public ActionResult<List<BusinessMoveDto>> GetBusinessMoves()
         {
             try
             {
-
                 var result = _businessMoveService.GetBusinessMoves();
-               // if (text.Length < 0) { }
                 return Ok(result);
-
             }
             catch (Exception e)
             {
-                _logger.LogError(e, $"Error in testing Swagger: {e.Message}");
-                return Problem("An error occured while testing Swagger");
+                _logger.LogError(e, $"Error in retrieving business moves: {e.Message}");
+                return Problem("An error occured while retrieving business moves");
             }
         }
 
