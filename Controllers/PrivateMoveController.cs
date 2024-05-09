@@ -36,10 +36,10 @@ namespace FinalProject.Controllers
             try
             {
                 // Retrieve the data using the service
-                var privateMoveDtos = _privateMoveService.GetPrivateMoves();
+                var result = _privateMoveService.GetPrivateMoves();
 
                 // Return the result wrapped in an Ok() response
-                return Ok(privateMoveDtos);
+                return Ok(result);
             }
             catch (Exception ex)
             {
@@ -54,14 +54,50 @@ namespace FinalProject.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<PrivateMoveDto>> GetPrivateMove(int id)
         {
+<<<<<<< Updated upstream
             var privateMoveDto = await _privateMoveService.GetPrivateMoveByIdAsync(id);
+=======
+            try { 
+            var result = await _privateMoveService.GetPrivateMoveByIdAsync(id);
+>>>>>>> Stashed changes
 
-            if (privateMoveDto == null)
+            if (result == null)
             {
                 return NotFound();
             }
 
+<<<<<<< Updated upstream
             return privateMoveDto;
+=======
+            return result;
+            }
+            catch(Exception ex)
+            {
+                _logger.LogError(ex, $"Error in retrieving business move with id {id}: {ex.Message}");
+                return Problem("An error occured while retrieving business move");
+            }
+        }
+
+ 
+        [HttpPost]
+        public async Task<IActionResult> RegisterPrivateMoveNew([FromBody] PrivateMoveDto privateMoveDto)
+        {
+            if (privateMoveDto == null)
+            {
+                return BadRequest("PrivateMove cannot be null.");
+            }
+
+            try
+            {
+                var createdPrivateMove = await _privateMoveService.CreatePrivateMoveAsync(privateMoveDto);
+                return CreatedAtAction(nameof(RegisterPrivateMoveNew), new { id = createdPrivateMove.Id }, createdPrivateMove);
+            }
+            catch (DbUpdateException ex)
+            {
+                _logger.LogError(ex, $"Error in retrieving private moves: {ex.Message}");
+                return StatusCode(500, "An error occurred while saving to the database.");
+            }
+>>>>>>> Stashed changes
         }
 
         // PUT: api/PrivateMoves/5
