@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using FinalProject.Models;
 using System.Runtime.CompilerServices;
 using System.Reflection.Metadata;

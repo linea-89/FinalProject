@@ -212,6 +212,17 @@ namespace FinalProject.Migrations
                     b.Navigation("Move");
                 });
 
+            modelBuilder.Entity("FinalProject.Models.Floor", b =>
+                {
+                    b.HasOne("FinalProject.Models.Move", "Move")
+                        .WithMany()
+                        .HasForeignKey("MoveId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Move");
+                });
+
             modelBuilder.Entity("FinalProject.Models.Move", b =>
                 {
                     b.Navigation("Addresses");

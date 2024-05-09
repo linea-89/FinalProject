@@ -29,6 +29,7 @@ builder.Services.AddControllers().AddJsonOptions(options =>
 
 builder.Services.AddScoped<IPrivateMoveService, PrivateMoveService>();
 builder.Services.AddScoped<IBusinessMoveService, BusinessMoveService>();
+builder.Services.AddScoped<IMoveRepository, MoveRepository>();
 builder.Services.AddScoped<IFloorService, FloorService>();
 
 //builder.Services.AddScoped<IMoveRepository, MoveRepository>();

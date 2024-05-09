@@ -21,11 +21,10 @@ namespace FinalProject.Services.Move
 
         public ActionResult<List<PrivateMoveDto>> GetPrivateMoves()
         {
-            // Load the related entities explicitly using .Include and map to the DTO
             var privateMoves = _context.Moves
-                .Include(pm => pm.Addresses) // Include related Addresses collection
-                .Include(pm => pm.Amenities)
-                .Where(pm => pm.Type == "privat")// Include the Amenities navigation property
+                .Include(x => x.Addresses) // Include related Addresses collection
+                .Include(x => x.Amenities)
+                .Where(x => x.Type == "private")// Include the Amenities navigation property
                 .ToList(); // Ensure query execution to fetch the data
 
             // Map the result to the PrivateMoveDto list
@@ -39,9 +38,9 @@ namespace FinalProject.Services.Move
         public async Task<PrivateMoveDto> GetPrivateMoveByIdAsync(int id)
         {
             var privateMove = await _context.Moves
-            .Include(pm => pm.Addresses) // Include related Addresses
-            .Include(pm => pm.Amenities) // Include Amenities navigation property
-            .FirstOrDefaultAsync(pm => pm.Id == id); // Find the entity by Id
+            .Include(x => x.Addresses) // Include related Addresses
+            .Include(x => x.Amenities) // Include Amenities navigation property
+            .FirstOrDefaultAsync(x => x.Id == id); // Find the entity by Id
 
             if (privateMove == null)
             {
@@ -51,18 +50,6 @@ namespace FinalProject.Services.Move
             // Map the entity to its corresponding DTO
             return _mapper.Map<PrivateMoveDto>(privateMove);
         }
-
-
-        //public Task<IActionResult> CreatePrivateMoveAsync(PrivateMoveDto privateMoveDto)
-        //{
-        //    var privateMove = _mapper.Map<PrivateMove>(privateMoveDto);
-
-        //    // Add the mapped entity to the context and save
-        //    _context.PrivateMoves.Add(privateMove);
-        //    await _context.SaveChangesAsync();
-
-        //    return CreatedAtAction(nameof(PostPrivateMoveNew), new { id = privateMoveDto.Name }, privateMoveDto);
-        //}
 
         public async Task<PrivateMoveDto> CreatePrivateMoveAsync(PrivateMoveDto privateMoveDto)
         {

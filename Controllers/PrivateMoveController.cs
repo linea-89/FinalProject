@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -18,15 +18,11 @@ namespace FinalProject.Controllers
     {
         private readonly ILogger<PrivateMoveController> _logger;
         private readonly IPrivateMoveService _privateMoveService;
-        //private readonly FinalProjectContext _context;
-        //private readonly IMapper _mapper;
 
         public PrivateMoveController(ILogger<PrivateMoveController> logger, IPrivateMoveService privateMoveService, FinalProjectContext context, IMapper mapper)
         {
             _logger = logger;
             _privateMoveService = privateMoveService;
-            //_context = context;
-            //_mapper = mapper;
         }
 
         // GET: api/PrivateMoves
@@ -49,12 +45,11 @@ namespace FinalProject.Controllers
 
         }
 
-        //Done
         // GET: api/PrivateMoves/5
         [HttpGet("{id}")]
         public async Task<ActionResult<PrivateMoveDto>> GetPrivateMove(int id)
         {
-<<<<<<< Updated upstream
+            try { 
             var privateMoveDto = await _privateMoveService.GetPrivateMoveByIdAsync(id);
 =======
             try { 
@@ -68,8 +63,6 @@ namespace FinalProject.Controllers
 
 <<<<<<< Updated upstream
             return privateMoveDto;
-=======
-            return result;
             }
             catch(Exception ex)
             {
@@ -84,7 +77,7 @@ namespace FinalProject.Controllers
         {
             if (privateMoveDto == null)
             {
-                return BadRequest("PrivateMove cannot be null.");
+                return BadRequest("PrivateMoveDto cannot be null.");
             }
 
             try
@@ -97,8 +90,9 @@ namespace FinalProject.Controllers
                 _logger.LogError(ex, $"Error in retrieving private moves: {ex.Message}");
                 return StatusCode(500, "An error occurred while saving to the database.");
             }
->>>>>>> Stashed changes
         }
+
+
 
         // PUT: api/PrivateMoves/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
@@ -132,47 +126,26 @@ namespace FinalProject.Controllers
         //}
 
 
-        //Done
-        [HttpPost]
-        public async Task<IActionResult> RegisterPrivateMoveNew([FromBody] PrivateMoveDto privateMoveDto)
-        {
-            if (privateMoveDto == null)
-            {
-                return BadRequest("PrivateMoveDto cannot be null.");
-            }
+        //    // DELETE: api/PrivateMoves/5
+        //    [HttpDelete("{id}")]
+        //    public async Task<IActionResult> DeletePrivateMove(int id)
+        //    {
+        //        var privateMove = await _context.Moves.FindAsync(id);
+        //        if (privateMove == null)
+        //        {
+        //            return NotFound();
+        //        }
 
-            try
-            {
-                var createdPrivateMove = await _privateMoveService.CreatePrivateMoveAsync(privateMoveDto);
-                return CreatedAtAction(nameof(RegisterPrivateMoveNew), new { id = createdPrivateMove.Id }, createdPrivateMove);
-            }
-            catch (DbUpdateException ex)
-            {
-                // Handle the exception based on your specific requirements
-                return StatusCode(500, "An error occurred while saving to the database.");
-            }
-        }
+        //        _context.Moves.Remove(privateMove);
+        //        await _context.SaveChangesAsync();
 
+        //        return NoContent();
+        //    }
 
-        // DELETE: api/PrivateMoves/5
-    //    [HttpDelete("{id}")]
-    //    public async Task<IActionResult> DeletePrivateMove(int id)
-    //    {
-    //        var privateMove = await _context.Moves.FindAsync(id);
-    //        if (privateMove == null)
-    //        {
-    //            return NotFound();
-    //        }
+        //    private bool PrivateMoveExists(int id)
+        //    {
+        //        return _context.Moves.Any(e => e.Id == id);
+        //    }
 
-    //        _context.Moves.Remove(privateMove);
-    //        await _context.SaveChangesAsync();
-
-    //        return NoContent();
-    //    }
-
-    //    private bool PrivateMoveExists(int id)
-    //    {
-    //        return _context.Moves.Any(e => e.Id == id);
-    //    }
     }
 }
