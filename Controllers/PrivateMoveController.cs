@@ -66,34 +66,34 @@ namespace FinalProject.Controllers
 
         // PUT: api/PrivateMoves/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutPrivateMove(int id, Move privateMove)
-        {
-            if (id != privateMove.Id)
-            {
-                return BadRequest();
-            }
+        //[HttpPut("{id}")]
+        //public async Task<IActionResult> PutPrivateMove(int id, Move privateMove)
+        //{
+        //    if (id != privateMove.Id)
+        //    {
+        //        return BadRequest();
+        //    }
 
-            _context.Entry(privateMove).State = EntityState.Modified;
+        //    _context.Entry(privateMove).State = EntityState.Modified;
 
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!PrivateMoveExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+        //    try
+        //    {
+        //        await _context.SaveChangesAsync();
+        //    }
+        //    catch (DbUpdateConcurrencyException)
+        //    {
+        //        if (!PrivateMoveExists(id))
+        //        {
+        //            return NotFound();
+        //        }
+        //        else
+        //        {
+        //            throw;
+        //        }
+        //    }
 
-            return NoContent();
-        }
+        //    return NoContent();
+        //}
 
 
         //Done
@@ -119,24 +119,24 @@ namespace FinalProject.Controllers
 
 
         // DELETE: api/PrivateMoves/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeletePrivateMove(int id)
-        {
-            var privateMove = await _context.Moves.FindAsync(id);
-            if (privateMove == null)
-            {
-                return NotFound();
-            }
+    //    [HttpDelete("{id}")]
+    //    public async Task<IActionResult> DeletePrivateMove(int id)
+    //    {
+    //        var privateMove = await _context.Moves.FindAsync(id);
+    //        if (privateMove == null)
+    //        {
+    //            return NotFound();
+    //        }
 
-            _context.Moves.Remove(privateMove);
-            await _context.SaveChangesAsync();
+    //        _context.Moves.Remove(privateMove);
+    //        await _context.SaveChangesAsync();
 
-            return NoContent();
-        }
+    //        return NoContent();
+    //    }
 
-        private bool PrivateMoveExists(int id)
-        {
-            return _context.Moves.Any(e => e.Id == id);
-        }
+    //    private bool PrivateMoveExists(int id)
+    //    {
+    //        return _context.Moves.Any(e => e.Id == id);
+    //    }
     }
 }

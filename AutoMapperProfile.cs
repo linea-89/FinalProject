@@ -11,9 +11,9 @@ namespace FinalProject
             CreateMap<TestDto, Test>();
 
             /*----------Private Moves mappings--------------*/
-            CreateMap<Move, PrivateMoveDto>();
-                //.ForMember(dest => dest.MoveFromAddress, opt => opt.MapFrom(src => src.Addresses.FirstOrDefault(a => a.Type == "MoveFrom")))
-                //.ForMember(dest => dest.MoveToAddress, opt => opt.MapFrom(src => src.Addresses.FirstOrDefault(a => a.Type == "MoveTo")));
+            CreateMap<Move, PrivateMoveDto>()
+                .ForMember(dest => dest.MoveFromAddress, opt => opt.MapFrom(src => src.Addresses.FirstOrDefault(a => a.Type == "MoveFrom")))
+                .ForMember(dest => dest.MoveToAddress, opt => opt.MapFrom(src => src.Addresses.FirstOrDefault(a => a.Type == "MoveTo")));
 
             CreateMap<PrivateMoveDto, Move>()
              .ForMember(dest => dest.Addresses, opt => opt.MapFrom(src => new List<Address>
@@ -21,19 +21,21 @@ namespace FinalProject
                 new Address
                 {
                     Street = src.MoveFromAddress.Street,
-                    //Type = "MoveFrom" // Custom label for the address type
+                    ZipCode = src.MoveFromAddress.ZipCode,
+                    Type = "MoveFrom" // Custom label for the address type
                 },
                 new Address
                 {
                     Street = src.MoveToAddress.Street,
-                    //Type = "MoveTo" // Custom label for the address type
+                    ZipCode = src.MoveFromAddress.ZipCode,
+                    Type = "MoveTo" // Custom label for the address type
                 }
              }));
 
             /*------------Business Moves mapping -----------------*/
-            CreateMap<Move, BusinessMoveDto>();
-                //.ForMember(dest => dest.MoveFromAddress, opt => opt.MapFrom(src => src.Addresses.FirstOrDefault(a => a.Type == "MoveFrom")))
-                //.ForMember(dest => dest.MoveToAddress, opt => opt.MapFrom(src => src.Addresses.FirstOrDefault(a => a.Type == "MoveTo")));
+            CreateMap<Move, BusinessMoveDto>()
+                .ForMember(dest => dest.MoveFromAddress, opt => opt.MapFrom(src => src.Addresses.FirstOrDefault(a => a.Type == "MoveFrom")))
+                .ForMember(dest => dest.MoveToAddress, opt => opt.MapFrom(src => src.Addresses.FirstOrDefault(a => a.Type == "MoveTo")));
 
             CreateMap<BusinessMoveDto, Move>()
              .ForMember(dest => dest.Addresses, opt => opt.MapFrom(src => new List<Address>
@@ -41,12 +43,14 @@ namespace FinalProject
                 new Address
                 {
                     Street = src.MoveFromAddress.Street,
-                    //Type = "MoveFrom" // Custom label for the address type
+                    ZipCode = src.MoveFromAddress.ZipCode,
+                    Type = "MoveFrom" // Custom label for the address type
                 },
                 new Address
                 {
                     Street = src.MoveToAddress.Street,
-                    //Type = "MoveTo" // Custom label for the address type
+                    ZipCode = src.MoveFromAddress.ZipCode,
+                    Type = "MoveTo" // Custom label for the address type
                 }
              }));
 
