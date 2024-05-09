@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+using AutoMapper;
 using FinalProject.Models;
 
 namespace FinalProject
@@ -7,8 +7,7 @@ namespace FinalProject
     {
         public AutoMapperProfile()
         {
-            CreateMap<Test, TestDto>();
-            CreateMap<TestDto, Test>();
+
 
             /*----------Private Moves mappings--------------*/
             CreateMap<Move, PrivateMoveDto>()
@@ -18,12 +17,12 @@ namespace FinalProject
             CreateMap<PrivateMoveDto, Move>()
              .ForMember(dest => dest.Addresses, opt => opt.MapFrom(src => new List<Address>
              {
-                new Address
+                new()
                 {
                     Street = src.MoveFromAddress.Street,
                     Type = "MoveFrom" // Custom label for the address type
                 },
-                new Address
+                new()
                 {
                     Street = src.MoveToAddress.Street,
                     Type = "MoveTo" // Custom label for the address type
@@ -38,12 +37,12 @@ namespace FinalProject
             CreateMap<BusinessMoveDto, Move>()
              .ForMember(dest => dest.Addresses, opt => opt.MapFrom(src => new List<Address>
              {
-                new Address
+                new()
                 {
                     Street = src.MoveFromAddress.Street,
                     Type = "MoveFrom" // Custom label for the address type
                 },
-                new Address
+                new()
                 {
                     Street = src.MoveToAddress.Street,
                     Type = "MoveTo" // Custom label for the address type
@@ -88,5 +87,6 @@ namespace FinalProject
 
 
         }
+
     }
 }

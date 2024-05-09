@@ -38,7 +38,9 @@ namespace FinalProject.Models
         public bool PackingPaper { get; set; } = false;
        // public Amenities Amenities { get; set; }
         public ICollection<Address> Addresses { get; set; } = new List<Address>();
-        public Amenities Amenities { get; set; } //= new Amenities();
+        public Amenities Amenities { get; set; } = new Amenities();
+
+        public ICollection<Floor> Floors { get; set; } = new List<Floor>();
     }
 
 

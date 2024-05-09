@@ -16,8 +16,8 @@ namespace FinalProject.Models
 
    
  
-        public int PrivateMoveId { get; set; } // Required foreign key property
-        public Move PrivateMove { get; set; } = null!; // Required reference navigation to principal
+        public int MoveId { get; set; } // Required foreign key property
+        public Move Move { get; set; } = null!; // Required reference navigation to principal
 
     }
 }

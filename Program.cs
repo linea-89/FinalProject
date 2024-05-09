@@ -32,6 +32,9 @@ builder.Services.AddScoped<IBusinessMoveService, BusinessMoveService>();
 builder.Services.AddScoped<IMoveRepository, MoveRepository>();
 builder.Services.AddScoped<IFloorService, FloorService>();
 
+//builder.Services.AddScoped<IMoveRepository, MoveRepository>();
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

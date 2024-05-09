@@ -12,11 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FinalProject.Migrations
 {
     [DbContext(typeof(FinalProjectContext))]
-<<<<<<<< HEAD:Migrations/20240508235352_NewInit.Designer.cs
-    [Migration("20240508235352_NewInit")]
-========
-    [Migration("20240509011351_NewInit")]
->>>>>>>> NewBranch:Migrations/20240509011351_NewInit.Designer.cs
+    [Migration("20240509004021_NewInit")]
     partial class NewInit
     {
         /// <inheritdoc />
@@ -49,10 +45,6 @@ namespace FinalProject.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Street")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Type")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -95,31 +87,6 @@ namespace FinalProject.Migrations
                         .IsUnique();
 
                     b.ToTable("Amenities");
-                });
-
-            modelBuilder.Entity("FinalProject.Models.Floor", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("MoveId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("SortOrder")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("MoveId");
-
-                    b.ToTable("Floors");
                 });
 
             modelBuilder.Entity("FinalProject.Models.Move", b =>
@@ -229,17 +196,6 @@ namespace FinalProject.Migrations
                         .IsRequired();
 
                     b.Navigation("PrivateMove");
-                });
-
-            modelBuilder.Entity("FinalProject.Models.Floor", b =>
-                {
-                    b.HasOne("FinalProject.Models.Move", "Move")
-                        .WithMany()
-                        .HasForeignKey("MoveId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Move");
                 });
 
             modelBuilder.Entity("FinalProject.Models.Move", b =>

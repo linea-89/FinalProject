@@ -38,7 +38,7 @@ namespace FinalProject.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("PrivateMoveId")
+                    b.Property<int>("MoveId")
                         .HasColumnType("int");
 
                     b.Property<string>("Street")
@@ -54,7 +54,7 @@ namespace FinalProject.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("PrivateMoveId");
+                    b.HasIndex("MoveId");
 
                     b.ToTable("Addresses");
                 });
@@ -79,12 +79,12 @@ namespace FinalProject.Migrations
                     b.Property<bool>("FurnitureLiftToAddress")
                         .HasColumnType("bit");
 
-                    b.Property<int>("PrivateMoveId")
+                    b.Property<int>("MoveId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("PrivateMoveId")
+                    b.HasIndex("MoveId")
                         .IsUnique();
 
                     b.ToTable("Amenities");
@@ -179,49 +179,37 @@ namespace FinalProject.Migrations
                     b.ToTable("Moves");
                 });
 
-            modelBuilder.Entity("FinalProject.Models.Test", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<bool>("Hot")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("Not")
-                        .HasColumnType("bit");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Tests");
-                });
-
             modelBuilder.Entity("FinalProject.Models.Address", b =>
                 {
-                    b.HasOne("FinalProject.Models.Move", "PrivateMove")
+                    b.HasOne("FinalProject.Models.Move", "Move")
                         .WithMany("Addresses")
-                        .HasForeignKey("PrivateMoveId")
+                        .HasForeignKey("MoveId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("PrivateMove");
+                    b.Navigation("Move");
                 });
 
             modelBuilder.Entity("FinalProject.Models.Amenities", b =>
                 {
-                    b.HasOne("FinalProject.Models.Move", "PrivateMove")
+                    b.HasOne("FinalProject.Models.Move", "Move")
                         .WithOne("Amenities")
-                        .HasForeignKey("FinalProject.Models.Amenities", "PrivateMoveId")
+                        .HasForeignKey("FinalProject.Models.Amenities", "MoveId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("PrivateMove");
+                    b.Navigation("Move");
+                });
+
+            modelBuilder.Entity("FinalProject.Models.Floor", b =>
+                {
+                    b.HasOne("FinalProject.Models.Move", "Move")
+                        .WithMany("Floors")
+                        .HasForeignKey("MoveId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Move");
                 });
 
             modelBuilder.Entity("FinalProject.Models.Floor", b =>
@@ -241,6 +229,8 @@ namespace FinalProject.Migrations
 
                     b.Navigation("Amenities")
                         .IsRequired();
+
+                    b.Navigation("Floors");
                 });
 #pragma warning restore 612, 618
         }

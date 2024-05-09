@@ -8,11 +8,13 @@ namespace FinalProject.Services.Move
 {
     public class PrivateMoveService : IPrivateMoveService
     {
-        private readonly FinalProjectContext _context;
+        private readonly ILogger<PrivateMoveService> _logger;
+        private readonly FinalProjectContext _context; // I have to create a Repository with an interface
         private readonly IMapper _mapper;
 
-        public PrivateMoveService(FinalProjectContext context, IMapper mapper) 
+        public PrivateMoveService(ILogger<PrivateMoveService> logger, FinalProjectContext context, IMapper mapper) 
         {
+            _logger = logger;
             _context = context;
             _mapper = mapper;
         }

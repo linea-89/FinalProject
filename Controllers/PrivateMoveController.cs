@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -32,10 +32,10 @@ namespace FinalProject.Controllers
             try
             {
                 // Retrieve the data using the service
-                var privateMoveDtos = _privateMoveService.GetPrivateMoves();
+                var result = _privateMoveService.GetPrivateMoves();
 
                 // Return the result wrapped in an Ok() response
-                return Ok(privateMoveDtos);
+                return Ok(result);
             }
             catch (Exception ex)
             {
@@ -51,12 +51,17 @@ namespace FinalProject.Controllers
         {
             try { 
             var privateMoveDto = await _privateMoveService.GetPrivateMoveByIdAsync(id);
+=======
+            try { 
+            var result = await _privateMoveService.GetPrivateMoveByIdAsync(id);
+>>>>>>> Stashed changes
 
-            if (privateMoveDto == null)
+            if (result == null)
             {
                 return NotFound();
             }
 
+<<<<<<< Updated upstream
             return privateMoveDto;
             }
             catch(Exception ex)
