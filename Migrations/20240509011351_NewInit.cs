@@ -63,6 +63,7 @@ namespace FinalProject.Migrations
                     ZipCode = table.Column<int>(type: "int", nullable: false),
                     City = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Country = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Type = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     PrivateMoveId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -99,6 +100,27 @@ namespace FinalProject.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Floors",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    SortOrder = table.Column<int>(type: "int", nullable: false),
+                    MoveId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Floors", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Floors_Moves_MoveId",
+                        column: x => x.MoveId,
+                        principalTable: "Moves",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Addresses_PrivateMoveId",
                 table: "Addresses",
@@ -109,6 +131,11 @@ namespace FinalProject.Migrations
                 table: "Amenities",
                 column: "PrivateMoveId",
                 unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Floors_MoveId",
+                table: "Floors",
+                column: "MoveId");
         }
 
         /// <inheritdoc />
@@ -119,6 +146,9 @@ namespace FinalProject.Migrations
 
             migrationBuilder.DropTable(
                 name: "Amenities");
+
+            migrationBuilder.DropTable(
+                name: "Floors");
 
             migrationBuilder.DropTable(
                 name: "Tests");

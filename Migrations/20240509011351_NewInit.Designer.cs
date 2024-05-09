@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FinalProject.Migrations
 {
     [DbContext(typeof(FinalProjectContext))]
-    [Migration("20240508233145_NewInit")]
+    [Migration("20240509011351_NewInit")]
     partial class NewInit
     {
         /// <inheritdoc />
@@ -41,7 +41,7 @@ namespace FinalProject.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("MoveId")
+                    b.Property<int>("PrivateMoveId")
                         .HasColumnType("int");
 
                     b.Property<string>("Street")
@@ -57,7 +57,7 @@ namespace FinalProject.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("MoveId");
+                    b.HasIndex("PrivateMoveId");
 
                     b.ToTable("Addresses");
                 });
@@ -82,12 +82,12 @@ namespace FinalProject.Migrations
                     b.Property<bool>("FurnitureLiftToAddress")
                         .HasColumnType("bit");
 
-                    b.Property<int>("MoveId")
+                    b.Property<int>("PrivateMoveId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("MoveId")
+                    b.HasIndex("PrivateMoveId")
                         .IsUnique();
 
                     b.ToTable("Amenities");
@@ -182,32 +182,55 @@ namespace FinalProject.Migrations
                     b.ToTable("Moves");
                 });
 
+            modelBuilder.Entity("FinalProject.Models.Test", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<bool>("Hot")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("Not")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Tests");
+                });
+
             modelBuilder.Entity("FinalProject.Models.Address", b =>
                 {
-                    b.HasOne("FinalProject.Models.Move", "Move")
+                    b.HasOne("FinalProject.Models.Move", "PrivateMove")
                         .WithMany("Addresses")
-                        .HasForeignKey("MoveId")
+                        .HasForeignKey("PrivateMoveId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Move");
+                    b.Navigation("PrivateMove");
                 });
 
             modelBuilder.Entity("FinalProject.Models.Amenities", b =>
                 {
-                    b.HasOne("FinalProject.Models.Move", "Move")
+                    b.HasOne("FinalProject.Models.Move", "PrivateMove")
                         .WithOne("Amenities")
-                        .HasForeignKey("FinalProject.Models.Amenities", "MoveId")
+                        .HasForeignKey("FinalProject.Models.Amenities", "PrivateMoveId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Move");
+                    b.Navigation("PrivateMove");
                 });
 
             modelBuilder.Entity("FinalProject.Models.Floor", b =>
                 {
                     b.HasOne("FinalProject.Models.Move", "Move")
-                        .WithMany("Floors")
+                        .WithMany()
                         .HasForeignKey("MoveId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -221,8 +244,6 @@ namespace FinalProject.Migrations
 
                     b.Navigation("Amenities")
                         .IsRequired();
-
-                    b.Navigation("Floors");
                 });
 #pragma warning restore 612, 618
         }

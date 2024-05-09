@@ -1,6 +1,7 @@
 using FinalProject.Data;
 using FinalProject.Repositories.Moves;
 using FinalProject.Services.BusinessMove;
+using FinalProject.Services.Floor;
 using FinalProject.Services.Move;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json.Serialization;
@@ -29,6 +30,7 @@ builder.Services.AddControllers().AddJsonOptions(options =>
 builder.Services.AddScoped<IPrivateMoveService, PrivateMoveService>();
 builder.Services.AddScoped<IBusinessMoveService, BusinessMoveService>();
 builder.Services.AddScoped<IMoveRepository, MoveRepository>();
+builder.Services.AddScoped<IFloorService, FloorService>();
 
 var app = builder.Build();
 

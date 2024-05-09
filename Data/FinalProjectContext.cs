@@ -13,6 +13,7 @@ namespace FinalProject.Data
         public DbSet<Move> Moves { get; set; }
         public DbSet<Address> Addresses { get; set; }
         public DbSet<Amenities> Amenities { get; set; }
+        public DbSet<Floor> Floors { get; set; }
         public DbSet<Test> Tests { get; set; }
 
 
