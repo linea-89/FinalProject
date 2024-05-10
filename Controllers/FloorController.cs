@@ -25,7 +25,7 @@ namespace FinalProject.Controllers
         public FloorController(ILogger<FloorController> logger, IFloorService floorService)
         {
             _logger = logger;
-            _floorService = floorService;   
+            _floorService = floorService;
         }
 
         // [HttpGet]
@@ -37,15 +37,64 @@ namespace FinalProject.Controllers
         {
             if (floorDto == null)
             {
-                return BadRequest("Add Floor cannor be empty");
+                return BadRequest("Add Floor cannot be empty");
             }
 
             var result = await _floorService.AddFloor(floorDto);
             return CreatedAtAction(nameof(AddFloor), new { id = result.Id }, result);
         }
 
+        [HttpGet]
+        public ActionResult<List<FloorDto>> GetFloors()
+        {
+            try
+            {
+                var result = _floorService.GetFloors();
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Error in retrieving floors: {ex.Message}");
+                return Problem("An error occured while retrieving floors");
+            }
 
-        //[Http("type")]
+        }
+
+        //GET: api/PrivateMoves/5
+        [HttpGet("{id}")]
+        public async Task<ActionResult<FloorDto>> GetFloor(int id)
+        {
+            try
+            {
+                var result = await _floorService.GetFloorByIdAsync(id);
+
+                if (result == null)
+                {
+                    return NotFound();
+                }
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Error in retrieving floor with id {id}: {ex.Message}");
+                return Problem("An error occured while retrieving floor");
+            }
+        }
+
+
+        [HttpPost("type")]
+        public async Task<IActionResult> createFloorType(FloorTypeDto floorTypeDto)
+        {
+            if (floorTypeDto == null)
+            {
+                return BadRequest("Create floor cannot be empty");
+            }
+
+            var result = await _floorService.createFloorType(floorTypeDto);
+            return CreatedAtAction(nameof(createFloorType), new { id = result.Id }, result);
+        }
+
 
 
 

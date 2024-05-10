@@ -31,16 +31,13 @@ namespace FinalProject.Controllers
         {
             try
             {
-                // Retrieve the data using the service
                 var result = _privateMoveService.GetPrivateMoves();
-
-                // Return the result wrapped in an Ok() response
                 return Ok(result);
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, $"Error in retrieving private moves: {ex.Message}");
-                return Problem("An error occured while retrieving private moves");
+                _logger.LogError(ex, $"Error in retrieving moves: {ex.Message}");
+                return Problem("An error occured while retrieving moves");
             }
 
         }
@@ -64,8 +61,8 @@ namespace FinalProject.Controllers
             }
             catch(Exception ex)
             {
-                _logger.LogError(ex, $"Error in retrieving business move with id {id}: {ex.Message}");
-                return Problem("An error occured while retrieving business move");
+                _logger.LogError(ex, $"Error in retrieving move with id {id}: {ex.Message}");
+                return Problem("An error occured while retrieving move");
             }
         }
 

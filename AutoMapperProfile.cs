@@ -55,17 +55,17 @@ namespace FinalProject
             CreateMap<Address, AddressDto>();
 
 
-            CreateMap<AmenitiesDto, Amenities>()
-                .ForMember(dest => dest.ElevatorFromAddress, opt => opt.MapFrom(src => src.ElevatorFromAddress))
-                .ForMember(dest => dest.ElevatorToAddress, opt => opt.MapFrom(src => src.ElevatorToAddress))
-                .ForMember(dest => dest.FurnitureLiftFromAddress, opt => opt.MapFrom(src => src.FurnitureLiftFromAddress))
-                .ForMember(dest => dest.FurnitureLiftToAddress, opt => opt.MapFrom(src => src.FurnitureLiftToAddress));
+            CreateMap<AmenitiesDto, Amenities>();
+            //.ForMember(dest => dest.ElevatorFromAddress, opt => opt.MapFrom(src => src.ElevatorFromAddress))
+            //.ForMember(dest => dest.ElevatorToAddress, opt => opt.MapFrom(src => src.ElevatorToAddress))
+            //.ForMember(dest => dest.FurnitureLiftFromAddress, opt => opt.MapFrom(src => src.FurnitureLiftFromAddress))
+            //.ForMember(dest => dest.FurnitureLiftToAddress, opt => opt.MapFrom(src => src.FurnitureLiftToAddress));
 
-            CreateMap<Amenities, AmenitiesDto>()
-                .ForMember(dest => dest.ElevatorFromAddress, opt => opt.MapFrom(src => src.ElevatorFromAddress))
-                .ForMember(dest => dest.ElevatorToAddress, opt => opt.MapFrom(src => src.ElevatorToAddress))
-                .ForMember(dest => dest.FurnitureLiftFromAddress, opt => opt.MapFrom(src => src.FurnitureLiftFromAddress))
-                .ForMember(dest => dest.FurnitureLiftToAddress, opt => opt.MapFrom(src => src.FurnitureLiftToAddress));
+            CreateMap<Amenities, AmenitiesDto>();
+                //.ForMember(dest => dest.ElevatorFromAddress, opt => opt.MapFrom(src => src.ElevatorFromAddress))
+                //.ForMember(dest => dest.ElevatorToAddress, opt => opt.MapFrom(src => src.ElevatorToAddress))
+                //.ForMember(dest => dest.FurnitureLiftFromAddress, opt => opt.MapFrom(src => src.FurnitureLiftFromAddress))
+                //.ForMember(dest => dest.FurnitureLiftToAddress, opt => opt.MapFrom(src => src.FurnitureLiftToAddress));
 
             CreateMap<Floor, FloorDto>()
                 .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name))
@@ -77,11 +77,11 @@ namespace FinalProject
                 .ForMember(dest => dest.SortOrder, opt => opt.MapFrom(src => src.SortOrder))
                 .ForMember(dest => dest.MoveId, opt => opt.MapFrom(src => src.MoveId));
 
-            CreateMap<Floor, FloorTypeDto>()
+            CreateMap<FloorType, FloorTypeDto>()
                 .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name));
 
 
-            CreateMap<FloorTypeDto, Floor>()
+            CreateMap<FloorTypeDto, FloorType>()
                 .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name));
 
 

@@ -31,8 +31,8 @@ namespace FinalProject.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, $"Error in retrieving business moves: {ex.Message}");
-                return Problem("An error occured while retrieving business moves");
+                _logger.LogError(ex, $"Error in retrieving moves: {ex.Message}");
+                return Problem("An error occured while retrieving moves");
             }
         }
 
@@ -53,8 +53,8 @@ namespace FinalProject.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, $"Error in retrieving business move with id {id}: {ex.Message}");
-                return Problem("An error occured while retrieving business move");
+                _logger.LogError(ex, $"Error in retrieving move with id {id}: {ex.Message}");
+                return Problem("An error occured while retrieving move");
             }
         }
 
