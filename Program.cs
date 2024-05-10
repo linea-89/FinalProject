@@ -2,6 +2,7 @@ using FinalProject.Data;
 using FinalProject.Repositories.Moves;
 using FinalProject.Services.BusinessMove;
 using FinalProject.Services.Floor;
+using FinalProject.Services.Inventory;
 using FinalProject.Services.Move;
 using FinalProject.Services.Room;
 using Microsoft.EntityFrameworkCore;
@@ -33,6 +34,7 @@ builder.Services.AddScoped<IBusinessMoveService, BusinessMoveService>();
 builder.Services.AddScoped<IMoveRepository, MoveRepository>();
 builder.Services.AddScoped<IFloorService, FloorService>();
 builder.Services.AddScoped<IRoomService, RoomService>();
+builder.Services.AddScoped<IInventoryService, InventoryService>();
 
 //builder.Services.AddScoped<IMoveRepository, MoveRepository>();
 

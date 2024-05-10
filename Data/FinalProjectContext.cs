@@ -17,6 +17,9 @@ namespace FinalProject.Data
         public DbSet<FloorType> FloorTypes { get; set; }
         public DbSet<Room> Rooms { get; set; }
         public DbSet<RoomType> RoomTypes { get; set; }
+        public DbSet<Inventory> Inventory { get; set; }
+        public DbSet<InventoryType> InventoryTypes { get; set; }
+        public DbSet<Wrapping> Wrapping { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

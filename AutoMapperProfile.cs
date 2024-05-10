@@ -100,6 +100,11 @@ namespace FinalProject
             CreateMap<RoomTypeDto, RoomType>()
                 .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name));
 
+            //____________________Inventory mapping__________________
+
+            CreateMap<InventoryType, InventoryTypeDto>();
+            CreateMap<InventoryTypeDto, InventoryType>();
+
         }
 
     }
