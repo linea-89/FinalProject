@@ -3,7 +3,7 @@ namespace FinalProject.Models
     public class AddressDto
     {
         public string Street { get; set; } = string.Empty;
-<<<<<<< Updated upstream
+
         public int ZipCode { get; set; }
         //public string City { get; set; } = string.Empty;
         //public string Country { get; set; } = string.Empty;

@@ -50,19 +50,17 @@ namespace FinalProject.Controllers
         public async Task<ActionResult<PrivateMoveDto>> GetPrivateMove(int id)
         {
             try { 
-            var privateMoveDto = await _privateMoveService.GetPrivateMoveByIdAsync(id);
-=======
-            try { 
+         
             var result = await _privateMoveService.GetPrivateMoveByIdAsync(id);
->>>>>>> Stashed changes
+
 
             if (result == null)
             {
                 return NotFound();
             }
 
-<<<<<<< Updated upstream
-            return privateMoveDto;
+
+            return result;
             }
             catch(Exception ex)
             {
