@@ -30,19 +30,38 @@ namespace FinalProject.Services.Floor
             return _mapper.Map<FloorDto>(floor);
         }
 
-        public ActionResult<List<FloorDto>> GetFloors()
+        public ActionResult<List<FloorDto>> GetFloors(int moveId)
         {
             var floors = _context.Floors.ToList();
 
             // Map the result to the PrivateMoveDto list
             var result = floors
                 .Select(result => _mapper.Map<FloorDto>(result))
+                .Where(x => x.MoveId == moveId)
                 .ToList(); // Materialize the query into a list
 
             return result;
         }
 
-        public async Task<FloorTypeDto> createFloorType(FloorTypeDto floorTypeDto)
+        public ActionResult<FloorDto> GetFloorByIdAsync(int moveId, int id)
+        {
+            var floor = _context.Floors.ToList();
+            //.FirstOrDefaultAsync(x => x.Id == id); // Find the entity by Id
+
+            var result = floor.Select(result => _mapper.Map<FloorDto>(result))
+                .Where(x => x.MoveId == moveId).FirstOrDefault(x => x.Id == id);
+
+            if (result == null)
+            {
+                return null;
+            }
+
+            // Map the entity to its corresponding DTO
+          //  return _mapper.Map<FloorDto>(floor);
+            return result;
+        }
+
+        public async Task<FloorTypeDto> CreateFloorType(FloorTypeDto floorTypeDto)
         {
             var floorType = _mapper.Map<Models.FloorType>(floorTypeDto);
 
@@ -52,18 +71,17 @@ namespace FinalProject.Services.Floor
             return _mapper.Map<FloorTypeDto>(floorType);
         }
 
-        public async Task<FloorDto> GetFloorByIdAsync(int id)
+        public ActionResult<List<FloorTypeDto>> GetFloorTypes()
         {
-            var floor = await _context.Floors
-            .FirstOrDefaultAsync(x => x.Id == id); // Find the entity by Id
+            var floorTypes = _context.FloorTypes.ToList();
 
-            if (floor == null)
-            {
-                return null;
-            }
+            // Map the result to the PrivateMoveDto list
+            var result = floorTypes
+                .Select(result => _mapper.Map<FloorTypeDto>(result))
+                .ToList(); // Materialize the query into a list
 
-            // Map the entity to its corresponding DTO
-            return _mapper.Map<FloorDto>(floor);
+            return result;
         }
+
     }
 }

@@ -28,9 +28,6 @@ namespace FinalProject.Controllers
             _floorService = floorService;
         }
 
-        // [HttpGet]
-        //  public ActionResult<List<FloorDto>> 
-
 
         [HttpPost]
         public async Task<IActionResult> AddFloor([FromBody] FloorDto floorDto)
@@ -44,12 +41,12 @@ namespace FinalProject.Controllers
             return CreatedAtAction(nameof(AddFloor), new { id = result.Id }, result);
         }
 
-        [HttpGet]
-        public ActionResult<List<FloorDto>> GetFloors()
+        [HttpGet("{moveId}")]
+        public ActionResult<List<FloorDto>> GetFloors(int moveId)
         {
             try
             {
-                var result = _floorService.GetFloors();
+                var result = _floorService.GetFloors(moveId);
                 return Ok(result);
             }
             catch (Exception ex)
@@ -61,12 +58,12 @@ namespace FinalProject.Controllers
         }
 
         //GET: api/PrivateMoves/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<FloorDto>> GetFloor(int id)
+        [HttpGet("{moveId}/{id}")]
+        public ActionResult<ActionResult<FloorDto>> GetFloor(int moveId, int id)
         {
             try
             {
-                var result = await _floorService.GetFloorByIdAsync(id);
+                var result = _floorService.GetFloorByIdAsync(moveId, id);
 
                 if (result == null)
                 {
@@ -91,8 +88,24 @@ namespace FinalProject.Controllers
                 return BadRequest("Create floor cannot be empty");
             }
 
-            var result = await _floorService.createFloorType(floorTypeDto);
+            var result = await _floorService.CreateFloorType(floorTypeDto);
             return CreatedAtAction(nameof(createFloorType), new { id = result.Id }, result);
+        }
+
+        [HttpGet("type")]
+        public ActionResult<List<FloorTypeDto>> GetFloorTypes()
+        {
+            try
+            {
+                var result = _floorService.GetFloorTypes();
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Error in retrieving floortypes: {ex.Message}");
+                return Problem("An error occured while retrieving floortypes");
+            }
+
         }
 
 

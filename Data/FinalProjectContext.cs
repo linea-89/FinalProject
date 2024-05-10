@@ -15,6 +15,8 @@ namespace FinalProject.Data
         public DbSet<Amenities> Amenities { get; set; }
         public DbSet<Floor> Floors { get; set; }
         public DbSet<FloorType> FloorTypes { get; set; }
+        public DbSet<Room> Rooms { get; set; }
+        public DbSet<RoomType> RoomTypes { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

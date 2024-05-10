@@ -8,5 +8,7 @@
 
         public int MoveId { get; set; } // Required foreign key property
         public Move Move { get; set; } = null!; // Required reference navigation to principal
+
+        public ICollection<Room> Rooms { get; set; } = new List<Room>();
     }
 }

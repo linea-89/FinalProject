@@ -25,6 +25,26 @@ namespace FinalProject.Controllers
             _privateMoveService = privateMoveService;
         }
 
+        [HttpPost]
+        public async Task<IActionResult> RegisterPrivateMoveNew([FromBody] PrivateMoveDto privateMoveDto)
+        {
+            if (privateMoveDto == null)
+            {
+                return BadRequest("PrivateMoveDto cannot be null.");
+            }
+
+            try
+            {
+                var createdPrivateMove = await _privateMoveService.CreatePrivateMoveAsync(privateMoveDto);
+                return CreatedAtAction(nameof(RegisterPrivateMoveNew), new { id = createdPrivateMove.Id }, createdPrivateMove);
+            }
+            catch (DbUpdateException ex)
+            {
+                _logger.LogError(ex, $"Error in retrieving private moves: {ex.Message}");
+                return StatusCode(500, "An error occurred while saving to the database.");
+            }
+        }
+
         // GET: api/PrivateMoves
         [HttpGet]
         public ActionResult<List<PrivateMoveDto>> GetPrivateMoves()
@@ -67,28 +87,7 @@ namespace FinalProject.Controllers
         }
 
  
-        [HttpPost]
-        public async Task<IActionResult> RegisterPrivateMoveNew([FromBody] PrivateMoveDto privateMoveDto)
-        {
-            if (privateMoveDto == null)
-            {
-                return BadRequest("PrivateMoveDto cannot be null.");
-            }
-
-            try
-            {
-                var createdPrivateMove = await _privateMoveService.CreatePrivateMoveAsync(privateMoveDto);
-                return CreatedAtAction(nameof(RegisterPrivateMoveNew), new { id = createdPrivateMove.Id }, createdPrivateMove);
-            }
-            catch (DbUpdateException ex)
-            {
-                _logger.LogError(ex, $"Error in retrieving private moves: {ex.Message}");
-                return StatusCode(500, "An error occurred while saving to the database.");
-            }
-        }
-
-
-
+       
         // PUT: api/PrivateMoves/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         //[HttpPut("{id}")]

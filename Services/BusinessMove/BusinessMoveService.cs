@@ -17,6 +17,17 @@ namespace FinalProject.Services.Move
             _context = context;
             _mapper = mapper;
         }
+        public async Task<BusinessMoveDto> CreateBusinessMoveAsync(BusinessMoveDto businessMoveDto)
+        {
+            var businessMove = _mapper.Map<Models.Move>(businessMoveDto);
+
+            // Add the mapped entity to the context and save
+            _context.Moves.Add(businessMove);
+            await _context.SaveChangesAsync();
+
+            // Optionally, map the saved entity back to a DTO for return
+            return _mapper.Map<BusinessMoveDto>(businessMove);
+        }
 
         public ActionResult<List<BusinessMoveDto>> GetBusinessMoves()
         {
@@ -50,20 +61,6 @@ namespace FinalProject.Services.Move
             // Map the entity to its corresponding DTO
             return _mapper.Map<BusinessMoveDto>(businessMove);
         }
-
-
-        public async Task<BusinessMoveDto> CreateBusinessMoveAsync(BusinessMoveDto businessMoveDto)
-        {
-            var businessMove = _mapper.Map<Models.Move>(businessMoveDto);
-
-            // Add the mapped entity to the context and save
-            _context.Moves.Add(businessMove);
-            await _context.SaveChangesAsync();
-
-            // Optionally, map the saved entity back to a DTO for return
-            return _mapper.Map<BusinessMoveDto>(businessMove);
-        }
-
 
     }
 }

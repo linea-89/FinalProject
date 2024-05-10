@@ -20,8 +20,27 @@ namespace FinalProject.Controllers
             _businessMoveService = businessMoveService;
         }
 
+        [HttpPost]
+        public async Task<IActionResult> RegisterBusinessMove([FromBody] BusinessMoveDto businessMoveDto)
+        {
+            if (businessMoveDto == null)
+            {
+                return BadRequest("BusinessMoveDto cannot be null.");
+            }
+
+            try
+            {
+                var createdBusinessMove = await _businessMoveService.CreateBusinessMoveAsync(businessMoveDto);
+                return CreatedAtAction(nameof(RegisterBusinessMove), new { id = createdBusinessMove.Id }, createdBusinessMove);
+            }
+            catch (DbUpdateException ex)
+            {
+                // Handle the exception based on your specific requirements
+                return StatusCode(500, "An error occurred while saving to the database.");
+            }
+        }
+
         [HttpGet]
-        // GET: MoveController
         public ActionResult<List<BusinessMoveDto>> GetBusinessMoves()
         {
             try
@@ -36,7 +55,6 @@ namespace FinalProject.Controllers
             }
         }
 
-        // GET: MoveController/Details/5
         [HttpGet("{id}")]
         public async Task<ActionResult<BusinessMoveDto>> GetBusinessMove(int id)
         {
@@ -58,27 +76,6 @@ namespace FinalProject.Controllers
             }
         }
 
-
-       //POST: MoveController/Create
-       [HttpPost]
-        public async Task<IActionResult> RegisterBusinessMove([FromBody] BusinessMoveDto businessMoveDto)
-        {
-            if (businessMoveDto == null)
-            {
-                return BadRequest("BusinessMoveDto cannot be null.");
-            }
-
-            try
-            {
-                var createdBusinessMove = await _businessMoveService.CreateBusinessMoveAsync(businessMoveDto);
-                return CreatedAtAction(nameof(RegisterBusinessMove), new { id = createdBusinessMove.Id }, createdBusinessMove);
-            }
-            catch (DbUpdateException ex)
-            {
-                // Handle the exception based on your specific requirements
-                return StatusCode(500, "An error occurred while saving to the database.");
-            }
-        }
 
         // GET: MoveController/Edit/5
         //public ActionResult Edit(int id)

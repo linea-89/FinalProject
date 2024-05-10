@@ -18,6 +18,17 @@ namespace FinalProject.Services.Move
             _context = context;
             _mapper = mapper;
         }
+        public async Task<PrivateMoveDto> CreatePrivateMoveAsync(PrivateMoveDto privateMoveDto)
+        {
+            var privateMove = _mapper.Map<Models.Move>(privateMoveDto);
+
+            // Add the mapped entity to the context and save
+            _context.Moves.Add(privateMove);
+            await _context.SaveChangesAsync();
+
+            // Optionally, map the saved entity back to a DTO for return
+            return _mapper.Map<PrivateMoveDto>(privateMove);
+        }
 
         public ActionResult<List<PrivateMoveDto>> GetPrivateMoves()
         {
@@ -48,18 +59,6 @@ namespace FinalProject.Services.Move
             }
 
             // Map the entity to its corresponding DTO
-            return _mapper.Map<PrivateMoveDto>(privateMove);
-        }
-
-        public async Task<PrivateMoveDto> CreatePrivateMoveAsync(PrivateMoveDto privateMoveDto)
-        {
-            var privateMove = _mapper.Map<Models.Move>(privateMoveDto);
-
-            // Add the mapped entity to the context and save
-            _context.Moves.Add(privateMove);
-            await _context.SaveChangesAsync();
-
-            // Optionally, map the saved entity back to a DTO for return
             return _mapper.Map<PrivateMoveDto>(privateMove);
         }
 
