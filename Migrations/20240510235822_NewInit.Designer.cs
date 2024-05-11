@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FinalProject.Migrations
 {
     [DbContext(typeof(FinalProjectContext))]
-    [Migration("20240510211037_InventoryModelAdded")]
-    partial class InventoryModelAdded
+    [Migration("20240510235822_NewInit")]
+    partial class NewInit
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -271,14 +271,9 @@ namespace FinalProject.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("RoomId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.HasIndex("FloorId");
-
-                    b.HasIndex("RoomId");
 
                     b.ToTable("Rooms");
                 });
@@ -362,7 +357,7 @@ namespace FinalProject.Migrations
             modelBuilder.Entity("FinalProject.Models.Inventory", b =>
                 {
                     b.HasOne("FinalProject.Models.Room", "Room")
-                        .WithMany()
+                        .WithMany("Inventories")
                         .HasForeignKey("RoomId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -378,17 +373,13 @@ namespace FinalProject.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("FinalProject.Models.Room", null)
-                        .WithMany("Rooms")
-                        .HasForeignKey("RoomId");
-
                     b.Navigation("Floor");
                 });
 
             modelBuilder.Entity("FinalProject.Models.Wrapping", b =>
                 {
                     b.HasOne("FinalProject.Models.Inventory", "Inventory")
-                        .WithOne("Wrapping")
+                        .WithOne("toBeWrapped")
                         .HasForeignKey("FinalProject.Models.Wrapping", "InventoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -403,7 +394,7 @@ namespace FinalProject.Migrations
 
             modelBuilder.Entity("FinalProject.Models.Inventory", b =>
                 {
-                    b.Navigation("Wrapping")
+                    b.Navigation("toBeWrapped")
                         .IsRequired();
                 });
 
@@ -419,7 +410,7 @@ namespace FinalProject.Migrations
 
             modelBuilder.Entity("FinalProject.Models.Room", b =>
                 {
-                    b.Navigation("Rooms");
+                    b.Navigation("Inventories");
                 });
 #pragma warning restore 612, 618
         }

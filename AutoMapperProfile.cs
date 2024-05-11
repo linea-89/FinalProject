@@ -105,6 +105,39 @@ namespace FinalProject
             CreateMap<InventoryType, InventoryTypeDto>();
             CreateMap<InventoryTypeDto, InventoryType>();
 
+            CreateMap<Inventory, InventoryDto>()
+                .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))
+                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name))
+                .ForMember(dest => dest.RoomId, opt => opt.MapFrom(src => src.RoomId))
+                .ForMember(dest => dest.Volume, opt => opt.MapFrom(src => src.Volume))
+                .ForMember(dest => dest.Special, opt => opt.MapFrom(src => src.Special))
+                .ForMember(dest => dest.Disassemble, opt => opt.MapFrom(src => src.Disassemble))
+                .ForMember(dest => dest.Assemble, opt => opt.MapFrom(src => src.Assemble))
+                .ForMember(dest => dest.NotIncluded, opt => opt.MapFrom(src => src.NotIncluded))
+                // Explicitly ignore navigation properties to prevent them from being mapped
+                .ForMember(dest => dest.toBeWrapped, opt => opt.MapFrom(src => src.toBeWrapped));
+
+            CreateMap<InventoryDto, Inventory>()
+                .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))
+                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name))
+                .ForMember(dest => dest.RoomId, opt => opt.MapFrom(src => src.RoomId))
+                .ForMember(dest => dest.Volume, opt => opt.MapFrom(src => src.Volume))
+                .ForMember(dest => dest.Special, opt => opt.MapFrom(src => src.Special))
+                .ForMember(dest => dest.Disassemble, opt => opt.MapFrom(src => src.Disassemble))
+                .ForMember(dest => dest.Assemble, opt => opt.MapFrom(src => src.Assemble))
+                .ForMember(dest => dest.NotIncluded, opt => opt.MapFrom(src => src.NotIncluded))
+                .ForMember(dest => dest.toBeWrapped, opt => opt.MapFrom(src => src.toBeWrapped));
+            // Explicitly ignore navigation properties to prevent them from being mapped
+            // .ForMember(dest => dest.toBeWrapped, opt => opt.Ignore());
+
+            CreateMap<Wrapping, WrappingDto>()
+                .ForMember(dest => dest.ShouldBeWrapped, opt => opt.MapFrom(src => src.ShouldBeWrapped))
+                .ForMember(dest => dest.Note, opt => opt.MapFrom(src => src.Note));
+            CreateMap<WrappingDto, Wrapping>()
+                .ForMember(dest => dest.ShouldBeWrapped, opt => opt.MapFrom(src => src.ShouldBeWrapped))
+                .ForMember(dest => dest.Note, opt => opt.MapFrom(src => src.Note));
+
+
         }
 
     }

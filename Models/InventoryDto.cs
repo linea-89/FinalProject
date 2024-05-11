@@ -12,7 +12,7 @@
 
         //  public File Image { get; set; }
 
-        public Wrapping Wrapping { get; set; } = null!;
+        public WrappingDto toBeWrapped { get; set; } = new WrappingDto();
         public bool NotIncluded { get; set; } = false;
     }
 }

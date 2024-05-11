@@ -43,6 +43,9 @@ namespace FinalProject.Data
                 .HasForeignKey(e => e.MoveId)
                 .IsRequired();
 
+            //modelBuilder.Entity<Room>()
+            //    .HasMany(e => e)
+
 
             //modelBuilder.Entity<PrivateMove>().OwnsOne(
             //    pm => pm.Amenities, a =>

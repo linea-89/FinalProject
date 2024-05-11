@@ -18,6 +18,33 @@ namespace FinalProject.Controllers
             _inventoryService = inventoryService;
         }
 
+        [HttpPost]
+        public async Task<IActionResult> AddInventoryItem([FromBody] InventoryDto inventoryDto)
+        {
+            if (inventoryDto == null)
+            {
+                return BadRequest("Add inventory cannot be empty");
+            }
+
+            var result = await _inventoryService.AddInventoryItem(inventoryDto);
+            return CreatedAtAction(nameof(AddInventoryItem), new { id = result.Id }, result);
+        }
+
+        [HttpGet("{roomId}")]
+        public ActionResult<List<InventoryDto>> GetInventoryItem(int roomId)
+        {
+            try
+            {
+                var result = _inventoryService.GetInventoryItem(roomId);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Error in retrieving rooms: {ex.Message}");
+                return Problem("An error occured while retrieving rooms");
+            }
+
+        }
 
 
         [HttpPost("type")]
@@ -32,21 +59,21 @@ namespace FinalProject.Controllers
             return CreatedAtAction(nameof(CreateInventoryType), new { id = result.Id }, result);
         }
 
-       /* [HttpGet("type")]
-        public ActionResult<List<RoomTypeDto>> GetRoomTypes()
+       [HttpGet("type")]
+        public ActionResult<List<InventoryTypeDto>> GetInventoryTypes()
         {
             try
             {
-                var result = _roomService.GetRoomTypes();
+                var result = _inventoryService.GetInventoryTypes();
                 return Ok(result);
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, $"Error in retrieving room types: {ex.Message}");
-                return Problem("An error occured while retrieving room types");
+                _logger.LogError(ex, $"Error in retrieving inventory types: {ex.Message}");
+                return Problem("An error occured while retrieving inventory types");
             }
 
-        }*/
+        }
 
     }
 }
