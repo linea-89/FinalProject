@@ -22,7 +22,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Migrations\" />
+    <Folder Include="Controllers\" />
+    <Folder Include="FloorComponent\Repositories\" />
+    <Folder Include="Data\Migrations\" />
+    <Folder Include="Models\" />
+    <Folder Include="RoomComponent\Repositories\" />
+    <Folder Include="Services\Inventory\" />
+    <Folder Include="Shared\Models\Domain\" />
+    <Folder Include="Shared\Models\Dto\" />
   </ItemGroup>
 
 </Project>

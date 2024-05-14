@@ -1,5 +1,12 @@
 using AutoMapper;
-using FinalProject.Models;
+using FinalProject.FloorComponent.Models.Domain;
+using FinalProject.FloorComponent.Models.Dto;
+using FinalProject.InventoryComponent.Models.Domain;
+using FinalProject.InventoryComponent.Models.Dto;
+using FinalProject.MoveComponent.Models.Domain;
+using FinalProject.MoveComponent.Models.Dto;
+using FinalProject.RoomComponent.Models.Domain;
+using FinalProject.RoomComponent.Models.Dto;
 
 namespace FinalProject
 {

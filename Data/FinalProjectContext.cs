@@ -1,7 +1,10 @@
 using Microsoft.EntityFrameworkCore;
-using FinalProject.Models;
 using System.Runtime.CompilerServices;
 using System.Reflection.Metadata;
+using FinalProject.FloorComponent.Models.Domain;
+using FinalProject.RoomComponent.Models.Domain;
+using FinalProject.MoveComponent.Models.Domain;
+using FinalProject.InventoryComponent.Models.Domain;
 
 namespace FinalProject.Data
 {
@@ -42,20 +45,6 @@ namespace FinalProject.Data
                 .WithOne(e => e.Move)
                 .HasForeignKey(e => e.MoveId)
                 .IsRequired();
-
-            //modelBuilder.Entity<Room>()
-            //    .HasMany(e => e)
-
-
-            //modelBuilder.Entity<PrivateMove>().OwnsOne(
-            //    pm => pm.Amenities, a =>
-            //    {
-            //        a.WithOwner(x => x.Move);
-            //        a.Navigation(x => x.Move).UsePropertyAccessMode(PropertyAccessMode.Property);
-            //        a.OwnsOne(y => y.Elevator);
-            //        a.OwnsOne(y => y.FurnitureLift);
-            //    });
-
 
             base.OnModelCreating(modelBuilder);
         }
