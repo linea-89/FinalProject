@@ -1,7 +1,4 @@
-﻿using FinalProject.FloorComponent.Models.Domain;
-using FinalProject.InventoryComponent.Models.Domain;
-
-namespace FinalProject.RoomComponent.Models.Domain
+﻿namespace FinalProject.Shared.Models.Domain
 {
     public class Room
     {

@@ -1,4 +1,4 @@
-﻿using FinalProject.MoveComponent.Models.Domain;
+﻿using FinalProject.Shared.Models.Domain;
 
 namespace FinalProject.MoveComponent.Repositories
 {

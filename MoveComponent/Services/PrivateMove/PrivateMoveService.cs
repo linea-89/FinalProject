@@ -3,6 +3,7 @@ using FinalProject.Data;
 using FinalProject.MoveComponent.Models.Dto;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using FinalProject.Shared.Models.Domain;
 
 namespace FinalProject.MoveComponent.Services.PrivateMove
 {
@@ -18,9 +19,10 @@ namespace FinalProject.MoveComponent.Services.PrivateMove
             _context = context;
             _mapper = mapper;
         }
+
         public async Task<PrivateMoveDto> CreatePrivateMoveAsync(PrivateMoveDto privateMoveDto)
         {
-            var privateMove = _mapper.Map<Models.Domain.Move>(privateMoveDto);
+            var privateMove = _mapper.Map<Move>(privateMoveDto);
 
             // Add the mapped entity to the context and save
             _context.Moves.Add(privateMove);

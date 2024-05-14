@@ -5,6 +5,7 @@ using FinalProject.FloorComponent.Models.Domain;
 using FinalProject.RoomComponent.Models.Domain;
 using FinalProject.MoveComponent.Models.Domain;
 using FinalProject.InventoryComponent.Models.Domain;
+using FinalProject.Shared.Models.Domain;
 
 namespace FinalProject.Data
 {

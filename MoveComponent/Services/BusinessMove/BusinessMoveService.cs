@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using FinalProject.Data;
 using FinalProject.MoveComponent.Models.Dto;
+using FinalProject.Shared.Models.Domain;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -18,7 +19,7 @@ namespace FinalProject.MoveComponent.Services.BusinessMove
         }
         public async Task<BusinessMoveDto> CreateBusinessMoveAsync(BusinessMoveDto businessMoveDto)
         {
-            var businessMove = _mapper.Map<Models.Domain.Move>(businessMoveDto);
+            var businessMove = _mapper.Map<Move>(businessMoveDto);
 
             // Add the mapped entity to the context and save
             _context.Moves.Add(businessMove);

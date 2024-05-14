@@ -2,6 +2,7 @@
 using FinalProject.Data;
 using FinalProject.InventoryComponent.Models.Domain;
 using FinalProject.InventoryComponent.Models.Dto;
+using FinalProject.Shared.Models.Domain;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 

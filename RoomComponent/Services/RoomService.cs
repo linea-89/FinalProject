@@ -2,6 +2,7 @@
 using FinalProject.Data;
 using FinalProject.RoomComponent.Models.Domain;
 using FinalProject.RoomComponent.Models.Dto;
+using FinalProject.Shared.Models.Domain;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Net.WebSockets;

@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Net.WebSockets;
 using FinalProject.FloorComponent.Models.Domain;
 using FinalProject.FloorComponent.Models.Dto;
+using FinalProject.Shared.Models.Domain;
 
 namespace FinalProject.FloorComponent.Services
 {
@@ -23,7 +24,7 @@ namespace FinalProject.FloorComponent.Services
 
         public async Task<FloorDto> AddFloor(FloorDto floorDto)
         {
-            var floor = _mapper.Map<FinalProject.FloorComponent.Models.Domain.Floor>(floorDto);
+            var floor = _mapper.Map<Floor>(floorDto);
 
             _context.Floors.Add(floor);
             await _context.SaveChangesAsync();

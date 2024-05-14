@@ -1,8 +1,4 @@
-﻿
-using FinalProject.RoomComponent.Models.Domain;
-using FinalProject.MoveComponent.Models.Domain;
-
-namespace FinalProject.FloorComponent.Models.Domain
+﻿namespace FinalProject.Shared.Models.Domain
 {
     public class Floor
     {

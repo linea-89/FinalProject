@@ -1,6 +1,6 @@
-﻿using FinalProject.RoomComponent.Models.Domain;
+﻿using FinalProject.InventoryComponent.Models.Domain;
 
-namespace FinalProject.InventoryComponent.Models.Domain
+namespace FinalProject.Shared.Models.Domain
 {
     public class Inventory
     {

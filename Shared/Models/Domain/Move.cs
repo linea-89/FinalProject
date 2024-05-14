@@ -3,9 +3,9 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Reflection.Metadata;
-using FinalProject.FloorComponent.Models.Domain;
+using FinalProject.MoveComponent.Models.Domain;
 
-namespace FinalProject.MoveComponent.Models.Domain
+namespace FinalProject.Shared.Models.Domain
 {
     public class Move
     {

@@ -7,6 +7,7 @@ using FinalProject.MoveComponent.Models.Domain;
 using FinalProject.MoveComponent.Models.Dto;
 using FinalProject.RoomComponent.Models.Domain;
 using FinalProject.RoomComponent.Models.Dto;
+using FinalProject.Shared.Models.Domain;
 
 namespace FinalProject
 {

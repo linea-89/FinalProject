@@ -1,4 +1,6 @@
-﻿namespace FinalProject.InventoryComponent.Models.Domain
+﻿using FinalProject.Shared.Models.Domain;
+
+namespace FinalProject.InventoryComponent.Models.Domain
 {
     public class Wrapping
     {

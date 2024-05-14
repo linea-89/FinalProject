@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using FinalProject.Data;
-using FinalProject.MoveComponent.Models.Domain;
+using FinalProject.Shared.Models.Domain;
 
 namespace FinalProject.MoveComponent.Repositories
 {
