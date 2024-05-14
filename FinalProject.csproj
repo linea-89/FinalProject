@@ -22,7 +22,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="FloorComponent\Repositories\" />
     <Folder Include="Data\Migrations\" />
     <Folder Include="RoomComponent\Repositories\" />
     <Folder Include="Shared\Models\Dto\" />

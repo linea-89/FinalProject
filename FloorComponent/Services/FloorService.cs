@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using FinalProject.FloorComponent.Models.Domain;
 using FinalProject.FloorComponent.Models.Dto;
 using FinalProject.Shared.Models.Domain;
+using FinalProject.FloorComponent.Repositories;
 
 namespace FinalProject.FloorComponent.Services
 {
@@ -12,35 +13,39 @@ namespace FinalProject.FloorComponent.Services
         private readonly ILogger<FloorService> _logger;
         private readonly IMapper _mapper;
         private readonly FinalProjectContext _context;
+        private readonly IFloorRepository _repository;
 
-        public FloorService(ILogger<FloorService> logger, IMapper mapper, FinalProjectContext context)
+        public FloorService(ILogger<FloorService> logger, IMapper mapper, FinalProjectContext context, IFloorRepository repository)
         {
             _logger = logger;
             _mapper = mapper;
             _context = context;
+            _repository = repository;
         }
 
         public async Task<FloorDto> AddFloor(FloorDto floorDto)
         {
             var floor = _mapper.Map<Floor>(floorDto);
 
-            _context.Floors.Add(floor);
-            await _context.SaveChangesAsync();
+            var addedFloor = await _repository.AddAsync(floor);
 
-            return _mapper.Map<FloorDto>(floor);
+            //_context.Floors.Add(floor);
+            //await _context.SaveChangesAsync();
+
+            return _mapper.Map<FloorDto>(addedFloor);
         }
 
-        public ActionResult<List<FloorDto>> GetFloors(int moveId)
+        public async Task<List<FloorDto>> GetFloorsAsync(int moveId)
         {
-            var floors = _context.Floors.ToList();
+            var floors = await _repository.GetFloors();
 
             // Map the result to the PrivateMoveDto list
-            var result = floors
+            var results = floors
                 .Select(result => _mapper.Map<FloorDto>(result))
                 .Where(x => x.MoveId == moveId)
                 .ToList(); // Materialize the query into a list
 
-            return result;
+            return results;
         }
 
         public ActionResult<FloorDto> GetFloorByIdAsync(int moveId, int id)

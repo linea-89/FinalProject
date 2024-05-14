@@ -42,11 +42,11 @@ namespace FinalProject.FloorComponent.Controllers
         }
 
         [HttpGet("{moveId}")]
-        public ActionResult<List<FloorDto>> GetFloors(int moveId)
+        public async Task<ActionResult<List<FloorDto>>> GetFloors(int moveId)
         {
             try
             {
-                var result = _floorService.GetFloors(moveId);
+                var result = await _floorService.GetFloorsAsync(moveId);
                 return Ok(result);
             }
             catch (Exception ex)
