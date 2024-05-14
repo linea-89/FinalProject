@@ -11,7 +11,7 @@ namespace FinalProject.MoveComponent.Models.Domain
         public bool FurnitureLiftFromAddress { get; set; } = false;
         public bool FurnitureLiftToAddress { get; set; } = false;
 
-        public int MoveId { get; set; } // Required foreign key property
-        public Move Move { get; set; } = null!; // Required reference navigation to principal
+        public int MoveId { get; set; }
+        public Move Move { get; set; } = null!; 
     }
 }

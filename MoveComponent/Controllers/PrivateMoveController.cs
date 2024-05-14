@@ -1,8 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using FinalProject.Data;
@@ -28,7 +23,7 @@ namespace FinalProject.MoveComponent.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> RegisterPrivateMoveNew([FromBody] PrivateMoveDto privateMoveDto)
+        public async Task<IActionResult> RegisterPrivateMove([FromBody] PrivateMoveDto privateMoveDto)
         {
             if (privateMoveDto == null)
             {
@@ -38,7 +33,7 @@ namespace FinalProject.MoveComponent.Controllers
             try
             {
                 var createdPrivateMove = await _privateMoveService.CreatePrivateMoveAsync(privateMoveDto);
-                return CreatedAtAction(nameof(RegisterPrivateMoveNew), new { id = createdPrivateMove.Id }, createdPrivateMove);
+                return CreatedAtAction(nameof(RegisterPrivateMove), new { id = createdPrivateMove.Id }, createdPrivateMove);
             }
             catch (DbUpdateException ex)
             {
@@ -49,11 +44,11 @@ namespace FinalProject.MoveComponent.Controllers
 
         // GET: api/PrivateMoves
         [HttpGet]
-        public ActionResult<List<PrivateMoveDto>> GetPrivateMoves()
+        public async Task<ActionResult<List<PrivateMoveDto>>> GetPrivateMoves()
         {
             try
             {
-                var result = _privateMoveService.GetPrivateMoves();
+                var result = await _privateMoveService.GetPrivateMovesAsync();
                 return Ok(result);
             }
             catch (Exception ex)
@@ -61,7 +56,6 @@ namespace FinalProject.MoveComponent.Controllers
                 _logger.LogError(ex, $"Error in retrieving moves: {ex.Message}");
                 return Problem("An error occured while retrieving moves");
             }
-
         }
 
         // GET: api/PrivateMoves/5
@@ -70,15 +64,12 @@ namespace FinalProject.MoveComponent.Controllers
         {
             try
             {
-
                 var result = await _privateMoveService.GetPrivateMoveByIdAsync(id);
-
 
                 if (result == null)
                 {
                     return NotFound();
                 }
-
 
                 return result;
             }

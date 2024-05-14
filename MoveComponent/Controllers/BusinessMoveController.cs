@@ -1,6 +1,5 @@
 ﻿using FinalProject.MoveComponent.Models.Dto;
 using FinalProject.MoveComponent.Services.BusinessMove;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -37,16 +36,17 @@ namespace FinalProject.MoveComponent.Controllers
             catch (DbUpdateException ex)
             {
                 // Handle the exception based on your specific requirements
+                _logger.LogError(ex, $"Error when saving move: {ex.Message}");
                 return StatusCode(500, "An error occurred while saving to the database.");
             }
         }
 
         [HttpGet]
-        public ActionResult<List<BusinessMoveDto>> GetBusinessMoves()
+        public async Task<ActionResult<List<BusinessMoveDto>>> GetBusinessMoves()
         {
             try
             {
-                var result = _businessMoveService.GetBusinessMoves();
+                var result = await _businessMoveService.GetBusinessMoves();
                 return Ok(result);
             }
             catch (Exception ex)

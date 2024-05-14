@@ -15,10 +15,8 @@ namespace FinalProject.MoveComponent.Models.Domain
         public string Country { get; set; } = string.Empty;
         public string Type { get; set; } = string.Empty;
 
-
-
-        public int MoveId { get; set; } // Required foreign key property
-        public Move Move { get; set; } = null!; // Required reference navigation to principal
+        public int MoveId { get; set; }
+        public Move Move { get; set; } = null!;
 
     }
 }

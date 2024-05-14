@@ -1,8 +1,6 @@
 ﻿using AutoMapper;
 using FinalProject.Data;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using System.Net.WebSockets;
 using FinalProject.FloorComponent.Models.Domain;
 using FinalProject.FloorComponent.Models.Dto;
 using FinalProject.Shared.Models.Domain;

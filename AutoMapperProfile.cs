@@ -26,19 +26,28 @@ namespace FinalProject
                 new()
                 {
                     Street = src.MoveFromAddress.Street,
+                    ZipCode = src.MoveFromAddress.ZipCode,
+                    City = src.MoveFromAddress.City,
+                    Country = src.MoveFromAddress.Country,
                     Type = "MoveFrom" // Custom label for the address type
                 },
                 new()
                 {
                     Street = src.MoveToAddress.Street,
+                    ZipCode = src.MoveToAddress.ZipCode,
+                    City = src.MoveToAddress.City,
+                    Country = src.MoveToAddress.Country,
                     Type = "MoveTo" // Custom label for the address type
                 }
              }));
 
+
+
+
             /*_______________Business Moves mapping -----------------*/
             CreateMap<Move, BusinessMoveDto>()
-                .ForMember(dest => dest.MoveFromAddress, opt => opt.MapFrom(src => src.Addresses.FirstOrDefault(a => a.Type == "MoveFrom")))
-                .ForMember(dest => dest.MoveToAddress, opt => opt.MapFrom(src => src.Addresses.FirstOrDefault(a => a.Type == "MoveTo")));
+                    .ForMember(dest => dest.MoveFromAddress, opt => opt.MapFrom(src => src.Addresses.FirstOrDefault(a => a.Type == "MoveFrom")))
+                    .ForMember(dest => dest.MoveToAddress, opt => opt.MapFrom(src => src.Addresses.FirstOrDefault(a => a.Type == "MoveTo")));
 
             CreateMap<BusinessMoveDto, Move>()
                 .ForMember(dest => dest.Addresses, opt => opt.MapFrom(src => new List<Address>
@@ -69,10 +78,10 @@ namespace FinalProject
             //.ForMember(dest => dest.FurnitureLiftToAddress, opt => opt.MapFrom(src => src.FurnitureLiftToAddress));
 
             CreateMap<Amenities, AmenitiesDto>();
-                //.ForMember(dest => dest.ElevatorFromAddress, opt => opt.MapFrom(src => src.ElevatorFromAddress))
-                //.ForMember(dest => dest.ElevatorToAddress, opt => opt.MapFrom(src => src.ElevatorToAddress))
-                //.ForMember(dest => dest.FurnitureLiftFromAddress, opt => opt.MapFrom(src => src.FurnitureLiftFromAddress))
-                //.ForMember(dest => dest.FurnitureLiftToAddress, opt => opt.MapFrom(src => src.FurnitureLiftToAddress));
+            //.ForMember(dest => dest.ElevatorFromAddress, opt => opt.MapFrom(src => src.ElevatorFromAddress))
+            //.ForMember(dest => dest.ElevatorToAddress, opt => opt.MapFrom(src => src.ElevatorToAddress))
+            //.ForMember(dest => dest.FurnitureLiftFromAddress, opt => opt.MapFrom(src => src.FurnitureLiftFromAddress))
+            //.ForMember(dest => dest.FurnitureLiftToAddress, opt => opt.MapFrom(src => src.FurnitureLiftToAddress));
 
             //____________________Floor mapping__________________
 
@@ -97,14 +106,14 @@ namespace FinalProject
             CreateMap<Room, RoomDto>()
                 .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name))
                 .ForMember(dest => dest.FloorId, opt => opt.MapFrom(src => src.FloorId));
-           
+
             CreateMap<RoomDto, Room>()
                 .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name))
                 .ForMember(dest => dest.FloorId, opt => opt.MapFrom(src => src.FloorId));
 
             CreateMap<RoomType, RoomTypeDto>()
                 .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name));
-            
+
             CreateMap<RoomTypeDto, RoomType>()
                 .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name));
 

@@ -15,9 +15,37 @@ namespace FinalProject.MoveComponent.Repositories
             _context = context;
         }
 
-        public async Task<List<Move>> GetAllMoves()
+        public async Task<Move> AddAsync(Move move)
         {
-            return await _context.Moves.ToListAsync();
+            _context.Moves.Add(move);
+            await _context.SaveChangesAsync();
+            return move;
+        }
+
+        public async Task<List<Move>> GetAllPrivateMovesAsync()
+        {
+            return await _context.Moves
+                .Include(x => x.Addresses)
+                .Include(x => x.Amenities)
+                .Where(x => x.Type == "private")
+                .ToListAsync();
+        }
+
+        public async Task<List<Move>> GetAllBusinessMovesAsync()
+        {
+            return await _context.Moves
+                .Include(x => x.Addresses)
+                .Include(x => x.Amenities)
+                .Where(x => x.Type == "business")
+                .ToListAsync();
+        }
+
+        public async Task<Move> GetByIdAsync(int id)
+        {
+            return await _context.Moves
+                .Include(x => x.Addresses)
+                .Include(x => x.Amenities)
+                .FirstOrDefaultAsync(x => x.Id == id);
         }
     }
 }

@@ -29,12 +29,16 @@ builder.Services.AddControllers().AddJsonOptions(options =>
                 options.JsonSerializerOptions.WriteIndented = true;
             });
 
+//Services
 builder.Services.AddScoped<IPrivateMoveService, PrivateMoveService>();
 builder.Services.AddScoped<IBusinessMoveService, BusinessMoveService>();
 builder.Services.AddScoped<IMoveRepository, MoveRepository>();
 builder.Services.AddScoped<IFloorService, FloorService>();
 builder.Services.AddScoped<IRoomService, RoomService>();
 builder.Services.AddScoped<IInventoryService, InventoryService>();
+
+//Repositories
+builder.Services.AddScoped<IMoveRepository, MoveRepository>();
 
 //builder.Services.AddScoped<IMoveRepository, MoveRepository>();
 
