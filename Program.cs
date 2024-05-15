@@ -1,6 +1,7 @@
 using FinalProject.Data;
 using FinalProject.FloorComponent.Repositories;
 using FinalProject.FloorComponent.Services;
+using FinalProject.InventoryComponent.Repositories;
 using FinalProject.InventoryComponent.Services;
 using FinalProject.MoveComponent.Repositories;
 using FinalProject.MoveComponent.Services.BusinessMove;
@@ -41,6 +42,8 @@ builder.Services.AddScoped<IInventoryService, InventoryService>();
 //Repositories
 builder.Services.AddScoped<IMoveRepository, MoveRepository>();
 builder.Services.AddScoped<IFloorRepository, FloorRepository>();
+builder.Services.AddScoped<IInventoryRepository, InventoryRepository>();
+
 
 //builder.Services.AddScoped<IMoveRepository, MoveRepository>();
 

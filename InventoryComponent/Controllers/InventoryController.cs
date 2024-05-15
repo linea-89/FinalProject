@@ -18,7 +18,7 @@ namespace FinalProject.InventoryComponent.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddInventoryItem([FromBody] InventoryDto inventoryDto)
+        public async Task<ActionResult> AddInventoryItem([FromBody] InventoryDto inventoryDto)
         {
             if (inventoryDto == null)
             {
@@ -30,11 +30,11 @@ namespace FinalProject.InventoryComponent.Controllers
         }
 
         [HttpGet("{roomId}")]
-        public ActionResult<List<InventoryDto>> GetInventoryItem(int roomId)
+        public async Task<ActionResult<List<InventoryDto>>> GetInventoryItem(int roomId)
         {
             try
             {
-                var result = _inventoryService.GetInventoryItem(roomId);
+                var result = await _inventoryService.GetInventoryItem(roomId);
                 return Ok(result);
             }
             catch (Exception ex)
@@ -47,7 +47,7 @@ namespace FinalProject.InventoryComponent.Controllers
 
 
         [HttpPost("type")]
-        public async Task<IActionResult> CreateInventoryType(InventoryTypeDto inventoryTypeDto)
+        public async Task<ActionResult> CreateInventoryType(InventoryTypeDto inventoryTypeDto)
         {
             if (inventoryTypeDto == null)
             {
@@ -59,11 +59,11 @@ namespace FinalProject.InventoryComponent.Controllers
         }
 
         [HttpGet("type")]
-        public ActionResult<List<InventoryTypeDto>> GetInventoryTypes()
+        public async Task<ActionResult<List<InventoryTypeDto>>> GetInventoryTypes()
         {
             try
             {
-                var result = _inventoryService.GetInventoryTypes();
+                var result = await _inventoryService.GetInventoryTypes();
                 return Ok(result);
             }
             catch (Exception ex)
@@ -71,8 +71,6 @@ namespace FinalProject.InventoryComponent.Controllers
                 _logger.LogError(ex, $"Error in retrieving inventory types: {ex.Message}");
                 return Problem("An error occured while retrieving inventory types");
             }
-
         }
-
     }
 }

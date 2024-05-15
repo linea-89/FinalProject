@@ -1,16 +1,14 @@
 ﻿using FinalProject.InventoryComponent.Models.Dto;
-using Microsoft.AspNetCore.Mvc;
 
 namespace FinalProject.InventoryComponent.Services
 {
     public interface IInventoryService
     {
-        public Task<InventoryTypeDto> CreateInventoryType(InventoryTypeDto inventoryTypeDto);
-        public ActionResult<List<InventoryTypeDto>> GetInventoryTypes();
         public Task<InventoryDto> AddInventoryItem(InventoryDto inventoryDto);
+        public Task<List<InventoryDto>> GetInventoryItem(int roomId);
+        public Task<InventoryTypeDto> CreateInventoryType(InventoryTypeDto inventoryTypeDto);
+        public Task<List<InventoryTypeDto>> GetInventoryTypes();
 
-
-        public ActionResult<List<InventoryDto>> GetInventoryItem(int roomId);
 
         /*
         public ActionResult<RoomDto> GetRoomById(int floorId, int id);

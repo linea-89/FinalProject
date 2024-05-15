@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using FinalProject.Data;
 using FinalProject.FloorComponent.Models.Domain;
 using FinalProject.FloorComponent.Models.Dto;
 using FinalProject.Shared.Models.Domain;
@@ -9,13 +8,11 @@ namespace FinalProject.FloorComponent.Services
 {
     public class FloorService : IFloorService
     {
-        private readonly ILogger<FloorService> _logger;
         private readonly IMapper _mapper;
         private readonly IFloorRepository _repository;
 
-        public FloorService(ILogger<FloorService> logger, IMapper mapper, FinalProjectContext context, IFloorRepository repository)
+        public FloorService(IMapper mapper,IFloorRepository repository)
         {
-            _logger = logger;
             _mapper = mapper;
             _repository = repository;
         }
