@@ -1,7 +1,5 @@
 ﻿using AutoMapper;
-using FinalProject.Data;
 using FinalProject.MoveComponent.Models.Dto;
-using Microsoft.AspNetCore.Mvc;
 using FinalProject.Shared.Models.Domain;
 using FinalProject.MoveComponent.Repositories;
 
@@ -9,13 +7,11 @@ namespace FinalProject.MoveComponent.Services.PrivateMove
 {
     public class PrivateMoveService : IPrivateMoveService
     {
-        private readonly ILogger<PrivateMoveService> _logger;
         private readonly IMapper _mapper;
         private readonly IMoveRepository _repository;
 
-        public PrivateMoveService(ILogger<PrivateMoveService> logger, IMapper mapper, IMoveRepository repository)
+        public PrivateMoveService(IMapper mapper, IMoveRepository repository)
         {
-            _logger = logger;
             _mapper = mapper;
             _repository = repository;
         }
@@ -29,7 +25,7 @@ namespace FinalProject.MoveComponent.Services.PrivateMove
             return _mapper.Map<PrivateMoveDto>(addedMove);
         }
 
-        public async Task<ActionResult<List<PrivateMoveDto>>> GetPrivateMovesAsync()
+        public async Task<List<PrivateMoveDto>> GetPrivateMovesAsync()
         {
             var privateMoves = await _repository.GetAllPrivateMovesAsync();
 

@@ -1,7 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using FinalProject.Data;
-using AutoMapper;
 using FinalProject.MoveComponent.Services.PrivateMove;
 using FinalProject.MoveComponent.Models.Dto;
 
@@ -16,14 +14,14 @@ namespace FinalProject.MoveComponent.Controllers
         private readonly ILogger<PrivateMoveController> _logger;
         private readonly IPrivateMoveService _privateMoveService;
 
-        public PrivateMoveController(ILogger<PrivateMoveController> logger, IPrivateMoveService privateMoveService, FinalProjectContext context, IMapper mapper)
+        public PrivateMoveController(ILogger<PrivateMoveController> logger, IPrivateMoveService privateMoveService)
         {
             _logger = logger;
             _privateMoveService = privateMoveService;
         }
 
         [HttpPost]
-        public async Task<IActionResult> RegisterPrivateMove([FromBody] PrivateMoveDto privateMoveDto)
+        public async Task<ActionResult> RegisterPrivateMove([FromBody] PrivateMoveDto privateMoveDto)
         {
             if (privateMoveDto == null)
             {
@@ -42,7 +40,6 @@ namespace FinalProject.MoveComponent.Controllers
             }
         }
 
-        // GET: api/PrivateMoves
         [HttpGet]
         public async Task<ActionResult<List<PrivateMoveDto>>> GetPrivateMoves()
         {
@@ -58,7 +55,6 @@ namespace FinalProject.MoveComponent.Controllers
             }
         }
 
-        // GET: api/PrivateMoves/5
         [HttpGet("{id}")]
         public async Task<ActionResult<PrivateMoveDto>> GetPrivateMove(int id)
         {

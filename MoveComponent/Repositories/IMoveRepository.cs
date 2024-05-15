@@ -1,5 +1,4 @@
 ﻿using FinalProject.Shared.Models.Domain;
-using Microsoft.EntityFrameworkCore;
 
 namespace FinalProject.MoveComponent.Repositories
 {

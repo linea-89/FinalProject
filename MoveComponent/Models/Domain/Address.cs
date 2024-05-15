@@ -1,7 +1,4 @@
-﻿using System.ComponentModel;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Reflection.Metadata;
-using FinalProject.Shared.Models.Domain;
+﻿using FinalProject.Shared.Models.Domain;
 
 namespace FinalProject.MoveComponent.Models.Domain
 {

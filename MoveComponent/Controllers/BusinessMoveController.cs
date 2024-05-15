@@ -21,7 +21,7 @@ namespace FinalProject.MoveComponent.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> RegisterBusinessMove([FromBody] BusinessMoveDto businessMoveDto)
+        public async Task<ActionResult> RegisterBusinessMove([FromBody] BusinessMoveDto businessMoveDto)
         {
             if (businessMoveDto == null)
             {
@@ -35,7 +35,6 @@ namespace FinalProject.MoveComponent.Controllers
             }
             catch (DbUpdateException ex)
             {
-                // Handle the exception based on your specific requirements
                 _logger.LogError(ex, $"Error when saving move: {ex.Message}");
                 return StatusCode(500, "An error occurred while saving to the database.");
             }
