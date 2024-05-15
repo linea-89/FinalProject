@@ -1,15 +1,4 @@
-﻿//using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-
-using Microsoft.EntityFrameworkCore;
-using FinalProject.Data;
-using AutoMapper;
-//using FinalProject.Services.Move;
+﻿using Microsoft.AspNetCore.Mvc;
 using FinalProject.FloorComponent.Models.Dto;
 using FinalProject.FloorComponent.Services;
 
@@ -30,7 +19,7 @@ namespace FinalProject.FloorComponent.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> AddFloor([FromBody] FloorDto floorDto)
+        public async Task<ActionResult> AddFloor([FromBody] FloorDto floorDto)
         {
             if (floorDto == null)
             {
@@ -46,7 +35,7 @@ namespace FinalProject.FloorComponent.Controllers
         {
             try
             {
-                var result = await _floorService.GetFloorsAsync(moveId);
+                var result = await _floorService.GetFloors(moveId);
                 return Ok(result);
             }
             catch (Exception ex)
@@ -54,16 +43,14 @@ namespace FinalProject.FloorComponent.Controllers
                 _logger.LogError(ex, $"Error in retrieving floors: {ex.Message}");
                 return Problem("An error occured while retrieving floors");
             }
-
         }
 
-        //GET: api/PrivateMoves/5
         [HttpGet("{moveId}/{id}")]
-        public ActionResult<ActionResult<FloorDto>> GetFloor(int moveId, int id)
+        public async Task<ActionResult<FloorDto>> GetFloor(int moveId, int id)
         {
             try
             {
-                var result = _floorService.GetFloorByIdAsync(moveId, id);
+                var result = await _floorService.GetFloorById(moveId, id);
 
                 if (result == null)
                 {
@@ -79,9 +66,8 @@ namespace FinalProject.FloorComponent.Controllers
             }
         }
 
-
         [HttpPost("type")]
-        public async Task<IActionResult> createFloorType(FloorTypeDto floorTypeDto)
+        public async Task<ActionResult> createFloorType(FloorTypeDto floorTypeDto)
         {
             if (floorTypeDto == null)
             {
@@ -93,11 +79,11 @@ namespace FinalProject.FloorComponent.Controllers
         }
 
         [HttpGet("type")]
-        public ActionResult<List<FloorTypeDto>> GetFloorTypes()
+        public async Task<ActionResult<List<FloorTypeDto>>> GetFloorTypes()
         {
             try
             {
-                var result = _floorService.GetFloorTypes();
+                var result = await _floorService.GetFloorTypes();
                 return Ok(result);
             }
             catch (Exception ex)
@@ -105,12 +91,7 @@ namespace FinalProject.FloorComponent.Controllers
                 _logger.LogError(ex, $"Error in retrieving floortypes: {ex.Message}");
                 return Problem("An error occured while retrieving floortypes");
             }
-
         }
-
-
-
-
 
     }
 }

@@ -1,16 +1,14 @@
-﻿using FinalProject.FloorComponent.Models.Domain;
-using FinalProject.FloorComponent.Models.Dto;
-using Microsoft.AspNetCore.Mvc;
+﻿using FinalProject.FloorComponent.Models.Dto;
 
 namespace FinalProject.FloorComponent.Services
 {
     public interface IFloorService
     {
         public Task<FloorDto> AddFloor(FloorDto floorDto);
-        public Task<List<FloorDto>> GetFloorsAsync(int moveId);
-        public ActionResult<FloorDto> GetFloorByIdAsync(int moveId, int id);
+        public Task<List<FloorDto>> GetFloors(int moveId);
+        public Task<FloorDto> GetFloorById(int moveId, int id);
         public Task<FloorTypeDto> CreateFloorType(FloorTypeDto floorTypeDto);
-        public ActionResult<List<FloorTypeDto>> GetFloorTypes();
+        public Task<List<FloorTypeDto>> GetFloorTypes();
 
     }
 }
