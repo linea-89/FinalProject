@@ -19,8 +19,7 @@ namespace FinalProject.MoveComponent.Services.BusinessMove
         public async Task<BusinessMoveDto> CreateBusinessMoveAsync(BusinessMoveDto businessMoveDto)
         {
             var businessMove = _mapper.Map<Move>(businessMoveDto);
-
-            var addedMove = await _repository.AddAsync(businessMove);
+            _ = await _repository.AddAsync(businessMove);
 
             return _mapper.Map<BusinessMoveDto>(businessMove);
         }

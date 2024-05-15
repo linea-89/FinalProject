@@ -19,10 +19,9 @@ namespace FinalProject.MoveComponent.Services.PrivateMove
         public async Task<PrivateMoveDto> CreatePrivateMoveAsync(PrivateMoveDto privateMoveDto)
         {
             var privateMove = _mapper.Map<Move>(privateMoveDto);
+            _ = await _repository.AddAsync(privateMove);
 
-            var addedMove = await _repository.AddAsync(privateMove);
-
-            return _mapper.Map<PrivateMoveDto>(addedMove);
+            return _mapper.Map<PrivateMoveDto>(privateMove);
         }
 
         public async Task<List<PrivateMoveDto>> GetPrivateMovesAsync()

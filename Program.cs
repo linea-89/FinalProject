@@ -6,6 +6,7 @@ using FinalProject.InventoryComponent.Services;
 using FinalProject.MoveComponent.Repositories;
 using FinalProject.MoveComponent.Services.BusinessMove;
 using FinalProject.MoveComponent.Services.PrivateMove;
+using FinalProject.RoomComponent.Repositories;
 using FinalProject.RoomComponent.Services;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json.Serialization;
@@ -43,6 +44,7 @@ builder.Services.AddScoped<IInventoryService, InventoryService>();
 builder.Services.AddScoped<IMoveRepository, MoveRepository>();
 builder.Services.AddScoped<IFloorRepository, FloorRepository>();
 builder.Services.AddScoped<IInventoryRepository, InventoryRepository>();
+builder.Services.AddScoped<IRoomRepository, RoomRepository>();
 
 
 //builder.Services.AddScoped<IMoveRepository, MoveRepository>();

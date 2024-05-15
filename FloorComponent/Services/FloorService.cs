@@ -11,7 +11,7 @@ namespace FinalProject.FloorComponent.Services
         private readonly IMapper _mapper;
         private readonly IFloorRepository _repository;
 
-        public FloorService(IMapper mapper,IFloorRepository repository)
+        public FloorService(IMapper mapper, IFloorRepository repository)
         {
             _mapper = mapper;
             _repository = repository;
@@ -20,9 +20,9 @@ namespace FinalProject.FloorComponent.Services
         public async Task<FloorDto> AddFloor(FloorDto floorDto)
         {
             var floor = _mapper.Map<Floor>(floorDto);
-            var addedFloor = await _repository.AddFloorAsync(floor);
+            _ = await _repository.AddFloorAsync(floor);
 
-            return _mapper.Map<FloorDto>(addedFloor);
+            return _mapper.Map<FloorDto>(floor);
         }
 
         public async Task<List<FloorDto>> GetFloors(int moveId)
@@ -55,8 +55,7 @@ namespace FinalProject.FloorComponent.Services
         public async Task<FloorTypeDto> CreateFloorType(FloorTypeDto floorTypeDto)
         {
             var floorType = _mapper.Map<FloorType>(floorTypeDto);
-
-            var addedFloorType = await _repository.CreateFloorTypeAsync(floorType);
+            _ = await _repository.CreateFloorTypeAsync(floorType);
 
             return _mapper.Map<FloorTypeDto>(floorType);
         }

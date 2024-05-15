@@ -21,7 +21,7 @@ namespace FinalProject.InventoryComponent.Services
         public async Task<InventoryDto> AddInventoryItem(InventoryDto inventoryDto)
         {
             var item = _mapper.Map<Inventory>(inventoryDto);
-            var result = await _repository.AddInventoryItemAsync(item);
+            _ = await _repository.AddInventoryItemAsync(item);
 
             return _mapper.Map<InventoryDto>(item);
         }
@@ -38,7 +38,7 @@ namespace FinalProject.InventoryComponent.Services
         {
             var inventoryType = _mapper.Map<InventoryType>(inventoryTypeDto);
 
-            var addedInventoryType = await _repository.CreateInventoryTypeAsync(inventoryType);
+            _ = await _repository.CreateInventoryTypeAsync(inventoryType);
 
             return _mapper.Map<InventoryTypeDto>(inventoryType);
         }
