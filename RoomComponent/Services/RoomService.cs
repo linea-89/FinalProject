@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
+using FinalProject.Repositories.Interfaces;
 using FinalProject.RoomComponent.Models.Domain;
 using FinalProject.RoomComponent.Models.Dto;
-using FinalProject.RoomComponent.Repositories;
 using FinalProject.Shared.Models.Domain;
 
 namespace FinalProject.RoomComponent.Services

@@ -1,9 +1,10 @@
 ﻿using FinalProject.Data;
+using FinalProject.Repositories.Interfaces;
 using FinalProject.RoomComponent.Models.Domain;
 using FinalProject.Shared.Models.Domain;
 using Microsoft.EntityFrameworkCore;
 
-namespace FinalProject.RoomComponent.Repositories
+namespace FinalProject.Repositories
 {
     public class RoomRepository : IRoomRepository
     {

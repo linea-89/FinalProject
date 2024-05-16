@@ -1,7 +1,7 @@
 ﻿using FinalProject.InventoryComponent.Models.Domain;
 using FinalProject.Shared.Models.Domain;
 
-namespace FinalProject.InventoryComponent.Repositories
+namespace FinalProject.Repositories.Interfaces
 {
     public interface IInventoryRepository
     {

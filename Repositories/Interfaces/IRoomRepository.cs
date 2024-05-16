@@ -1,7 +1,7 @@
 ﻿using FinalProject.RoomComponent.Models.Domain;
 using FinalProject.Shared.Models.Domain;
 
-namespace FinalProject.RoomComponent.Repositories
+namespace FinalProject.Repositories.Interfaces
 {
     public interface IRoomRepository
     {

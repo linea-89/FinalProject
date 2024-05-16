@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using FinalProject.MoveComponent.Models.Dto;
-using FinalProject.MoveComponent.Repositories;
+using FinalProject.Repositories.Interfaces;
 using FinalProject.Shared.Models.Domain;
 using Microsoft.AspNetCore.Mvc;
 

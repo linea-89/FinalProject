@@ -1,6 +1,6 @@
 ﻿using FinalProject.Shared.Models.Domain;
 
-namespace FinalProject.MoveComponent.Repositories
+namespace FinalProject.Repositories.Interfaces
 {
     public interface IMoveRepository
     {

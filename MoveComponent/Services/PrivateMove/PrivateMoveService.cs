@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using FinalProject.MoveComponent.Models.Dto;
 using FinalProject.Shared.Models.Domain;
-using FinalProject.MoveComponent.Repositories;
+using FinalProject.Repositories.Interfaces;
 
 namespace FinalProject.MoveComponent.Services.PrivateMove
 {

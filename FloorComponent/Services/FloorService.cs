@@ -2,7 +2,7 @@
 using FinalProject.FloorComponent.Models.Domain;
 using FinalProject.FloorComponent.Models.Dto;
 using FinalProject.Shared.Models.Domain;
-using FinalProject.FloorComponent.Repositories;
+using FinalProject.Repositories.Interfaces;
 
 namespace FinalProject.FloorComponent.Services
 {

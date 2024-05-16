@@ -1,8 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using FinalProject.Data;
 using FinalProject.Shared.Models.Domain;
+using FinalProject.Repositories.Interfaces;
 
-namespace FinalProject.MoveComponent.Repositories
+namespace FinalProject.Repositories
 {
 
     //the repository pattern

@@ -1,9 +1,10 @@
 ﻿using FinalProject.Data;
 using FinalProject.FloorComponent.Models.Domain;
+using FinalProject.Repositories.Interfaces;
 using FinalProject.Shared.Models.Domain;
 using Microsoft.EntityFrameworkCore;
 
-namespace FinalProject.FloorComponent.Repositories
+namespace FinalProject.Repositories
 {
     public class FloorRepository : IFloorRepository
     {

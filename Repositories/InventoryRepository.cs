@@ -1,9 +1,10 @@
 ﻿using FinalProject.Data;
 using FinalProject.InventoryComponent.Models.Domain;
+using FinalProject.Repositories.Interfaces;
 using FinalProject.Shared.Models.Domain;
 using Microsoft.EntityFrameworkCore;
 
-namespace FinalProject.InventoryComponent.Repositories
+namespace FinalProject.Repositories
 {
     public class InventoryRepository : IInventoryRepository
     {

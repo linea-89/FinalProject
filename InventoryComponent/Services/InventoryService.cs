@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using FinalProject.InventoryComponent.Models.Domain;
 using FinalProject.InventoryComponent.Models.Dto;
-using FinalProject.InventoryComponent.Repositories;
+using FinalProject.Repositories.Interfaces;
 using FinalProject.Shared.Models.Domain;
 
 

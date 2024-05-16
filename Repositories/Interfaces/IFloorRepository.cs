@@ -1,7 +1,7 @@
 ﻿using FinalProject.FloorComponent.Models.Domain;
 using FinalProject.Shared.Models.Domain;
 
-namespace FinalProject.FloorComponent.Repositories
+namespace FinalProject.Repositories.Interfaces
 {
     public interface IFloorRepository
     {

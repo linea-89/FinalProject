@@ -1,12 +1,10 @@
 using FinalProject.Data;
-using FinalProject.FloorComponent.Repositories;
 using FinalProject.FloorComponent.Services;
-using FinalProject.InventoryComponent.Repositories;
 using FinalProject.InventoryComponent.Services;
-using FinalProject.MoveComponent.Repositories;
 using FinalProject.MoveComponent.Services.BusinessMove;
 using FinalProject.MoveComponent.Services.PrivateMove;
-using FinalProject.RoomComponent.Repositories;
+using FinalProject.Repositories;
+using FinalProject.Repositories.Interfaces;
 using FinalProject.RoomComponent.Services;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json.Serialization;

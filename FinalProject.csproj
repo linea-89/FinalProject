@@ -23,7 +23,7 @@
 
   <ItemGroup>
     <Folder Include="Data\Migrations\" />
-    <Folder Include="Shared\Models\Dto\" />
+    <Folder Include="Shared\SharedModels\Dto\" />
   </ItemGroup>
 
 </Project>
