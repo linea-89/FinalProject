@@ -1,4 +1,4 @@
-﻿using FinalProject.MoveComponent.Models.Dto;
+﻿using FinalProject.MoveComponent.Dto;
 using FinalProject.MoveComponent.Services.BusinessMove;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;

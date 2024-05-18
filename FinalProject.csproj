@@ -23,6 +23,10 @@
 
   <ItemGroup>
     <Folder Include="Data\Migrations\" />
+    <Folder Include="Models\Domain\" />
+    <Folder Include="Models\Dto\" />
+    <Folder Include="Models\Interfaces\" />
+    <Folder Include="Shared\SharedModels\Domain\" />
     <Folder Include="Shared\SharedModels\Dto\" />
   </ItemGroup>
 

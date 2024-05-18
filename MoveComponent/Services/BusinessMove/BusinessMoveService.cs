@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
-using FinalProject.MoveComponent.Models.Dto;
-using FinalProject.Repositories.Interfaces;
-using FinalProject.Shared.Models.Domain;
+using FinalProject.Models.MoveModels;
+using FinalProject.MoveComponent.Dto;
+using FinalProject.Shared.RepositoryInterfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FinalProject.MoveComponent.Services.BusinessMove

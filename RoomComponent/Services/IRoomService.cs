@@ -1,4 +1,4 @@
-﻿using FinalProject.RoomComponent.Models.Dto;
+﻿using FinalProject.RoomComponent.Dto;
 
 namespace FinalProject.RoomComponent.Services
 {

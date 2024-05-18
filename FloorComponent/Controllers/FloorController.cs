@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using FinalProject.FloorComponent.Models.Dto;
 using FinalProject.FloorComponent.Services;
+using FinalProject.FloorComponent.Dto;
 
 namespace FinalProject.FloorComponent.Controllers
 {

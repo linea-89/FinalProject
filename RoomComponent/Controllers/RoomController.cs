@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using FinalProject.RoomComponent.Services;
-using FinalProject.RoomComponent.Models.Dto;
+using FinalProject.RoomComponent.Dto;
 
 namespace FinalProject.RoomComponent.Controllers
 {

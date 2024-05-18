@@ -1,12 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using FinalProject.Data;
-using FinalProject.Shared.Models.Domain;
-using FinalProject.Repositories.Interfaces;
+using FinalProject.Models.MoveModels;
+using FinalProject.Shared.ModelInterfaces;
+using FinalProject.Shared.RepositoryInterfaces;
 
 namespace FinalProject.Repositories
 {
 
-    //the repository pattern
     public class MoveRepository : IMoveRepository
     {
         private readonly FinalProjectContext _context;
@@ -16,37 +16,38 @@ namespace FinalProject.Repositories
             _context = context;
         }
 
-        public async Task<Move> AddAsync(Move move)
+        public async Task<IMove> AddAsync(IMove move)
         {
-            _context.Moves.Add(move);
+            var moveEntity = move as Move;
+            _ = _context.Moves.Add(moveEntity);
             await _context.SaveChangesAsync();
-            return move;
+            return moveEntity;
         }
 
-        public async Task<List<Move>> GetAllPrivateMovesAsync()
+        public async Task<List<IMove>> GetAllPrivateMovesAsync()
         {
             return await _context.Moves
                 .Include(x => x.Addresses)
                 .Include(x => x.Amenities)
                 .Where(x => x.Type == "private")
-                .ToListAsync();
+                .ToListAsync<IMove>();
         }
 
-        public async Task<List<Move>> GetAllBusinessMovesAsync()
+        public async Task<List<IMove>> GetAllBusinessMovesAsync()
         {
             return await _context.Moves
                 .Include(x => x.Addresses)
                 .Include(x => x.Amenities)
                 .Where(x => x.Type == "business")
-                .ToListAsync();
+                .ToListAsync<IMove>();
         }
 
-        public async Task<Move> GetByIdAsync(int id)
+        public async Task<IMove> GetByIdAsync(int id)
         {
             return await _context.Moves
                 .Include(x => x.Addresses)
                 .Include(x => x.Amenities)
-                .FirstOrDefaultAsync(x => x.Id == id);
+                .FirstOrDefaultAsync<IMove>(x => x.Id == id);
         }
     }
 }

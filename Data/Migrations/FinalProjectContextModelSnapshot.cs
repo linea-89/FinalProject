@@ -17,160 +17,12 @@ namespace FinalProject.Data.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.18")
+                .HasAnnotation("ProductVersion", "8.0.5")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("FinalProject.FloorComponent.Models.Domain.FloorType", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("FloorTypes");
-                });
-
-            modelBuilder.Entity("FinalProject.InventoryComponent.Models.Domain.InventoryType", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<float>("Volume")
-                        .HasColumnType("real");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("InventoryTypes");
-                });
-
-            modelBuilder.Entity("FinalProject.InventoryComponent.Models.Domain.Wrapping", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("InventoryId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Note")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("ShouldBeWrapped")
-                        .HasColumnType("bit");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("InventoryId")
-                        .IsUnique();
-
-                    b.ToTable("Wrapping");
-                });
-
-            modelBuilder.Entity("FinalProject.MoveComponent.Models.Domain.Address", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("City")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Country")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("MoveId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Street")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Type")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("ZipCode")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("MoveId");
-
-                    b.ToTable("Addresses");
-                });
-
-            modelBuilder.Entity("FinalProject.MoveComponent.Models.Domain.Amenities", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<bool>("ElevatorFromAddress")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("ElevatorToAddress")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("FurnitureLiftFromAddress")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("FurnitureLiftToAddress")
-                        .HasColumnType("bit");
-
-                    b.Property<int>("MoveId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("MoveId")
-                        .IsUnique();
-
-                    b.ToTable("Amenities");
-                });
-
-            modelBuilder.Entity("FinalProject.RoomComponent.Models.Domain.RoomType", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("RoomTypes");
-                });
-
-            modelBuilder.Entity("FinalProject.Shared.Models.Domain.Floor", b =>
+            modelBuilder.Entity("FinalProject.Models.FloorModels.Floor", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -195,7 +47,24 @@ namespace FinalProject.Data.Migrations
                     b.ToTable("Floors");
                 });
 
-            modelBuilder.Entity("FinalProject.Shared.Models.Domain.Inventory", b =>
+            modelBuilder.Entity("FinalProject.Models.FloorModels.FloorType", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("FloorTypes");
+                });
+
+            modelBuilder.Entity("FinalProject.Models.InventoryModels.Inventory", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -232,7 +101,121 @@ namespace FinalProject.Data.Migrations
                     b.ToTable("Inventory");
                 });
 
-            modelBuilder.Entity("FinalProject.Shared.Models.Domain.Move", b =>
+            modelBuilder.Entity("FinalProject.Models.InventoryModels.InventoryType", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<float>("Volume")
+                        .HasColumnType("real");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("InventoryTypes");
+                });
+
+            modelBuilder.Entity("FinalProject.Models.InventoryModels.Wrapping", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("InventoryId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Note")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("ShouldBeWrapped")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("InventoryId")
+                        .IsUnique();
+
+                    b.ToTable("Wrapping");
+                });
+
+            modelBuilder.Entity("FinalProject.Models.MoveModels.Address", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("City")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Country")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("MoveId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Street")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ZipCode")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MoveId");
+
+                    b.ToTable("Addresses");
+                });
+
+            modelBuilder.Entity("FinalProject.Models.MoveModels.Amenities", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<bool>("ElevatorFromAddress")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("ElevatorToAddress")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("FurnitureLiftFromAddress")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("FurnitureLiftToAddress")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("MoveId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MoveId")
+                        .IsUnique();
+
+                    b.ToTable("Amenities");
+                });
+
+            modelBuilder.Entity("FinalProject.Models.MoveModels.Move", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -296,7 +279,7 @@ namespace FinalProject.Data.Migrations
                     b.ToTable("Moves");
                 });
 
-            modelBuilder.Entity("FinalProject.Shared.Models.Domain.Room", b =>
+            modelBuilder.Entity("FinalProject.Models.RoomModels.Room", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -318,42 +301,26 @@ namespace FinalProject.Data.Migrations
                     b.ToTable("Rooms");
                 });
 
-            modelBuilder.Entity("FinalProject.InventoryComponent.Models.Domain.Wrapping", b =>
+            modelBuilder.Entity("FinalProject.Models.RoomModels.RoomType", b =>
                 {
-                    b.HasOne("FinalProject.Shared.Models.Domain.Inventory", "Inventory")
-                        .WithOne("toBeWrapped")
-                        .HasForeignKey("FinalProject.InventoryComponent.Models.Domain.Wrapping", "InventoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
 
-                    b.Navigation("Inventory");
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("RoomTypes");
                 });
 
-            modelBuilder.Entity("FinalProject.MoveComponent.Models.Domain.Address", b =>
+            modelBuilder.Entity("FinalProject.Models.FloorModels.Floor", b =>
                 {
-                    b.HasOne("FinalProject.Shared.Models.Domain.Move", "Move")
-                        .WithMany("Addresses")
-                        .HasForeignKey("MoveId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Move");
-                });
-
-            modelBuilder.Entity("FinalProject.MoveComponent.Models.Domain.Amenities", b =>
-                {
-                    b.HasOne("FinalProject.Shared.Models.Domain.Move", "Move")
-                        .WithOne("Amenities")
-                        .HasForeignKey("FinalProject.MoveComponent.Models.Domain.Amenities", "MoveId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Move");
-                });
-
-            modelBuilder.Entity("FinalProject.Shared.Models.Domain.Floor", b =>
-                {
-                    b.HasOne("FinalProject.Shared.Models.Domain.Move", "Move")
+                    b.HasOne("FinalProject.Models.MoveModels.Move", "Move")
                         .WithMany("Floors")
                         .HasForeignKey("MoveId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -362,9 +329,9 @@ namespace FinalProject.Data.Migrations
                     b.Navigation("Move");
                 });
 
-            modelBuilder.Entity("FinalProject.Shared.Models.Domain.Inventory", b =>
+            modelBuilder.Entity("FinalProject.Models.InventoryModels.Inventory", b =>
                 {
-                    b.HasOne("FinalProject.Shared.Models.Domain.Room", "Room")
+                    b.HasOne("FinalProject.Models.RoomModels.Room", "Room")
                         .WithMany("Inventories")
                         .HasForeignKey("RoomId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -373,9 +340,42 @@ namespace FinalProject.Data.Migrations
                     b.Navigation("Room");
                 });
 
-            modelBuilder.Entity("FinalProject.Shared.Models.Domain.Room", b =>
+            modelBuilder.Entity("FinalProject.Models.InventoryModels.Wrapping", b =>
                 {
-                    b.HasOne("FinalProject.Shared.Models.Domain.Floor", "Floor")
+                    b.HasOne("FinalProject.Models.InventoryModels.Inventory", "Inventory")
+                        .WithOne("toBeWrapped")
+                        .HasForeignKey("FinalProject.Models.InventoryModels.Wrapping", "InventoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Inventory");
+                });
+
+            modelBuilder.Entity("FinalProject.Models.MoveModels.Address", b =>
+                {
+                    b.HasOne("FinalProject.Models.MoveModels.Move", "Move")
+                        .WithMany("Addresses")
+                        .HasForeignKey("MoveId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Move");
+                });
+
+            modelBuilder.Entity("FinalProject.Models.MoveModels.Amenities", b =>
+                {
+                    b.HasOne("FinalProject.Models.MoveModels.Move", "Move")
+                        .WithOne("Amenities")
+                        .HasForeignKey("FinalProject.Models.MoveModels.Amenities", "MoveId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Move");
+                });
+
+            modelBuilder.Entity("FinalProject.Models.RoomModels.Room", b =>
+                {
+                    b.HasOne("FinalProject.Models.FloorModels.Floor", "Floor")
                         .WithMany("Rooms")
                         .HasForeignKey("FloorId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -384,18 +384,18 @@ namespace FinalProject.Data.Migrations
                     b.Navigation("Floor");
                 });
 
-            modelBuilder.Entity("FinalProject.Shared.Models.Domain.Floor", b =>
+            modelBuilder.Entity("FinalProject.Models.FloorModels.Floor", b =>
                 {
                     b.Navigation("Rooms");
                 });
 
-            modelBuilder.Entity("FinalProject.Shared.Models.Domain.Inventory", b =>
+            modelBuilder.Entity("FinalProject.Models.InventoryModels.Inventory", b =>
                 {
                     b.Navigation("toBeWrapped")
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("FinalProject.Shared.Models.Domain.Move", b =>
+            modelBuilder.Entity("FinalProject.Models.MoveModels.Move", b =>
                 {
                     b.Navigation("Addresses");
 
@@ -405,7 +405,7 @@ namespace FinalProject.Data.Migrations
                     b.Navigation("Floors");
                 });
 
-            modelBuilder.Entity("FinalProject.Shared.Models.Domain.Room", b =>
+            modelBuilder.Entity("FinalProject.Models.RoomModels.Room", b =>
                 {
                     b.Navigation("Inventories");
                 });

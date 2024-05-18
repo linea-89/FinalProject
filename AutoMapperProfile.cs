@@ -1,13 +1,13 @@
 using AutoMapper;
-using FinalProject.FloorComponent.Models.Domain;
-using FinalProject.FloorComponent.Models.Dto;
-using FinalProject.InventoryComponent.Models.Domain;
-using FinalProject.InventoryComponent.Models.Dto;
-using FinalProject.MoveComponent.Models.Domain;
-using FinalProject.MoveComponent.Models.Dto;
-using FinalProject.RoomComponent.Models.Domain;
-using FinalProject.RoomComponent.Models.Dto;
-using FinalProject.Shared.Models.Domain;
+using FinalProject.FloorComponent.Dto;
+using FinalProject.InventoryComponent.Dto;
+using FinalProject.Models.FloorModels;
+using FinalProject.Models.InventoryModels;
+using FinalProject.Models.MoveModels;
+using FinalProject.Models.RoomModels;
+using FinalProject.MoveComponent.Dto;
+using FinalProject.RoomComponent.Dto;
+using FinalProject.Shared.ModelInterfaces;
 
 namespace FinalProject
 {
@@ -111,10 +111,24 @@ namespace FinalProject
                 .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name))
                 .ForMember(dest => dest.FloorId, opt => opt.MapFrom(src => src.FloorId));
 
+            CreateMap<IRoom, RoomDto>()
+               .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name))
+               .ForMember(dest => dest.FloorId, opt => opt.MapFrom(src => src.FloorId));
+
+            CreateMap<RoomDto, IRoom>()
+                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name))
+                .ForMember(dest => dest.FloorId, opt => opt.MapFrom(src => src.FloorId));
+
             CreateMap<RoomType, RoomTypeDto>()
                 .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name));
 
             CreateMap<RoomTypeDto, RoomType>()
+                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name));
+
+            CreateMap<IRoomType, RoomTypeDto>()
+                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name));
+
+            CreateMap<RoomTypeDto, IRoomType>()
                 .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name));
 
             //____________________Inventory mapping__________________

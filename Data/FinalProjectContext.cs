@@ -1,11 +1,8 @@
 using Microsoft.EntityFrameworkCore;
-using System.Runtime.CompilerServices;
-using System.Reflection.Metadata;
-using FinalProject.FloorComponent.Models.Domain;
-using FinalProject.RoomComponent.Models.Domain;
-using FinalProject.MoveComponent.Models.Domain;
-using FinalProject.InventoryComponent.Models.Domain;
-using FinalProject.Shared.Models.Domain;
+using FinalProject.Models.MoveModels;
+using FinalProject.Models.FloorModels;
+using FinalProject.Models.InventoryModels;
+using FinalProject.Models.RoomModels;
 
 namespace FinalProject.Data
 {

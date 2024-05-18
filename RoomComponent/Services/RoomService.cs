@@ -1,74 +1,64 @@
-﻿using AutoMapper;
-using FinalProject.Repositories.Interfaces;
-using FinalProject.RoomComponent.Models.Domain;
-using FinalProject.RoomComponent.Models.Dto;
-using FinalProject.Shared.Models.Domain;
+﻿using FinalProject.RoomComponent.Dto;
+using FinalProject.Shared.RepositoryInterfaces;
+using FinalProject.Shared.MapperInterfaces;
 
 namespace FinalProject.RoomComponent.Services
 {
     public class RoomService : IRoomService
     {
-        private readonly IMapper _mapper;
         private readonly IRoomRepository _repository;
+        private readonly IRoomMapper _roomMapper;
 
-        public RoomService(IMapper mapper, IRoomRepository repository)
+        public RoomService(IRoomRepository repository, IRoomMapper roomMapper)
         {
-            _mapper = mapper;
             _repository = repository;
+            _roomMapper = roomMapper;
         }
 
         public async Task<RoomDto> AddRoom(RoomDto roomDto)
         {
-            var room = _mapper.Map<Room>(roomDto);
+            var room = _roomMapper.MapAddedRoom(roomDto);
             _ = await _repository.AddRoomAsync(room);
 
-            return _mapper.Map<RoomDto>(room);
+            return _roomMapper.MapRoomResponse(room);
         }
 
         public async Task<List<RoomDto>> GetRooms(int floorId)
         {
-            var rooms = await _repository.GetRoomsAsync();
+            var rooms = await _repository.GetRoomsAsync(floorId);
+            var mappedResult = _roomMapper.MapRoomsRespons(rooms);
 
-            var result = rooms
-                .Select(result => _mapper.Map<RoomDto>(result))
-                .Where(x => x.FloorId == floorId)
-                .ToList();
-
-            return result;
+            return mappedResult;
         }
 
         public async Task<RoomDto> GetRoomById(int floorId, int id)
         {
-            var room = await _repository.GetRoomsAsync();
+            var room = await _repository.GetRoomByIdAsync(floorId, id);
 
-            var result = room.Select(result => _mapper.Map<RoomDto>(result))
-                .Where(x => x.FloorId == floorId).FirstOrDefault(x => x.Id == id);
-
-            if (result == null)
+            if (room == null)
             {
                 return null;
             }
 
-            return result;
+            var mappedResult = _roomMapper.MapRoomResponse(room);
+
+            return mappedResult;
         }
 
         public async Task<RoomTypeDto> CreateRoomType(RoomTypeDto roomTypeDto)
         {
-            var roomType = _mapper.Map<RoomType>(roomTypeDto);
+            var roomType = _roomMapper.MapCreatedRoomType(roomTypeDto);
             _ = await _repository.CreateRoomTypeAsync(roomType);
 
-            return _mapper.Map<RoomTypeDto>(roomType);
+            return _roomMapper.MapRoomTypeResponse(roomType);
         }
 
         public async Task<List<RoomTypeDto>> GetRoomTypes()
         {
             var roomTypes = await _repository.GetRoomTypesAsync();
+            var mappedResult = _roomMapper.MapRoomTypeRespons(roomTypes);
 
-            var result = roomTypes
-                .Select(result => _mapper.Map<RoomTypeDto>(result))
-                .ToList();
-
-            return result;
+            return mappedResult;
         }
 
     }

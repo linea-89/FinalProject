@@ -1,12 +1,12 @@
-﻿using FinalProject.MoveComponent.Models.Dto;
+﻿using FinalProject.MoveComponent.Dto;
 
 namespace FinalProject.MoveComponent.Services.PrivateMove
 {
     public interface IPrivateMoveService
     {
-        public Task<PrivateMoveDto> CreatePrivateMoveAsync(PrivateMoveDto privateMoveDto);
-        public Task<List<PrivateMoveDto>> GetPrivateMovesAsync();
-        public Task<PrivateMoveDto> GetPrivateMoveByIdAsync(int id);
+        public Task<PrivateMoveDto> CreatePrivateMove(PrivateMoveDto privateMoveDto);
+        public Task<List<PrivateMoveDto>> GetPrivateMoves();
+        public Task<PrivateMoveDto> GetPrivateMoveById(int id);
 
     }
 }

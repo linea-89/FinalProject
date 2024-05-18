@@ -1,57 +1,59 @@
-﻿using AutoMapper;
-using FinalProject.InventoryComponent.Models.Domain;
-using FinalProject.InventoryComponent.Models.Dto;
-using FinalProject.Repositories.Interfaces;
-using FinalProject.Shared.Models.Domain;
+﻿using FinalProject.InventoryComponent.Dto;
+using FinalProject.Shared.MapperInterfaces;
+using FinalProject.Shared.RepositoryInterfaces;
+
 
 
 namespace FinalProject.InventoryComponent.Services
 {
     public class InventoryService : IInventoryService
     {
-        private readonly IMapper _mapper;
         private readonly IInventoryRepository _repository;
+        private readonly IInventoryMapper _inventoryMapper;
 
-        public InventoryService(IMapper mapper, IInventoryRepository repository)
+        public InventoryService(IInventoryRepository repository, IInventoryMapper inventoryMapper)
         {
-            _mapper = mapper;
             _repository = repository;
+            _inventoryMapper = inventoryMapper;
         }
 
         public async Task<InventoryDto> AddInventoryItem(InventoryDto inventoryDto)
         {
-            var item = _mapper.Map<Inventory>(inventoryDto);
+            var item = _inventoryMapper.MapAddedInventory(inventoryDto);
             _ = await _repository.AddInventoryItemAsync(item);
 
-            return _mapper.Map<InventoryDto>(item);
+            return _inventoryMapper.MapInventoryResponse(item);
         }
 
-        public async Task<List<InventoryDto>> GetInventoryItem(int roomId)
+        public async Task<List<InventoryDto>> GetInventoryItems(int roomId)
         {
-            var items = await _repository.GetInventoryItemAsync(roomId);
-            var result = _mapper.Map<List<InventoryDto>>(items);
+            var items = await _repository.GetInventoryItemsAsync(roomId);
+
+            if (items == null)
+            {
+                return null;
+            }
+            
+            var result = _inventoryMapper.MapInventoryItemsResponse(items);
 
             return result;
         }
 
         public async Task<InventoryTypeDto> CreateInventoryType(InventoryTypeDto inventoryTypeDto)
         {
-            var inventoryType = _mapper.Map<InventoryType>(inventoryTypeDto);
+            var inventoryType = _inventoryMapper.MapCreatedInventoryType(inventoryTypeDto);
 
             _ = await _repository.CreateInventoryTypeAsync(inventoryType);
 
-            return _mapper.Map<InventoryTypeDto>(inventoryType);
+            return _inventoryMapper.MapInventoryTypeResponse(inventoryType);
         }
 
         public async Task<List<InventoryTypeDto>> GetInventoryTypes()
         {
             var inventoryTypes = await _repository.GetInventoryTypesAsync();
+            var mappedResult = _inventoryMapper.MapInventoryTypeRespons(inventoryTypes);
 
-            var result = inventoryTypes
-                .Select(result => _mapper.Map<InventoryTypeDto>(result))
-                .ToList();
-
-            return result;
+            return mappedResult;
         }
     }
 }

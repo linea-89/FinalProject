@@ -1,4 +1,4 @@
-﻿using FinalProject.FloorComponent.Models.Dto;
+﻿using FinalProject.FloorComponent.Dto;
 
 namespace FinalProject.FloorComponent.Services
 {

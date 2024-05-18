@@ -1,8 +1,9 @@
 ﻿using FinalProject.Data;
-using FinalProject.InventoryComponent.Models.Domain;
-using FinalProject.Repositories.Interfaces;
-using FinalProject.Shared.Models.Domain;
+using FinalProject.Models.InventoryModels;
+using FinalProject.Shared.ModelInterfaces;
 using Microsoft.EntityFrameworkCore;
+using FinalProject.Models.MoveModels;
+using FinalProject.Shared.RepositoryInterfaces;
 
 namespace FinalProject.Repositories
 {
@@ -14,32 +15,34 @@ namespace FinalProject.Repositories
             _context = context;
         }
 
-        public async Task<Inventory> AddInventoryItemAsync(Inventory inventory)
+        public async Task<IInventory> AddInventoryItemAsync(IInventory inventory)
         {
-            _context.Inventory.Add(inventory);
+            var inventoryEntity = inventory as Inventory;
+            _ = _context.Inventory.Add(inventoryEntity);
             await _context.SaveChangesAsync();
 
-            return inventory;
+            return inventoryEntity;
         }
 
-        public async Task<List<Inventory>> GetInventoryItemAsync(int roomId)
+        public async Task<List<IInventory>> GetInventoryItemsAsync(int roomId)
         {
             return await _context.Inventory
                 .Where(x => x.RoomId == roomId)
-                .ToListAsync();
+                .ToListAsync<IInventory>();
         }
 
-        public async Task<InventoryType> CreateInventoryTypeAsync(InventoryType inventoryType)
+        public async Task<IInventoryType> CreateInventoryTypeAsync(IInventoryType inventoryType)
         {
-            _context.InventoryTypes.Add(inventoryType);
+            var inventoryEntity = inventoryType as InventoryType;
+            _ = _context.InventoryTypes.Add(inventoryEntity);
             await _context.SaveChangesAsync();
 
-            return inventoryType;
+            return inventoryEntity;
         }
 
-        public async Task<List<InventoryType>> GetInventoryTypesAsync()
+        public async Task<List<IInventoryType>> GetInventoryTypesAsync()
         {
-            return await _context.InventoryTypes.ToListAsync();
+            return await _context.InventoryTypes.ToListAsync<IInventoryType>();
         }
     }
 }

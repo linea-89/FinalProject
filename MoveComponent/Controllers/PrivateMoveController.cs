@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using FinalProject.MoveComponent.Services.PrivateMove;
-using FinalProject.MoveComponent.Models.Dto;
+using FinalProject.MoveComponent.Dto;
 
 
 
@@ -30,7 +30,7 @@ namespace FinalProject.MoveComponent.Controllers
 
             try
             {
-                var createdPrivateMove = await _privateMoveService.CreatePrivateMoveAsync(privateMoveDto);
+                var createdPrivateMove = await _privateMoveService.CreatePrivateMove(privateMoveDto);
                 return CreatedAtAction(nameof(RegisterPrivateMove), new { id = createdPrivateMove.Id }, createdPrivateMove);
             }
             catch (DbUpdateException ex)
@@ -45,7 +45,7 @@ namespace FinalProject.MoveComponent.Controllers
         {
             try
             {
-                var result = await _privateMoveService.GetPrivateMovesAsync();
+                var result = await _privateMoveService.GetPrivateMoves();
                 return Ok(result);
             }
             catch (Exception ex)
@@ -60,7 +60,7 @@ namespace FinalProject.MoveComponent.Controllers
         {
             try
             {
-                var result = await _privateMoveService.GetPrivateMoveByIdAsync(id);
+                var result = await _privateMoveService.GetPrivateMoveById(id);
 
                 if (result == null)
                 {

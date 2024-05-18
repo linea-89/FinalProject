@@ -1,4 +1,4 @@
-﻿using FinalProject.MoveComponent.Models.Dto;
+﻿using FinalProject.MoveComponent.Dto;
 
 namespace FinalProject.MoveComponent.Services.BusinessMove
 {

@@ -1,8 +1,9 @@
 ﻿using FinalProject.Data;
-using FinalProject.FloorComponent.Models.Domain;
-using FinalProject.Repositories.Interfaces;
-using FinalProject.Shared.Models.Domain;
 using Microsoft.EntityFrameworkCore;
+using FinalProject.Shared.ModelInterfaces;
+using FinalProject.Shared.RepositoryInterfaces;
+using FinalProject.Models.FloorModels;
+
 
 namespace FinalProject.Repositories
 {
@@ -14,31 +15,42 @@ namespace FinalProject.Repositories
             _context = context;
         }
 
-        public async Task<Floor> AddFloorAsync(Floor floor)
+        public async Task<IFloor> AddFloorAsync(IFloor floor)
         {
-            _context.Floors.Add(floor);
+            var floorEntity = floor as Floor;
+            _ = _context.Floors.Add(floorEntity);
             await _context.SaveChangesAsync();
+
+            return floorEntity;
+        }
+
+        public async Task<List<IFloor>> GetFloorsAsync(int moveId)
+        {
+            return await _context.Floors
+                .Where(x => x.MoveId == moveId)
+                .ToListAsync<IFloor>();
+        }
+        public async Task<IFloor> GetFloorByIdAsync(int moveId, int id)
+        {
+            var floor = await _context.Floors
+                .Where(x => x.MoveId == moveId && x.Id == id)
+                .FirstOrDefaultAsync();
 
             return floor;
         }
 
-        public async Task<List<Floor>> GetFloorsAsync()
+        public async Task<IFloorType> CreateFloorTypeAsync(IFloorType floorType)
         {
-            return await _context.Floors.ToListAsync();
-        }
-
-        public async Task<FloorType> CreateFloorTypeAsync(FloorType floorType)
-        {
-            _context.FloorTypes.Add(floorType);
+            var floorTypeEntity = floorType as FloorType;
+            _context.FloorTypes.Add(floorTypeEntity);
             await _context.SaveChangesAsync();
 
-            return floorType;
+            return floorTypeEntity;
         }
 
-        public async Task<List<FloorType>> GetFloorTypesAsync()
+        public async Task<List<IFloorType>> GetFloorTypesAsync()
         {
-            return await _context.FloorTypes.ToListAsync();
+            return await _context.FloorTypes.ToListAsync<IFloorType>();
         }
-
     }
 }

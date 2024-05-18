@@ -1,8 +1,9 @@
-﻿using FinalProject.Data;
-using FinalProject.Repositories.Interfaces;
-using FinalProject.RoomComponent.Models.Domain;
-using FinalProject.Shared.Models.Domain;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using FinalProject.Data;
+using FinalProject.Models.RoomModels;
+using FinalProject.Shared.ModelInterfaces;
+using FinalProject.Shared.RepositoryInterfaces;
+
 
 namespace FinalProject.Repositories
 {
@@ -14,30 +15,44 @@ namespace FinalProject.Repositories
             _context = context;
         }
 
-        public async Task<Room> AddRoomAsync(Room room)
+        public async Task<IRoom> AddRoomAsync(IRoom room)
         {
-            _context.Rooms.Add(room);
+            var roomEntity = room as Room;
+            _ = _context.Rooms.Add(roomEntity);
             await _context.SaveChangesAsync();
+
+            return roomEntity;
+        }
+
+        public async Task<List<IRoom>> GetRoomsAsync(int floorId)
+        {
+            return await _context.Rooms
+                .Where(x => x.FloorId == floorId)
+                .ToListAsync<IRoom>();
+        }
+
+        public async Task<IRoom> GetRoomByIdAsync(int floorId, int id)
+        {
+            var room = await _context.Rooms
+                .Where(x => x.FloorId == floorId && x.Id == id)
+                .FirstOrDefaultAsync();
 
             return room;
         }
 
-        public async Task<List<Room>> GetRoomsAsync()
+        public async Task<IRoomType> CreateRoomTypeAsync(IRoomType roomType)
         {
-            return await _context.Rooms.ToListAsync();
-        }
-
-        public async Task<RoomType> CreateRoomTypeAsync(RoomType roomType)
-        {
-            _context.RoomTypes.Add(roomType);
+            var roomTypeEntity = roomType as RoomType;
+            _context.RoomTypes.Add(roomTypeEntity);
             await _context.SaveChangesAsync();
 
-            return roomType;
+            return roomTypeEntity;
         }
 
-        public async Task<List<RoomType>> GetRoomTypesAsync()
+        public async Task<List<IRoomType>> GetRoomTypesAsync()
         {
-            return await _context.RoomTypes.ToListAsync();
+            return await _context.RoomTypes.ToListAsync<IRoomType>();
         }
+
     }
 }

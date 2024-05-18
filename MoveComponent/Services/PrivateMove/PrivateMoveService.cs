@@ -1,41 +1,37 @@
-﻿using AutoMapper;
-using FinalProject.MoveComponent.Models.Dto;
-using FinalProject.Shared.Models.Domain;
-using FinalProject.Repositories.Interfaces;
+﻿using FinalProject.MoveComponent.Dto;
+using FinalProject.Shared.RepositoryInterfaces;
+using FinalProject.Shared.MapperInterfaces;
 
 namespace FinalProject.MoveComponent.Services.PrivateMove
 {
     public class PrivateMoveService : IPrivateMoveService
     {
-        private readonly IMapper _mapper;
         private readonly IMoveRepository _repository;
+        private readonly IMoveMapper _moveMapper;
 
-        public PrivateMoveService(IMapper mapper, IMoveRepository repository)
+        public PrivateMoveService(IMoveRepository repository, IMoveMapper moveMapper)
         {
-            _mapper = mapper;
             _repository = repository;
+            _moveMapper = moveMapper;
         }
 
-        public async Task<PrivateMoveDto> CreatePrivateMoveAsync(PrivateMoveDto privateMoveDto)
+        public async Task<PrivateMoveDto> CreatePrivateMove(PrivateMoveDto privateMoveDto)
         {
-            var privateMove = _mapper.Map<Move>(privateMoveDto);
+            var privateMove = _moveMapper.MapCreatedPrivateMove(privateMoveDto);
             _ = await _repository.AddAsync(privateMove);
 
-            return _mapper.Map<PrivateMoveDto>(privateMove);
+            return _moveMapper.MapPrivateMoveResponse(privateMove);
         }
 
-        public async Task<List<PrivateMoveDto>> GetPrivateMovesAsync()
+        public async Task<List<PrivateMoveDto>> GetPrivateMoves()
         {
             var privateMoves = await _repository.GetAllPrivateMovesAsync();
+            var mappedMoves = _moveMapper.MapPrivateMovesRespons(privateMoves);
 
-            var privateMoveDtos = privateMoves
-                .Select(privateMove => _mapper.Map<PrivateMoveDto>(privateMove))
-                .ToList();
-
-            return privateMoveDtos;
+            return mappedMoves;
         }
 
-        public async Task<PrivateMoveDto> GetPrivateMoveByIdAsync(int id)
+        public async Task<PrivateMoveDto> GetPrivateMoveById(int id)
         {
             var privateMove = await _repository.GetByIdAsync(id);
 
@@ -44,7 +40,7 @@ namespace FinalProject.MoveComponent.Services.PrivateMove
                 return null;
             }
 
-            return _mapper.Map<PrivateMoveDto>(privateMove);
+            return _moveMapper.MapPrivateMoveResponse(privateMove);
         }
 
     }

@@ -1,4 +1,4 @@
-﻿using FinalProject.InventoryComponent.Models.Dto;
+﻿using FinalProject.InventoryComponent.Dto;
 using FinalProject.InventoryComponent.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -34,7 +34,7 @@ namespace FinalProject.InventoryComponent.Controllers
         {
             try
             {
-                var result = await _inventoryService.GetInventoryItem(roomId);
+                var result = await _inventoryService.GetInventoryItems(roomId);
                 return Ok(result);
             }
             catch (Exception ex)
