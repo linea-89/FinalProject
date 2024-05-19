@@ -14,6 +14,10 @@ namespace FinalProject.MapperComponent
         {
             _mapper = mapper;
         }
+
+
+
+        //Private move mappers
         public Move MapCreatedPrivateMove(PrivateMoveDto privateMoveDto)
         {
             return _mapper.Map<Move>(privateMoveDto);
@@ -31,5 +35,26 @@ namespace FinalProject.MapperComponent
                 .Map<PrivateMoveDto>(move))
                 .ToList();
         }
+
+        //Business move mappers
+        public Move MapCreatedBusinessMove(BusinessMoveDto businessMoveDto)
+        {
+            return _mapper.Map<Move>(businessMoveDto);
+        }
+
+        public BusinessMoveDto MapBusinessMoveResponse(IMove move)
+        {
+            return _mapper.Map<BusinessMoveDto>(move);
+        }
+
+        public List<BusinessMoveDto> MapBusinessMovesRespons(List<IMove> moves)
+        {
+            return moves
+                .Select(move => _mapper
+                .Map<BusinessMoveDto>(move))
+                .ToList();
+        }
+
+
     }
 }

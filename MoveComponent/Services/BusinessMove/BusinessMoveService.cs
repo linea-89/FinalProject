@@ -1,41 +1,39 @@
-﻿using AutoMapper;
-using FinalProject.Models.MoveModels;
-using FinalProject.MoveComponent.Dto;
+﻿using FinalProject.MoveComponent.Dto;
+using FinalProject.Shared.MapperInterfaces;
 using FinalProject.Shared.RepositoryInterfaces;
-using Microsoft.AspNetCore.Mvc;
 
 namespace FinalProject.MoveComponent.Services.BusinessMove
 {
     public class BusinessMoveService : IBusinessMoveService
     {
-        private readonly IMapper _mapper;
         private readonly IMoveRepository _repository;
+        private readonly IMoveMapper _mapper;
 
-        public BusinessMoveService(IMapper mapper, IMoveRepository Repository)
+        public BusinessMoveService(IMoveRepository Repository, IMoveMapper moveMapper)
         {
-            _mapper = mapper;
             _repository = Repository;
+            _mapper = moveMapper;
         }
         public async Task<BusinessMoveDto> CreateBusinessMoveAsync(BusinessMoveDto businessMoveDto)
         {
-            var businessMove = _mapper.Map<Move>(businessMoveDto);
+            var businessMove = _mapper.MapCreatedBusinessMove(businessMoveDto);
             _ = await _repository.AddAsync(businessMove);
 
-            return _mapper.Map<BusinessMoveDto>(businessMove);
+            return _mapper.MapBusinessMoveResponse(businessMove);
         }
 
         public async Task<List<BusinessMoveDto>> GetBusinessMoves()
         {
             var businessMoves = await _repository.GetAllBusinessMovesAsync();
-         
-            var businessMoveDtos = businessMoves
-                .Select(businessMove => _mapper.Map<BusinessMoveDto>(businessMove))
-                .ToList();
+           // var mappedMoves = _moveMapper.MapBusinessMovesRespons(businessMoves);
+            //var businessMoveDtos = businessMoves
+            //    .Select(businessMove => _mapper.Map<BusinessMoveDto>(businessMove))
+            //    .ToList();
 
-            return businessMoveDtos;
+            return _mapper.MapBusinessMovesRespons(businessMoves);
         }
 
-        public async Task<BusinessMoveDto> GetBusinessMoveByIdAsync(int id)
+        public async Task<BusinessMoveDto> GetBusinessMoveById(int id)
         {
             var businessMove = await _repository.GetByIdAsync(id);
 
@@ -44,7 +42,7 @@ namespace FinalProject.MoveComponent.Services.BusinessMove
                 return null;
             }
 
-            return _mapper.Map<BusinessMoveDto>(businessMove);
+            return _mapper.MapBusinessMoveResponse(businessMove);
         }
 
     }

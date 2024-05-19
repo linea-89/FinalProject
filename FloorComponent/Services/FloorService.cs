@@ -7,26 +7,26 @@ namespace FinalProject.FloorComponent.Services
     public class FloorService : IFloorService
     {
         private readonly IFloorRepository _repository;
-        private readonly IFloorMapper _floorMapper;
+        private readonly IFloorMapper _mapper;
 
         public FloorService(IFloorRepository repository, IFloorMapper floorMapper)
         {
             _repository = repository;
-            _floorMapper = floorMapper;
+            _mapper = floorMapper;
         }
 
         public async Task<FloorDto> AddFloor(FloorDto floorDto)
         {
-            var floor = _floorMapper.MapAddedFloor(floorDto);
+            var floor = _mapper.MapAddedFloor(floorDto);
             _ = await _repository.AddFloorAsync(floor);
 
-            return _floorMapper.MapFloorResponse(floor);
+            return _mapper.MapFloorResponse(floor);
         }
 
         public async Task<List<FloorDto>> GetFloors(int moveId)
         {
             var floors = await _repository.GetFloorsAsync(moveId);
-            var mappedResult = _floorMapper.MapFloorsResponse(floors);
+            var mappedResult = _mapper.MapFloorsResponse(floors);
 
             return mappedResult;
         }
@@ -40,23 +40,23 @@ namespace FinalProject.FloorComponent.Services
                 return null;
             }
 
-            var mappedResult = _floorMapper.MapFloorResponse(floor);
+            var mappedResult = _mapper.MapFloorResponse(floor);
 
             return mappedResult;
         }
 
         public async Task<FloorTypeDto> CreateFloorType(FloorTypeDto floorTypeDto)
         {
-            var floorType = _floorMapper.MapCreatedFloorType(floorTypeDto);
+            var floorType = _mapper.MapCreatedFloorType(floorTypeDto);
             _ = await _repository.CreateFloorTypeAsync(floorType);
 
-            return _floorMapper.MapFloorTypeResponse(floorType);
+            return _mapper.MapFloorTypeResponse(floorType);
         }
 
         public async Task<List<FloorTypeDto>> GetFloorTypes()
         {
             var floorTypes = await _repository.GetFloorTypesAsync();
-            var mappedResult = _floorMapper.MapFloorTypeRespons(floorTypes);
+            var mappedResult = _mapper.MapFloorTypeRespons(floorTypes);
 
             return mappedResult;
         }

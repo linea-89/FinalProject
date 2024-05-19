@@ -6,6 +6,6 @@ namespace FinalProject.MoveComponent.Services.BusinessMove
     {
         public Task<BusinessMoveDto> CreateBusinessMoveAsync(BusinessMoveDto businessMoveDto);
         public Task<List<BusinessMoveDto>> GetBusinessMoves();
-        public Task<BusinessMoveDto> GetBusinessMoveByIdAsync(int id);
+        public Task<BusinessMoveDto> GetBusinessMoveById(int id);
     }
 }

@@ -9,20 +9,20 @@ namespace FinalProject.InventoryComponent.Services
     public class InventoryService : IInventoryService
     {
         private readonly IInventoryRepository _repository;
-        private readonly IInventoryMapper _inventoryMapper;
+        private readonly IInventoryMapper _mapper;
 
         public InventoryService(IInventoryRepository repository, IInventoryMapper inventoryMapper)
         {
             _repository = repository;
-            _inventoryMapper = inventoryMapper;
+            _mapper = inventoryMapper;
         }
 
         public async Task<InventoryDto> AddInventoryItem(InventoryDto inventoryDto)
         {
-            var item = _inventoryMapper.MapAddedInventory(inventoryDto);
+            var item = _mapper.MapAddedInventory(inventoryDto);
             _ = await _repository.AddInventoryItemAsync(item);
 
-            return _inventoryMapper.MapInventoryResponse(item);
+            return _mapper.MapInventoryResponse(item);
         }
 
         public async Task<List<InventoryDto>> GetInventoryItems(int roomId)
@@ -34,24 +34,24 @@ namespace FinalProject.InventoryComponent.Services
                 return null;
             }
             
-            var result = _inventoryMapper.MapInventoryItemsResponse(items);
+            var result = _mapper.MapInventoryItemsResponse(items);
 
             return result;
         }
 
         public async Task<InventoryTypeDto> CreateInventoryType(InventoryTypeDto inventoryTypeDto)
         {
-            var inventoryType = _inventoryMapper.MapCreatedInventoryType(inventoryTypeDto);
+            var inventoryType = _mapper.MapCreatedInventoryType(inventoryTypeDto);
 
             _ = await _repository.CreateInventoryTypeAsync(inventoryType);
 
-            return _inventoryMapper.MapInventoryTypeResponse(inventoryType);
+            return _mapper.MapInventoryTypeResponse(inventoryType);
         }
 
         public async Task<List<InventoryTypeDto>> GetInventoryTypes()
         {
             var inventoryTypes = await _repository.GetInventoryTypesAsync();
-            var mappedResult = _inventoryMapper.MapInventoryTypeRespons(inventoryTypes);
+            var mappedResult = _mapper.MapInventoryTypeRespons(inventoryTypes);
 
             return mappedResult;
         }

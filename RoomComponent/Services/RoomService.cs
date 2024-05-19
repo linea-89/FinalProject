@@ -7,26 +7,26 @@ namespace FinalProject.RoomComponent.Services
     public class RoomService : IRoomService
     {
         private readonly IRoomRepository _repository;
-        private readonly IRoomMapper _roomMapper;
+        private readonly IRoomMapper _mapper;
 
         public RoomService(IRoomRepository repository, IRoomMapper roomMapper)
         {
             _repository = repository;
-            _roomMapper = roomMapper;
+            _mapper = roomMapper;
         }
 
         public async Task<RoomDto> AddRoom(RoomDto roomDto)
         {
-            var room = _roomMapper.MapAddedRoom(roomDto);
+            var room = _mapper.MapAddedRoom(roomDto);
             _ = await _repository.AddRoomAsync(room);
 
-            return _roomMapper.MapRoomResponse(room);
+            return _mapper.MapRoomResponse(room);
         }
 
         public async Task<List<RoomDto>> GetRooms(int floorId)
         {
             var rooms = await _repository.GetRoomsAsync(floorId);
-            var mappedResult = _roomMapper.MapRoomsRespons(rooms);
+            var mappedResult = _mapper.MapRoomsRespons(rooms);
 
             return mappedResult;
         }
@@ -40,23 +40,23 @@ namespace FinalProject.RoomComponent.Services
                 return null;
             }
 
-            var mappedResult = _roomMapper.MapRoomResponse(room);
+            var mappedResult = _mapper.MapRoomResponse(room);
 
             return mappedResult;
         }
 
         public async Task<RoomTypeDto> CreateRoomType(RoomTypeDto roomTypeDto)
         {
-            var roomType = _roomMapper.MapCreatedRoomType(roomTypeDto);
+            var roomType = _mapper.MapCreatedRoomType(roomTypeDto);
             _ = await _repository.CreateRoomTypeAsync(roomType);
 
-            return _roomMapper.MapRoomTypeResponse(roomType);
+            return _mapper.MapRoomTypeResponse(roomType);
         }
 
         public async Task<List<RoomTypeDto>> GetRoomTypes()
         {
             var roomTypes = await _repository.GetRoomTypesAsync();
-            var mappedResult = _roomMapper.MapRoomTypeRespons(roomTypes);
+            var mappedResult = _mapper.MapRoomTypeRespons(roomTypes);
 
             return mappedResult;
         }

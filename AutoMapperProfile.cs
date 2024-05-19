@@ -1,13 +1,12 @@
 using AutoMapper;
-using FinalProject.FloorComponent.Dto;
-using FinalProject.InventoryComponent.Dto;
 using FinalProject.Models.FloorModels;
 using FinalProject.Models.InventoryModels;
 using FinalProject.Models.MoveModels;
 using FinalProject.Models.RoomModels;
 using FinalProject.MoveComponent.Dto;
 using FinalProject.RoomComponent.Dto;
-using FinalProject.Shared.ModelInterfaces;
+using FinalProject.FloorComponent.Dto;
+using FinalProject.InventoryComponent.Dto;
 
 namespace FinalProject
 {
@@ -15,7 +14,7 @@ namespace FinalProject
     {
         public AutoMapperProfile()
         {
-            /*----------Private Moves mappings--------------*/
+            //_______________Move mappings_______________
             CreateMap<Move, PrivateMoveDto>()
                 .ForMember(dest => dest.MoveFromAddress, opt => opt.MapFrom(src => src.Addresses.FirstOrDefault(a => a.Type == "MoveFrom")))
                 .ForMember(dest => dest.MoveToAddress, opt => opt.MapFrom(src => src.Addresses.FirstOrDefault(a => a.Type == "MoveTo")));
@@ -41,10 +40,7 @@ namespace FinalProject
                 }
              }));
 
-
-
-
-            /*_______________Business Moves mapping -----------------*/
+            //_______________Business Moves mapping___________
             CreateMap<Move, BusinessMoveDto>()
                     .ForMember(dest => dest.MoveFromAddress, opt => opt.MapFrom(src => src.Addresses.FirstOrDefault(a => a.Type == "MoveFrom")))
                     .ForMember(dest => dest.MoveToAddress, opt => opt.MapFrom(src => src.Addresses.FirstOrDefault(a => a.Type == "MoveTo")));
@@ -66,110 +62,28 @@ namespace FinalProject
 
             //_______________Address mapping______________
 
-            CreateMap<AddressDto, Address>();
-            CreateMap<Address, AddressDto>();
+            CreateMap<Address, AddressDto>().ReverseMap();
 
             //____________________Amenities mapping__________________
 
-            CreateMap<AmenitiesDto, Amenities>();
-            //.ForMember(dest => dest.ElevatorFromAddress, opt => opt.MapFrom(src => src.ElevatorFromAddress))
-            //.ForMember(dest => dest.ElevatorToAddress, opt => opt.MapFrom(src => src.ElevatorToAddress))
-            //.ForMember(dest => dest.FurnitureLiftFromAddress, opt => opt.MapFrom(src => src.FurnitureLiftFromAddress))
-            //.ForMember(dest => dest.FurnitureLiftToAddress, opt => opt.MapFrom(src => src.FurnitureLiftToAddress));
-
-            CreateMap<Amenities, AmenitiesDto>();
-            //.ForMember(dest => dest.ElevatorFromAddress, opt => opt.MapFrom(src => src.ElevatorFromAddress))
-            //.ForMember(dest => dest.ElevatorToAddress, opt => opt.MapFrom(src => src.ElevatorToAddress))
-            //.ForMember(dest => dest.FurnitureLiftFromAddress, opt => opt.MapFrom(src => src.FurnitureLiftFromAddress))
-            //.ForMember(dest => dest.FurnitureLiftToAddress, opt => opt.MapFrom(src => src.FurnitureLiftToAddress));
+            CreateMap<AmenitiesDto, Amenities>().ReverseMap();
 
             //____________________Floor mapping__________________
 
-            CreateMap<Floor, FloorDto>()
-                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name))
-                .ForMember(dest => dest.SortOrder, opt => opt.MapFrom(src => src.SortOrder))
-                .ForMember(dest => dest.MoveId, opt => opt.MapFrom(src => src.MoveId));
-
-            CreateMap<FloorDto, Floor>()
-                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name))
-                .ForMember(dest => dest.SortOrder, opt => opt.MapFrom(src => src.SortOrder))
-                .ForMember(dest => dest.MoveId, opt => opt.MapFrom(src => src.MoveId));
-
-            CreateMap<FloorType, FloorTypeDto>()
-                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name));
-
-            CreateMap<FloorTypeDto, FloorType>()
-                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name));
+            CreateMap<Floor, FloorDto>().ReverseMap();
+            CreateMap<FloorType, FloorTypeDto>().ReverseMap();
 
             //____________________Room mapping__________________
 
-            CreateMap<Room, RoomDto>()
-                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name))
-                .ForMember(dest => dest.FloorId, opt => opt.MapFrom(src => src.FloorId));
-
-            CreateMap<RoomDto, Room>()
-                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name))
-                .ForMember(dest => dest.FloorId, opt => opt.MapFrom(src => src.FloorId));
-
-            CreateMap<IRoom, RoomDto>()
-               .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name))
-               .ForMember(dest => dest.FloorId, opt => opt.MapFrom(src => src.FloorId));
-
-            CreateMap<RoomDto, IRoom>()
-                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name))
-                .ForMember(dest => dest.FloorId, opt => opt.MapFrom(src => src.FloorId));
-
-            CreateMap<RoomType, RoomTypeDto>()
-                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name));
-
-            CreateMap<RoomTypeDto, RoomType>()
-                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name));
-
-            CreateMap<IRoomType, RoomTypeDto>()
-                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name));
-
-            CreateMap<RoomTypeDto, IRoomType>()
-                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name));
+            CreateMap<Room, RoomDto>().ReverseMap();
+            CreateMap<RoomType, RoomTypeDto>().ReverseMap();
 
             //____________________Inventory mapping__________________
 
-            CreateMap<InventoryType, InventoryTypeDto>();
-            CreateMap<InventoryTypeDto, InventoryType>();
-
-            CreateMap<Inventory, InventoryDto>()
-                .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))
-                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name))
-                .ForMember(dest => dest.RoomId, opt => opt.MapFrom(src => src.RoomId))
-                .ForMember(dest => dest.Volume, opt => opt.MapFrom(src => src.Volume))
-                .ForMember(dest => dest.Special, opt => opt.MapFrom(src => src.Special))
-                .ForMember(dest => dest.Disassemble, opt => opt.MapFrom(src => src.Disassemble))
-                .ForMember(dest => dest.Assemble, opt => opt.MapFrom(src => src.Assemble))
-                .ForMember(dest => dest.NotIncluded, opt => opt.MapFrom(src => src.NotIncluded))
-                // Explicitly ignore navigation properties to prevent them from being mapped
-                .ForMember(dest => dest.toBeWrapped, opt => opt.MapFrom(src => src.toBeWrapped));
-
-            CreateMap<InventoryDto, Inventory>()
-                .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))
-                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name))
-                .ForMember(dest => dest.RoomId, opt => opt.MapFrom(src => src.RoomId))
-                .ForMember(dest => dest.Volume, opt => opt.MapFrom(src => src.Volume))
-                .ForMember(dest => dest.Special, opt => opt.MapFrom(src => src.Special))
-                .ForMember(dest => dest.Disassemble, opt => opt.MapFrom(src => src.Disassemble))
-                .ForMember(dest => dest.Assemble, opt => opt.MapFrom(src => src.Assemble))
-                .ForMember(dest => dest.NotIncluded, opt => opt.MapFrom(src => src.NotIncluded))
-                .ForMember(dest => dest.toBeWrapped, opt => opt.MapFrom(src => src.toBeWrapped));
-            // Explicitly ignore navigation properties to prevent them from being mapped
-            // .ForMember(dest => dest.toBeWrapped, opt => opt.Ignore());
-
-            CreateMap<Wrapping, WrappingDto>()
-                .ForMember(dest => dest.ShouldBeWrapped, opt => opt.MapFrom(src => src.ShouldBeWrapped))
-                .ForMember(dest => dest.Note, opt => opt.MapFrom(src => src.Note));
-            CreateMap<WrappingDto, Wrapping>()
-                .ForMember(dest => dest.ShouldBeWrapped, opt => opt.MapFrom(src => src.ShouldBeWrapped))
-                .ForMember(dest => dest.Note, opt => opt.MapFrom(src => src.Note));
-
+            CreateMap<Inventory, InventoryDto>().ReverseMap();
+            CreateMap<InventoryType, InventoryTypeDto>().ReverseMap();
+            CreateMap<Wrapping, WrappingDto>().ReverseMap();
 
         }
-
     }
 }

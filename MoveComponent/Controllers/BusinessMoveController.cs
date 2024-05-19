@@ -60,7 +60,7 @@ namespace FinalProject.MoveComponent.Controllers
         {
             try
             {
-                var result = await _businessMoveService.GetBusinessMoveByIdAsync(id);
+                var result = await _businessMoveService.GetBusinessMoveById(id);
 
                 if (result == null)
                 {
